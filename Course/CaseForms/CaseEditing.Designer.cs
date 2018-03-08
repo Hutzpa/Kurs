@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CaseEditing));
             this.label7 = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -132,11 +133,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 345);
+            this.button1.Location = new System.Drawing.Point(12, 333);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(221, 112);
+            this.button1.Size = new System.Drawing.Size(174, 105);
             this.button1.TabIndex = 27;
-            this.button1.Text = "button1";
+            this.button1.Text = "Done";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -144,56 +145,56 @@
             // 
             this.textBox9.Location = new System.Drawing.Point(12, 307);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 20);
+            this.textBox9.Size = new System.Drawing.Size(174, 20);
             this.textBox9.TabIndex = 26;
             // 
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(12, 222);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
+            this.textBox6.Size = new System.Drawing.Size(174, 20);
             this.textBox6.TabIndex = 25;
             // 
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(12, 183);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.Size = new System.Drawing.Size(174, 20);
             this.textBox5.TabIndex = 24;
             // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(12, 144);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.Size = new System.Drawing.Size(174, 20);
             this.textBox4.TabIndex = 23;
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(12, 105);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.Size = new System.Drawing.Size(174, 20);
             this.textBox3.TabIndex = 22;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(12, 66);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.Size = new System.Drawing.Size(174, 20);
             this.textBox2.TabIndex = 21;
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(12, 23);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(174, 20);
             this.textBox1.TabIndex = 20;
             // 
             // CaseEditing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(541, 479);
+            this.ClientSize = new System.Drawing.Size(198, 443);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
@@ -211,6 +212,7 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CaseEditing";
             this.Text = "CaseEditing";
             this.ResumeLayout(false);

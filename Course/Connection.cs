@@ -9,13 +9,16 @@ using System.Windows.Forms;
 
 namespace Course
 {
-    class Connection
+    public static class Connection
     {
-        private void Shit()
+        public static string connStr = "datasource=localhost;port=3306;username=root;password=";
+
+        /// <summary>
+        /// Метод подключения с выводом в DGV
+        /// </summary>
+        public static void Connector(DataGridView dataGridView1, string query)
         {
-            string connStr = "datasource=localhost;port=3306;username=root;password=";
-            string query = " ";
-            using (var conn = new MySqlConnection(connStr))
+            using (var conn = new MySqlConnection(Connection.connStr))
             {
                 MySqlCommand com = new MySqlCommand(query, conn);
                 try
@@ -25,7 +28,31 @@ namespace Course
                     DataTable dataTable = new DataTable();
                     MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(com);
                     mySqlDataAdapter.Fill(dataTable);
-                    // dataGridView1.DataSource = dataTable;
+                    dataGridView1.DataSource = dataTable;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Метод для изменения данных в таблицах без вывода
+        /// </summary>
+        public static void Connector(string query)
+        {
+            using (var conn = new MySqlConnection(Connection.connStr))
+            {
+                MySqlCommand com = new MySqlCommand(query, conn);
+                try
+                {
+                    conn.Open();
+                    //заполнение через источник данных
+                    DataTable dataTable = new DataTable();
+                    MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(com);
+                    mySqlDataAdapter.Fill(dataTable);
                 }
                 catch (Exception ex)
                 {

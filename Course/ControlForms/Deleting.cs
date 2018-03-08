@@ -26,8 +26,6 @@ namespace Course
         Plaintiff plaintiff;
         Case @case;
 
-        private string connStr = "datasource=localhost;port=3306;username=root;password=";
-
         private void Design()
         {
             switch (whichForm)
@@ -65,50 +63,28 @@ namespace Course
             }
         }
 
-        private void Moution(string query)
-        {
-            using (var conn = new MySqlConnection(connStr))
-            {
-                MySqlCommand com = new MySqlCommand(query, conn);
-                try
-                {
-                    conn.Open();
-                    //заполнение через источник данных
-                    DataTable dataTable = new DataTable();
-                    MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(com);
-                    mySqlDataAdapter.Fill(dataTable);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-                conn.Close();
-            }
-            MessageBox.Show("DELETING SUCCESSFUL");
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             switch (whichForm)
             {
                 case WhichForm.Defendant:
                     {
-                        Moution(defendant.Delete(textBox1.Text));
+                        Connection.Connector(defendant.Delete(textBox1.Text));
                         break;
                     }
                 case WhichForm.Judge:
                     {
-                        Moution(judge.Delete(textBox1.Text));
+                        Connection.Connector(judge.Delete(textBox1.Text));
                         break;
                     }
                 case WhichForm.Plaintiff:
                     {
-                        Moution(plaintiff.Delete(textBox1.Text));
+                        Connection.Connector(plaintiff.Delete(textBox1.Text));
                         break;
                     }
                 case WhichForm.Case:
                     {
-                        Moution(@case.Delete(textBox1.Text));
+                        Connection.Connector(@case.Delete(textBox1.Text));
                         break;
                     }
                 default:
@@ -118,6 +94,8 @@ namespace Course
                         break;
                     }
             }
+
+            textBox1.Text = null;
         }
     }
 }

@@ -107,13 +107,13 @@ namespace Course
 
         private void addNewCaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            caseAddition = new CaseAddition();
+            caseAddition = CaseAddition.GetCaseAddition();
             caseAddition.Show();
         }
 
         private void editCaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            caseEditing = new CaseEditing();
+            caseEditing = CaseEditing.GetCaseEditing();
             caseEditing.Show();
         }
 
@@ -125,43 +125,43 @@ namespace Course
         #region Case inquire
         private void listOfLegalCasesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            caseSearch = new CaseSearch(WhichInquiry.First);
+            caseSearch = CaseSearch.GetCaseSearch(WhichInquiry.First);
             caseSearch.Show();
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            caseSearch = new CaseSearch(WhichInquiry.Second);
+            caseSearch = CaseSearch.GetCaseSearch(WhichInquiry.Second);
             caseSearch.Show();
         }
 
         private void caseInArticleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            caseSearch = new CaseSearch(WhichInquiry.Third);
+            caseSearch = CaseSearch.GetCaseSearch(WhichInquiry.Third);
             caseSearch.Show();
         }
 
         private void activeCaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            caseSearch = new CaseSearch(WhichInquiry.Fourth);
+            caseSearch = CaseSearch.GetCaseSearch(WhichInquiry.Fourth);
             caseSearch.Show();
         }
 
         private void judgeCaseListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            caseSearch = new CaseSearch(WhichInquiry.Fifth);
+            caseSearch = CaseSearch.GetCaseSearch(WhichInquiry.Fifth);
             caseSearch.Show();
         }
 
         private void plaintiffCaseListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            caseSearch = new CaseSearch(WhichInquiry.Sixth);
+            caseSearch = CaseSearch.GetCaseSearch(WhichInquiry.Sixth);
             caseSearch.Show();
         }
 
         private void defendantCaseListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            caseSearch = new CaseSearch(WhichInquiry.Seventh);
+            caseSearch = CaseSearch.GetCaseSearch(WhichInquiry.Seventh);
             caseSearch.Show();
         }
         #endregion

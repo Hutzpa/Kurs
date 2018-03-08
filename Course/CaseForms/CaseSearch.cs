@@ -13,38 +13,25 @@ namespace Course
 {
     public partial class CaseSearch : Form
     {
-        public CaseSearch(WhichInquiry whichInquiry)
+        private CaseSearch()
         {
             InitializeComponent();
-            this.whichInquiry = whichInquiry;
         }
 
+        private static CaseSearch caseSearch;
 
-        private string connStr = "datasource=localhost;port=3306;username=root;password=";
-        WhichInquiry whichInquiry;
-        Case @case = new Case();
-
-        private void Searcher(string query)
+        public static CaseSearch GetCaseSearch(WhichInquiry whichInquiry)
         {
-            using (var conn = new MySqlConnection(connStr))
+            if (caseSearch == null)
             {
-                MySqlCommand com = new MySqlCommand(query, conn);
-                try
-                {
-                    conn.Open();
-                    //заполнение через источник данных
-                    DataTable dataTable = new DataTable();
-                    MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(com);
-                    mySqlDataAdapter.Fill(dataTable);
-                    // dataGridView1.DataSource = dataTable;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-                conn.Close();
+                CaseSearch.whichInquiry = whichInquiry;
+                caseSearch = new CaseSearch();
             }
+            return caseSearch;
         }
+
+        public static WhichInquiry whichInquiry;
+        private Case @case = new Case();
 
         private void Action()
         {
@@ -52,37 +39,37 @@ namespace Course
             {
                 case WhichInquiry.First:
                     {
-                        @case.First(textBox1.Text);
+                        Connection.Connector(@case.First(textBox1.Text));
                         break;
                     }
                 case WhichInquiry.Second:
                     {
-                        @case.Second(textBox1.Text);
+                        Connection.Connector(@case.Second(textBox1.Text));
                         break;
                     }
                 case WhichInquiry.Third:
                     {
-                        @case.Third(textBox1.Text);
+                        Connection.Connector(@case.Third(textBox1.Text));
                         break;
                     }
                 case WhichInquiry.Fourth:
                     {
-                        @case.Fourth(textBox1.Text);
+                        Connection.Connector(@case.Fourth(textBox1.Text));
                         break;
                     }
                 case WhichInquiry.Fifth:
                     {
-                        @case.Fifth(textBox1.Text);
+                        Connection.Connector(@case.Fifth(textBox1.Text));
                         break;
                     }
                 case WhichInquiry.Sixth:
                     {
-                        @case.Sixth(textBox1.Text);
+                        Connection.Connector(@case.Sixth(textBox1.Text));
                         break;
                     }
                 case WhichInquiry.Seventh:
                     {
-                        @case.Seventh(textBox1.Text);
+                        Connection.Connector(@case.Seventh(textBox1.Text));
                         break;
                     }
             }
@@ -91,6 +78,15 @@ namespace Course
         private void button1_Click(object sender, EventArgs e)
         {
             Action();
+        }
+
+        private void CaseSearch_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                this.Visible = false;
+            }
         }
     }
 }

@@ -13,38 +13,25 @@ namespace Course
 {
     public partial class CaseAddition : Form
     {
-        public CaseAddition()
+        private CaseAddition()
         {
             InitializeComponent();
         }
 
-        public string connStr = "datasource=localhost;port=3306;username=root;password=";
+        private Case @case = new Case();
 
-        Case @case = new Case();
+        public static CaseAddition caseAddition;
 
-        private void Action(string query)
+        public static CaseAddition GetCaseAddition()
         {
-            using (var conn = new MySqlConnection(connStr))
-            {
-                MySqlCommand com = new MySqlCommand(query, conn);
-                try
-                {
-                    conn.Open();
-                    //заполнение через источник данных
-                    DataTable dataTable = new DataTable();
-                    MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(com);
-                    mySqlDataAdapter.Fill(dataTable);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-                conn.Close();
-            }
+            if (caseAddition == null)
+                caseAddition = new CaseAddition();
+            return caseAddition;
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            Action(@case.Insert(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, checkBox1.Checked.ToString(), checkBox2.Checked.ToString(), textBox9.Text));
+            Connection.Connector(@case.Insert(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, checkBox1.Checked.ToString(), checkBox2.Checked.ToString(), textBox9.Text));
         }
     }
 }

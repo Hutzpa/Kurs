@@ -25,8 +25,6 @@ namespace Course
         Judge judge;
         Plaintiff plaintiff;
 
-        private string connStr = "datasource=localhost;port=3306;username=root;password=";
-
         private void Design()
         {
             switch (whichForm)
@@ -58,44 +56,23 @@ namespace Course
             }
         }
 
-        private void Moution(string query)
-        {
-            using (var conn = new MySqlConnection(connStr))
-            {
-                MySqlCommand com = new MySqlCommand(query, conn);
-                try
-                {
-                    conn.Open();
-                    //заполнение через источник данных
-                    DataTable dataTable = new DataTable();
-                    MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(com);
-                    mySqlDataAdapter.Fill(dataTable);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.ToString());
-                }
-                conn.Close();
-            }
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             switch (whichForm)
             {
                 case WhichForm.Defendant:
                     {
-                        Moution(defendant.Insert(textBox1.Text, textBox2.Text, textBox3.Text));
+                        Connection.Connector(defendant.Insert(textBox1.Text, textBox2.Text, textBox3.Text));
                         break;
                     }
                 case WhichForm.Judge:
                     {
-                        Moution(judge.Insert(textBox1.Text, textBox2.Text, textBox3.Text));
+                        Connection.Connector(judge.Insert(textBox1.Text, textBox2.Text, textBox3.Text));
                         break;
                     }
                 case WhichForm.Plaintiff:
                     {
-                        Moution(plaintiff.Insert(textBox1.Text, textBox2.Text, textBox3.Text));
+                        Connection.Connector(plaintiff.Insert(textBox1.Text, textBox2.Text, textBox3.Text));
                         break;
                     }
                 default:
@@ -105,6 +82,10 @@ namespace Course
                         break;
                     }
             }
+
+            textBox1.Text = null;
+            textBox2.Text = null;
+            textBox3.Text = null;
         }
     }
 }
