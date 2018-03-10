@@ -20,6 +20,7 @@ namespace Course
         private Deleting deleting;
         private Editing editing;
         private Search search;
+        private Displayer displayer;
 
         #region Judge
         private void addNewJudgeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -45,6 +46,13 @@ namespace Course
             editing = new Editing(WhichForm.Judge);
             editing.Show();
         }
+
+        private void displayJudgesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            displayer = new Displayer(WhichForm.Judge);
+            displayer.Show();
+        }
+
         #endregion
 
         #region Plaintiff
@@ -71,6 +79,13 @@ namespace Course
             deleting = new Deleting(WhichForm.Plaintiff);
             deleting.Show();
         }
+
+        private void displayPlaintiffsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            displayer = new Displayer(WhichForm.Plaintiff);
+            displayer.Show();
+        }
+
         #endregion
 
         #region Defendant
@@ -98,6 +113,12 @@ namespace Course
             deleting.Show();
         }
 
+        private void displayDefendantToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            displayer = new Displayer(WhichForm.Defendant);
+            displayer.Show();
+        }
+
         #endregion
 
         #region Case 
@@ -122,6 +143,13 @@ namespace Course
             deleting = new Deleting(WhichForm.Case);
             deleting.Show();
         }
+
+        private void displayCasesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            displayer = new Displayer(WhichForm.Case);
+            displayer.Show();
+        }
+
         #region Case inquire
         private void listOfLegalCasesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -167,5 +195,6 @@ namespace Course
         #endregion
 
         #endregion
+
     }
 }

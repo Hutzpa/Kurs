@@ -92,6 +92,12 @@
     <Compile Include="ControlForms\Search.Designer.cs">
       <DependentUpon>Search.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlForms\Displayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControlForms\Displayer.Designer.cs">
+      <DependentUpon>Displayer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tables\Case.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="Tables\Defendant.cs" />
@@ -127,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ControlForms\Search.resx">
       <DependentUpon>Search.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlForms\Displayer.resx">
+      <DependentUpon>Displayer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
