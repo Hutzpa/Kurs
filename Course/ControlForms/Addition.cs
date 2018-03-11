@@ -1,13 +1,6 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Course
 {
@@ -20,10 +13,11 @@ namespace Course
             Design();
         }
 
-        WhichForm whichForm;
-        Defendant defendant;
-        Judge judge;
-        Plaintiff plaintiff;
+        private WhichForm whichForm;
+        private Defendant defendant;
+        private Judge judge;
+        private Plaintiff plaintiff;
+        private Regex idValidation = new Regex(@"\D");
 
         private void Design()
         {
@@ -62,17 +56,38 @@ namespace Course
             {
                 case WhichForm.Defendant:
                     {
-                        Connection.Connector(defendant.Insert(textBox1.Text, textBox2.Text, textBox3.Text));
+                        if(idValidation.IsMatch(textBox1.Text))
+                        {
+                            MessageBox.Show("Id writed incorrect. Only numbers.");
+                        }
+                        else
+                        {
+                            Connection.Connector(defendant.Insert(textBox1.Text, textBox2.Text, textBox3.Text));
+                        }
                         break;
                     }
                 case WhichForm.Judge:
                     {
-                        Connection.Connector(judge.Insert(textBox1.Text, textBox2.Text, textBox3.Text));
+                        if (idValidation.IsMatch(textBox1.Text))
+                        {
+                            MessageBox.Show("Id writed incorrect. Only numbers.");
+                        }
+                        else
+                        {
+                            Connection.Connector(judge.Insert(textBox1.Text, textBox2.Text, textBox3.Text));
+                        }
                         break;
                     }
                 case WhichForm.Plaintiff:
                     {
-                        Connection.Connector(plaintiff.Insert(textBox1.Text, textBox2.Text, textBox3.Text));
+                        if (idValidation.IsMatch(textBox1.Text))
+                        {
+                            MessageBox.Show("Id writed incorrect. Only numbers.");
+                        }
+                        else
+                        {
+                            Connection.Connector(plaintiff.Insert(textBox1.Text, textBox2.Text, textBox3.Text));
+                        }
                         break;
                     }
                 default:

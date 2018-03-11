@@ -215,6 +215,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CaseEditing";
             this.Text = "CaseEditing";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CaseEditing_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Course
@@ -12,10 +13,11 @@ namespace Course
             Design();
         }
 
-        WhichForm whichForm;
-        Defendant defendant;
-        Judge judge;
-        Plaintiff plaintiff;
+        private WhichForm whichForm;
+        private Defendant defendant;
+        private Plaintiff plaintiff;
+        private Judge judge;
+        private Regex idValidation = new Regex(@"\D");
 
         private void Design()
         {
@@ -54,23 +56,44 @@ namespace Course
             {
                 case WhichForm.Defendant:
                     {
-                        Connection.Connector(dataGridView1,defendant.Search(textBox1.Text));
+                        if (idValidation.IsMatch(textBox1.Text))
+                        {
+                            MessageBox.Show("Id writed incorrect. Only numbers.");
+                        }
+                        else
+                        {
+                            Connection.Connector(dataGridView1, defendant.Search(textBox1.Text));
+                        }
                         break;
                     }
                 case WhichForm.Judge:
                     {
-                        Connection.Connector(dataGridView1,judge.Search(textBox1.Text));
+                        if (idValidation.IsMatch(textBox1.Text))
+                        {
+                            MessageBox.Show("Id writed incorrect. Only numbers.");
+                        }
+                        else
+                        {
+                            Connection.Connector(dataGridView1, judge.Search(textBox1.Text));
+                        }
                         break;
                     }
                 case WhichForm.Plaintiff:
                     {
-                        Connection.Connector(dataGridView1,plaintiff.Search(textBox1.Text));
+                        if (idValidation.IsMatch(textBox1.Text))
+                        {
+                            MessageBox.Show("Id writed incorrect. Only numbers.");
+                        }
+                        else
+                        {
+                            Connection.Connector(dataGridView1, plaintiff.Search(textBox1.Text));
+                        }
                         break;
                     }
                 default:
                     {
                         MessageBox.Show("NO FORM SELECTED");
-                        this.Close();
+                        Close();
                         break;
                     }
             }

@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,11 +21,11 @@ namespace Course
             Design();
         }
 
-        WhichForm whichForm;
-        Defendant defendant;
-        Judge judge;
-        Plaintiff plaintiff;
-
+        private WhichForm whichForm;
+        private Defendant defendant;
+        private Judge judge;
+        private Plaintiff plaintiff;
+        private Regex idValidation = new Regex(@"\D");
 
         private void Design()
         {
@@ -64,23 +65,44 @@ namespace Course
             {
                 case WhichForm.Defendant:
                     {
-                        Connection.Connector(defendant.Update(textBox1.Text, textBox2.Text, textBox3.Text));
+                        if (idValidation.IsMatch(textBox1.Text))
+                        {
+                            MessageBox.Show("Id writed incorrect. Only numbers.");
+                        }
+                        else
+                        {
+                            Connection.Connector(defendant.Update(textBox1.Text, textBox2.Text, textBox3.Text));
+                        }
                         break;
                     }
                 case WhichForm.Judge:
                     {
-                        Connection.Connector(judge.Update(textBox1.Text, textBox2.Text, textBox3.Text));
+                        if (idValidation.IsMatch(textBox1.Text))
+                        {
+                            MessageBox.Show("Id writed incorrect. Only numbers.");
+                        }
+                        else
+                        {
+                            Connection.Connector(judge.Update(textBox1.Text, textBox2.Text, textBox3.Text));
+                        }
                         break;
                     }
                 case WhichForm.Plaintiff:
                     {
-                        Connection.Connector(plaintiff.Update(textBox1.Text, textBox2.Text, textBox3.Text));
+                        if (idValidation.IsMatch(textBox1.Text))
+                        {
+                            MessageBox.Show("Id writed incorrect. Only numbers.");
+                        }
+                        else
+                        {
+                            Connection.Connector(plaintiff.Update(textBox1.Text, textBox2.Text, textBox3.Text));
+                        }
                         break;
                     }
                 default:
                     {
                         MessageBox.Show("NO FORM SELECTED");
-                        this.Close();
+                        Close();
                         break;
                     }
             }

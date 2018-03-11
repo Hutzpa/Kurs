@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -32,6 +33,7 @@ namespace Course
 
         public static WhichInquiry whichInquiry;
         private Case @case = new Case();
+        private Regex idValidation = new Regex(@"\D");
 
         private void Action()
         {
@@ -39,37 +41,86 @@ namespace Course
             {
                 case WhichInquiry.First:
                     {
-                        Connection.Connector(@case.First(textBox1.Text));
+                        if(idValidation.IsMatch(textBox1.Text))
+                        {
+                            MessageBox.Show("Incorrect id format");
+                        }
+                        else
+                        {
+                            Connection.Connector(@case.First(textBox1.Text));
+                        }
                         break;
                     }
                 case WhichInquiry.Second:
                     {
-                        Connection.Connector(@case.Second(textBox1.Text));
+                        if (idValidation.IsMatch(textBox1.Text))
+                        {
+                            MessageBox.Show("Incorrect id format");
+                        }
+                        else
+                        {
+                            Connection.Connector(@case.Second(textBox1.Text));
+                        }
                         break;
                     }
                 case WhichInquiry.Third:
                     {
-                        Connection.Connector(@case.Third(textBox1.Text));
+                        if (idValidation.IsMatch(textBox1.Text))
+                        {
+                            MessageBox.Show("Incorrect id format");
+                        }
+                        else
+                        {
+                            Connection.Connector(@case.Third(textBox1.Text));
+                        }
                         break;
                     }
                 case WhichInquiry.Fourth:
                     {
-                        Connection.Connector(@case.Fourth(textBox1.Text));
+                        if (idValidation.IsMatch(textBox1.Text))
+                        {
+                            MessageBox.Show("Incorrect id format");
+                        }
+                        else
+                        {
+                            Connection.Connector(@case.Fourth(textBox1.Text));
+                        }
                         break;
                     }
                 case WhichInquiry.Fifth:
                     {
-                        Connection.Connector(@case.Fifth(textBox1.Text));
+                        if (idValidation.IsMatch(textBox1.Text))
+                        {
+                            MessageBox.Show("Incorrect id format");
+                        }
+                        else
+                        {
+                            Connection.Connector(@case.Fifth(textBox1.Text));
+                        }
                         break;
                     }
                 case WhichInquiry.Sixth:
                     {
-                        Connection.Connector(@case.Sixth(textBox1.Text));
+                        if (idValidation.IsMatch(textBox1.Text))
+                        {
+                            MessageBox.Show("Incorrect id format");
+                        }
+                        else
+                        {
+                            Connection.Connector(@case.Sixth(textBox1.Text));
+                        }
                         break;
                     }
                 case WhichInquiry.Seventh:
                     {
-                        Connection.Connector(@case.Seventh(textBox1.Text));
+                        if (idValidation.IsMatch(textBox1.Text))
+                        {
+                            MessageBox.Show("Incorrect id format");
+                        }
+                        else
+                        {
+                            Connection.Connector(@case.Seventh(textBox1.Text));
+                        }
                         break;
                     }
             }
