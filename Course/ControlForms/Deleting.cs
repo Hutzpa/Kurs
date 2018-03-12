@@ -21,6 +21,15 @@ namespace Course
             Design();
         }
 
+        public Deleting(WhichForm whichForm, string id)
+        {
+            InitializeComponent();
+            this.whichForm = whichForm;
+            Design();
+            textBox1.Text = id;
+            textBox1.ReadOnly = true;
+        }
+
         private WhichForm whichForm;
         private Defendant defendant;
         private Judge judge;

@@ -19,6 +19,9 @@ namespace Course
         private Judge judge;
         private Regex idValidation = new Regex(@"\D");
 
+        private Deleting deleting;
+        private Editing editing;
+
         private void Design()
         {
             switch(whichForm)
@@ -99,6 +102,18 @@ namespace Course
             }
 
             textBox1.Text = null;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            deleting = new Deleting(whichForm,dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            deleting.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            editing = new Editing(whichForm, dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            editing.Show();
         }
     }
 }

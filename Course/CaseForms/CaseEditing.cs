@@ -14,6 +14,13 @@ namespace Course
 {
     public partial class CaseEditing : Form
     {
+        private CaseEditing(string id)
+        {
+            InitializeComponent();
+            textBox1.Text = id;
+            textBox1.ReadOnly = true;
+        }
+
         private CaseEditing()
         {
             InitializeComponent();
@@ -31,6 +38,13 @@ namespace Course
         {
             if (caseEditing == null)
                 caseEditing = new CaseEditing();
+            return caseEditing;
+        }
+
+        public static CaseEditing GetCaseEditing(string id)
+        {
+            if (caseEditing == null)
+                caseEditing = new CaseEditing(id);
             return caseEditing;
         }
 

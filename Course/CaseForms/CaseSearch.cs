@@ -35,6 +35,9 @@ namespace Course
         private Case @case = new Case();
         private Regex idValidation = new Regex(@"\D");
 
+        private CaseEditing caseEditing;
+        private Deleting deleting;
+
         private void Action()
         {
             switch (whichInquiry)
@@ -138,6 +141,18 @@ namespace Course
                 e.Cancel = true;
                 this.Visible = false;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            caseEditing = CaseEditing.GetCaseEditing(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            caseEditing.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            deleting = new Deleting(WhichForm.Case,dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            deleting.Show();
         }
     }
 }
