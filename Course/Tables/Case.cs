@@ -9,6 +9,7 @@ namespace Course
    public class Case
     {
         #region Search
+
         /// <summary>
         /// Список юридичних справ
         /// </summary>   
@@ -91,6 +92,9 @@ namespace Course
             return "DELETE  FROM kurs.case WHERE Id = " + id;
         }
 
+        /// <summary>
+        /// Выводит всех данных таблицы
+        /// </summary>
         public string Display()
         {
             return "SELECT * FROM kurs.case";

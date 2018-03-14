@@ -73,7 +73,7 @@
             this.defendantToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(507, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(254, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -92,7 +92,7 @@
             // addNewCaseToolStripMenuItem
             // 
             this.addNewCaseToolStripMenuItem.Name = "addNewCaseToolStripMenuItem";
-            this.addNewCaseToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.addNewCaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addNewCaseToolStripMenuItem.Text = "Add new case";
             this.addNewCaseToolStripMenuItem.Click += new System.EventHandler(this.addNewCaseToolStripMenuItem_Click);
             // 
@@ -107,7 +107,7 @@
             this.plaintiffCaseListToolStripMenuItem,
             this.defendantCaseListToolStripMenuItem});
             this.findCaseToolStripMenuItem.Name = "findCaseToolStripMenuItem";
-            this.findCaseToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.findCaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.findCaseToolStripMenuItem.Text = "Find case";
             // 
             // listOfLegalCasesToolStripMenuItem
@@ -162,21 +162,21 @@
             // editCaseToolStripMenuItem
             // 
             this.editCaseToolStripMenuItem.Name = "editCaseToolStripMenuItem";
-            this.editCaseToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.editCaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editCaseToolStripMenuItem.Text = "Edit case";
             this.editCaseToolStripMenuItem.Click += new System.EventHandler(this.editCaseToolStripMenuItem_Click);
             // 
             // displayCasesToolStripMenuItem
             // 
             this.displayCasesToolStripMenuItem.Name = "displayCasesToolStripMenuItem";
-            this.displayCasesToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.displayCasesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.displayCasesToolStripMenuItem.Text = "Display cases";
             this.displayCasesToolStripMenuItem.Click += new System.EventHandler(this.displayCasesToolStripMenuItem_Click);
             // 
             // deleteCaseToolStripMenuItem
             // 
             this.deleteCaseToolStripMenuItem.Name = "deleteCaseToolStripMenuItem";
-            this.deleteCaseToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.deleteCaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteCaseToolStripMenuItem.Text = "Delete case";
             this.deleteCaseToolStripMenuItem.Click += new System.EventHandler(this.deleteCaseToolStripMenuItem_Click);
             // 
@@ -195,35 +195,35 @@
             // addNewJudgeToolStripMenuItem
             // 
             this.addNewJudgeToolStripMenuItem.Name = "addNewJudgeToolStripMenuItem";
-            this.addNewJudgeToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.addNewJudgeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addNewJudgeToolStripMenuItem.Text = "Add new judge";
             this.addNewJudgeToolStripMenuItem.Click += new System.EventHandler(this.addNewJudgeToolStripMenuItem_Click);
             // 
             // findJudgeToolStripMenuItem
             // 
             this.findJudgeToolStripMenuItem.Name = "findJudgeToolStripMenuItem";
-            this.findJudgeToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.findJudgeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.findJudgeToolStripMenuItem.Text = "Find judge";
             this.findJudgeToolStripMenuItem.Click += new System.EventHandler(this.findJudgeToolStripMenuItem_Click);
             // 
             // editJudgeToolStripMenuItem
             // 
             this.editJudgeToolStripMenuItem.Name = "editJudgeToolStripMenuItem";
-            this.editJudgeToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.editJudgeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editJudgeToolStripMenuItem.Text = "Edit judge";
             this.editJudgeToolStripMenuItem.Click += new System.EventHandler(this.editJudgeToolStripMenuItem_Click);
             // 
             // displayJudgesToolStripMenuItem
             // 
             this.displayJudgesToolStripMenuItem.Name = "displayJudgesToolStripMenuItem";
-            this.displayJudgesToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.displayJudgesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.displayJudgesToolStripMenuItem.Text = "Display judges";
             this.displayJudgesToolStripMenuItem.Click += new System.EventHandler(this.displayJudgesToolStripMenuItem_Click);
             // 
             // deleteJudgeToolStripMenuItem
             // 
             this.deleteJudgeToolStripMenuItem.Name = "deleteJudgeToolStripMenuItem";
-            this.deleteJudgeToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.deleteJudgeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteJudgeToolStripMenuItem.Text = "Delete judge";
             this.deleteJudgeToolStripMenuItem.Click += new System.EventHandler(this.deleteJudgeToolStripMenuItem_Click);
             // 
@@ -325,8 +325,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(507, 362);
+            this.ClientSize = new System.Drawing.Size(254, 138);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MenuForm";

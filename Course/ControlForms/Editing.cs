@@ -80,7 +80,7 @@ namespace Course
                         }
                         else
                         {
-                            Connection.Connector(defendant.Update(textBox1.Text, textBox2.Text, textBox3.Text));
+                            Connection.Connector(defendant.Update(textBox1.Text,textBox4.Text, textBox2.Text, textBox3.Text));
                         }
                         break;
                     }
@@ -92,7 +92,7 @@ namespace Course
                         }
                         else
                         {
-                            Connection.Connector(judge.Update(textBox1.Text, textBox2.Text, textBox3.Text));
+                            Connection.Connector(judge.Update(textBox1.Text, textBox4.Text, textBox2.Text, textBox3.Text));
                         }
                         break;
                     }
@@ -104,7 +104,7 @@ namespace Course
                         }
                         else
                         {
-                            Connection.Connector(plaintiff.Update(textBox1.Text, textBox2.Text, textBox3.Text));
+                            Connection.Connector(plaintiff.Update(textBox1.Text, textBox4.Text, textBox2.Text, textBox3.Text));
                         }
                         break;
                     }

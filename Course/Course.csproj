@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CaseForms\CaseDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CaseForms\CaseDisplay.Designer.cs">
+      <DependentUpon>CaseDisplay.cs</DependentUpon>
+    </Compile>
     <Compile Include="CaseForms\CaseAddition.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     <Compile Include="Enumerators\WhichInquiry.cs" />
     <EmbeddedResource Include="CaseForms\CaseAddition.resx">
       <DependentUpon>CaseAddition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CaseForms\CaseDisplay.resx">
+      <DependentUpon>CaseDisplay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CaseForms\CaseEditing.resx">
       <DependentUpon>CaseEditing.cs</DependentUpon>

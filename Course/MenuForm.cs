@@ -15,7 +15,7 @@ namespace Course
         public MenuForm()
         {
             InitializeComponent();
-            Greeting();
+            //Greeting();
         }
         private Addition addition;
         private Deleting deleting;
@@ -27,31 +27,31 @@ namespace Course
         private void addNewJudgeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             addition = new Addition(WhichForm.Judge);
-            addition.Show();
+            addition.ShowDialog();
         }
 
         private void findJudgeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             search = new Search(WhichForm.Judge);
-            search.Show();
+            search.ShowDialog();
         }
 
         private void deleteJudgeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             deleting = new Deleting(WhichForm.Judge);
-            deleting.Show();
+            deleting.ShowDialog();
         }
 
         private void editJudgeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             editing = new Editing(WhichForm.Judge);
-            editing.Show();
+            editing.ShowDialog();
         }
 
         private void displayJudgesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             displayer = new Displayer(WhichForm.Judge);
-            displayer.Show();
+            displayer.ShowDialog();
         }
 
         #endregion
@@ -60,31 +60,31 @@ namespace Course
         private void addNewPlaintiffToolStripMenuItem_Click(object sender, EventArgs e)
         {
             addition = new Addition(WhichForm.Plaintiff);
-            addition.Show();
+            addition.ShowDialog();
         }
 
         private void findPlaintiffToolStripMenuItem_Click(object sender, EventArgs e)
         {
             search = new Search(WhichForm.Plaintiff);
-            search.Show();
+            search.ShowDialog();
         }
 
         private void editPlaintiffToolStripMenuItem_Click(object sender, EventArgs e)
         {
             editing = new Editing(WhichForm.Plaintiff);
-            editing.Show();
+            editing.ShowDialog();
         }
 
         private void deletePlaintiffToolStripMenuItem_Click(object sender, EventArgs e)
         {
             deleting = new Deleting(WhichForm.Plaintiff);
-            deleting.Show();
+            deleting.ShowDialog();
         }
 
         private void displayPlaintiffsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             displayer = new Displayer(WhichForm.Plaintiff);
-            displayer.Show();
+            displayer.ShowDialog();
         }
 
         #endregion
@@ -93,37 +93,38 @@ namespace Course
         private void addNewDefendantToolStripMenuItem_Click(object sender, EventArgs e)
         {
             addition = new Addition(WhichForm.Defendant);
-            addition.Show();
+            addition.ShowDialog();
         }
 
         private void findDefendantToolStripMenuItem_Click(object sender, EventArgs e)
         {
             search = new Search(WhichForm.Defendant);
-            search.Show();
+            search.ShowDialog();
         }
 
         private void editDefendantToolStripMenuItem_Click(object sender, EventArgs e)
         {
             editing = new Editing(WhichForm.Defendant);
-            editing.Show();
+            editing.ShowDialog();
         }
 
         private void deleteDefendantToolStripMenuItem_Click(object sender, EventArgs e)
         {
             deleting = new Deleting(WhichForm.Defendant);
-            deleting.Show();
+            deleting.ShowDialog();
         }
 
         private void displayDefendantToolStripMenuItem_Click(object sender, EventArgs e)
         {
             displayer = new Displayer(WhichForm.Defendant);
-            displayer.Show();
+            displayer.ShowDialog();
         }
 
         #endregion
 
         #region Case 
         private CaseAddition caseAddition;
+        private CaseDisplay caseDisplay;
         private CaseEditing caseEditing;
         private CaseSearch caseSearch;
 
@@ -147,8 +148,8 @@ namespace Course
 
         private void displayCasesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            displayer = new Displayer(WhichForm.Case);
-            displayer.Show();
+            caseDisplay = new CaseDisplay();
+            caseDisplay.Show();
         }
 
         #region Case inquire
