@@ -71,7 +71,7 @@ namespace Course
         /// <summary>
         /// Вводит данные в таблицу "дело" 
         /// </summary>
-        public string Insert(string id, string defendantId, string plaintiffId, string judgeId, string descripton, string article, string isEnd, string isUr, string verdict)
+        public string Insert(string id, string defendantId, string plaintiffId, string judgeId, string descripton, string article, byte isEnd, byte isUr, string verdict)
         {
             return "INSERT INTO kurs.case (Id, NumberDefendant,PlaintiffNumber,JudgeNumber,Description,Article,IsEnd,IsUr,Verdict) VALUES (" + id +","+ defendantId +","+plaintiffId+","+judgeId+","+descripton +","+article+","+isEnd+","+isUr+","+verdict+")";
         }
@@ -79,7 +79,7 @@ namespace Course
         /// <summary>
         /// Редактирует данные
         /// </summary>
-        public string Update(string id, string defendantId, string plaintiffId, string judgeId, string descripton, string article, bool isEnd, bool isUr, string verdict)
+        public string Update(string id, string defendantId, string plaintiffId, string judgeId, string descripton, string article, byte isEnd, byte isUr, string verdict)
         {
             return "UPDATE kurs.case SET Id =" + id + ",NumberDefendant=" + defendantId + ",PlaintiffNumber=" + plaintiffId + ",JudgeNumber=" + judgeId + ",Description=" + descripton + ",Article=" + article + ",IsEnd=" + isEnd + ",IsUr=" + isUr + ",Verdict=" + verdict + ";";
         }

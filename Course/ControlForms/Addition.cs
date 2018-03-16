@@ -18,6 +18,7 @@ namespace Course
         private Judge judge;
         private Plaintiff plaintiff;
         private Regex idValidation = new Regex(@"\D");
+        private Regex numberValid = new Regex(@"\D");
 
         private void Design()
         {
@@ -56,37 +57,37 @@ namespace Course
             {
                 case WhichForm.Defendant:
                     {
-                        if(idValidation.IsMatch(textBox1.Text))
+                        if(idValidation.IsMatch(textBox1.Text)|| numberValid.IsMatch(textBox4.Text))
                         {
                             MessageBox.Show("Id writed incorrect. Only numbers.");
                         }
                         else
                         {
-                            Connection.Connector(defendant.Insert(textBox1.Text, textBox4.Text, textBox2.Text, textBox3.Text));
+                            Connection.Connector(defendant.Insert(textBox1.Text, textBox4.Text, textBox2.Text, textBox3.Text, textBox5.Text));
                         }
                         break;
                     }
                 case WhichForm.Judge:
                     {
-                        if (idValidation.IsMatch(textBox1.Text))
+                        if (idValidation.IsMatch(textBox1.Text) || numberValid.IsMatch(textBox4.Text))
                         {
                             MessageBox.Show("Id writed incorrect. Only numbers.");
                         }
                         else
                         {
-                            Connection.Connector(judge.Insert(textBox1.Text, textBox4.Text, textBox2.Text, textBox3.Text));
+                            Connection.Connector(judge.Insert(textBox1.Text, textBox4.Text, textBox2.Text, textBox3.Text,textBox5.Text));
                         }
                         break;
                     }
                 case WhichForm.Plaintiff:
                     {
-                        if (idValidation.IsMatch(textBox1.Text))
+                        if (idValidation.IsMatch(textBox1.Text) || numberValid.IsMatch(textBox4.Text))
                         {
                             MessageBox.Show("Id writed incorrect. Only numbers.");
                         }
                         else
                         {
-                            Connection.Connector(plaintiff.Insert(textBox1.Text, textBox4.Text, textBox2.Text, textBox3.Text));
+                            Connection.Connector(plaintiff.Insert(textBox1.Text, textBox4.Text, textBox2.Text, textBox3.Text,textBox5.Text));
                         }
                         break;
                     }
@@ -97,19 +98,16 @@ namespace Course
                         break;
                     }
             }
+            Cleaning();
+        }
 
+        private void Cleaning()
+        {
             textBox1.Text = null;
             textBox2.Text = null;
             textBox3.Text = null;
-        }
-
-        private void Addition_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (e.CloseReason == CloseReason.UserClosing)
-            {
-                e.Cancel = true;
-                this.Visible = false;
-            }
+            textBox4.Text = null;
+            textBox5.Text = null;
         }
     }
 }

@@ -11,17 +11,17 @@ namespace Course
         /// <summary>
         /// Добавление данных
         /// </summary>
-        public string Insert(string plaintiffNumber,string caseNumber,string name, string surname)
+        public string Insert(string plaintiffNumber,string caseNumber,string name, string surname, string patronymic)
         {
-            return "INSERT INTO kurs.plaintiff (PlaintiffNumber,CaseNumber,Name,Surname) VALUES (" + plaintiffNumber +","+caseNumber+ "," + name + "," + surname + ")";
+            return "INSERT INTO kurs.plaintiff (PlaintiffNumber,CaseNumber,Name,Surname,Patronymic) VALUES (" + plaintiffNumber +","+caseNumber+ "," + name + "," + surname +","+patronymic+")";
         }
 
         /// <summary>
         /// Редактирование данных
         /// </summary>
-        public string Update(string plaintiffNumber,string caseNumber ,string name, string surname)
+        public string Update(string plaintiffNumber,string caseNumber ,string name, string surname, string patronymic)
         {
-            return "UPDATE kurs.plaintiff SET PlaintiffNumber=" + plaintiffNumber +",CaseNumber="+caseNumber+",Name=" + name + ",Surname=" + surname + " WHERE PlaintiffNumber=" + plaintiffNumber;
+            return "UPDATE kurs.plaintiff SET PlaintiffNumber=" + plaintiffNumber +",CaseNumber="+caseNumber+",Name=" + name + ",Surname=" + surname +",Patronymic="+patronymic+ " WHERE PlaintiffNumber=" + plaintiffNumber;
         }
 
         /// <summary>

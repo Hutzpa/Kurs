@@ -14,24 +14,14 @@ namespace Course
 {
     public partial class CaseSearch : Form
     {
-        private CaseSearch()
+        public CaseSearch(WhichInquiry whichInquiry)
         {
             InitializeComponent();
+            this.whichInquiry = whichInquiry;
         }
 
-        private static CaseSearch caseSearch;
 
-        public static CaseSearch GetCaseSearch(WhichInquiry whichInquiry)
-        {
-            if (caseSearch == null)
-            {
-                CaseSearch.whichInquiry = whichInquiry;
-                caseSearch = new CaseSearch();
-            }
-            return caseSearch;
-        }
-
-        public static WhichInquiry whichInquiry;
+        private WhichInquiry whichInquiry;
         private Case @case = new Case();
         private Regex idValidation = new Regex(@"\D");
 

@@ -34,6 +34,10 @@ namespace Course
             return caseAddition;
         }
 
+        private byte isEnd = 0;
+        private byte isLegal = 0;
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             if(idValidation.IsMatch(textBox1.Text) || defendantIdValid.IsMatch(textBox2.Text) || plaintiffIdValid.IsMatch(textBox3.Text) || judgeIdValid.IsMatch(textBox4.Text))
@@ -42,7 +46,7 @@ namespace Course
             }
             else
             {
-            Connection.Connector(@case.Insert(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, checkBox1.Checked.ToString(), checkBox2.Checked.ToString(), textBox9.Text));
+            Connection.Connector(@case.Insert(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, isEnd, isLegal, textBox9.Text));
             }
         }
 
@@ -53,6 +57,22 @@ namespace Course
                 e.Cancel = true;
                 this.Visible = false;
             }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (isEnd == 0)
+                isEnd = 1;
+            else
+                isEnd = 0;
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (isLegal == 0)
+                isLegal = 1;
+            else
+                isLegal = 0;
         }
     }
 }

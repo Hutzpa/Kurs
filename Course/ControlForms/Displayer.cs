@@ -4,6 +4,9 @@ namespace Course
 {
     public partial class Displayer : Form
     {
+        /// <summary>
+        /// Обычный вывод
+        /// </summary>
         public Displayer(WhichForm whichForm)
         {
             InitializeComponent();
@@ -11,6 +14,9 @@ namespace Course
             Design();
         }
 
+        /// <summary>
+        /// Конструктор для вывода с запросом
+        /// </summary>
         public Displayer(WhichForm whichForm,string query)
         {
             InitializeComponent();
@@ -20,24 +26,30 @@ namespace Course
             Connection.Connector(dataGridView1, query);
 
         }
+
+        /// <summary>
+        /// Скрытие элементов управления для формы вывода
+        /// </summary>
         private void Off()
         {
-            button1.Visible = false;
-            button1.Enabled = false;
-            statusStrip1.Visible = false;
-            statusStrip1.Enabled = false;
-            label2.Visible = false;
-            label2.Enabled = false;
+            button1.Hide();
+            statusStrip1.Hide();
+            label2.Hide();
             dataGridView1.Location = new System.Drawing.Point(12, 25);
             Height = 220;
         }
 
-        WhichForm whichForm;
-        Defendant defendant;
-        Plaintiff plaintiff;
-        Judge judge;
+        private WhichForm whichForm;
+        private Defendant defendant;
+        private Plaintiff plaintiff;
+        private Judge judge;
         private Case @case = new Case();
+        private Displayer displayer;
 
+
+        /// <summary>
+        /// Дизайн формы
+        /// </summary>
         private void Design()
         {
             switch (whichForm)
@@ -82,7 +94,6 @@ namespace Course
             toolStripStatusLabel1.Text = null;
         }
 
-        private Displayer displayer;
 
         private void button1_Click(object sender, System.EventArgs e)
         {

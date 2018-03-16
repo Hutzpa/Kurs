@@ -32,6 +32,9 @@ namespace Course
         private Regex plaintiffIdValid = new Regex(@"\D");
         private Regex judgeIdValid = new Regex(@"\D");
 
+        private byte isEnd = 0;
+        private byte isLegal = 0;
+
         public static CaseEditing caseEditing;
 
         public static CaseEditing GetCaseEditing()
@@ -57,7 +60,7 @@ namespace Course
             }
             else
             {
-                Connection.Connector(@case.Update(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, checkBox1.Checked, checkBox2.Checked, textBox9.Text));
+                Connection.Connector(@case.Update(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, isEnd, isLegal, textBox9.Text));
             }
         }
 
@@ -68,6 +71,22 @@ namespace Course
                 e.Cancel = true;
                 this.Visible = false;
             }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (isEnd == 0)
+                isEnd = 1;
+            else
+                isEnd = 0;
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (isLegal == 0)
+                isLegal = 1;
+            else
+                isLegal = 0;
         }
     }
 }

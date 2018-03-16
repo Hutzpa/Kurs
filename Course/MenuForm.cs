@@ -131,68 +131,68 @@ namespace Course
         private void addNewCaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             caseAddition = CaseAddition.GetCaseAddition();
-            caseAddition.Show();
+            caseAddition.ShowDialog();
         }
 
         private void editCaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             caseEditing = CaseEditing.GetCaseEditing();
-            caseEditing.Show();
+            caseEditing.ShowDialog();
         }
 
         private void deleteCaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             deleting = new Deleting(WhichForm.Case);
-            deleting.Show();
+            deleting.ShowDialog();
         }
 
         private void displayCasesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            caseDisplay = new CaseDisplay();
-            caseDisplay.Show();
+            caseDisplay = CaseDisplay.GetCaseDisplay();
+            caseDisplay.ShowDialog();
         }
 
         #region Case inquire
         private void listOfLegalCasesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            caseSearch = CaseSearch.GetCaseSearch(WhichInquiry.First);
-            caseSearch.Show();
+            caseSearch = new CaseSearch(WhichInquiry.First);
+            caseSearch.ShowDialog();
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            caseSearch = CaseSearch.GetCaseSearch(WhichInquiry.Second);
-            caseSearch.Show();
+            caseSearch = new CaseSearch(WhichInquiry.Second);
+            caseSearch.ShowDialog();
         }
 
         private void caseInArticleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            caseSearch = CaseSearch.GetCaseSearch(WhichInquiry.Third);
-            caseSearch.Show();
+            caseSearch = new CaseSearch(WhichInquiry.Third);
+            caseSearch.ShowDialog();
         }
 
         private void activeCaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            caseSearch = CaseSearch.GetCaseSearch(WhichInquiry.Fourth);
-            caseSearch.Show();
+            caseSearch = new CaseSearch(WhichInquiry.Fourth);
+            caseSearch.ShowDialog();
         }
 
         private void judgeCaseListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            caseSearch = CaseSearch.GetCaseSearch(WhichInquiry.Fifth);
-            caseSearch.Show();
+            caseSearch = new CaseSearch(WhichInquiry.Fifth);
+            caseSearch.ShowDialog();
         }
 
         private void plaintiffCaseListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            caseSearch = CaseSearch.GetCaseSearch(WhichInquiry.Sixth);
-            caseSearch.Show();
+            caseSearch = new CaseSearch(WhichInquiry.Sixth);
+            caseSearch.ShowDialog();
         }
 
         private void defendantCaseListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            caseSearch = CaseSearch.GetCaseSearch(WhichInquiry.Seventh);
-            caseSearch.Show();
+            caseSearch = new CaseSearch(WhichInquiry.Seventh);
+            caseSearch.ShowDialog();
         }
         #endregion
 
@@ -208,6 +208,11 @@ namespace Course
 (.(....(....(..../..)..)…...(..(.\....)....)....).)
 .\................\/.../......\...\/................/
 ..\.................. /.........\................../ ");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
