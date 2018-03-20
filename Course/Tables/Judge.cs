@@ -13,7 +13,7 @@ namespace Course
         /// </summary>
         public string Insert(string judgeNumber, string caseNumber, string name, string surname, string patronymic)
         {
-            return "INSERT INTO kurs.judge (JudgeNumber,CaseNumber,Name,Surname,Patronymic) VALUES (" + judgeNumber +","+caseNumber+ "," + name + "," + surname +","+ patronymic+ ")";
+            return "INSERT INTO kurs.judge (JudgeNumber,CaseNumber,Name,Surname,Patronymic) VALUES ('" + judgeNumber +"','"+caseNumber+ "','" + name + "','" + surname +"','"+ patronymic+ "')";
         }
 
         /// <summary>
@@ -21,7 +21,7 @@ namespace Course
         /// </summary>
         public string Update(string judgeNumber, string caseNumber, string name, string surname, string patronymic)
         {
-            return "UPDATE kurs.judge SET JudgeNumber =" + judgeNumber +",CaseNumber="+caseNumber+ ",Name =" + name + ",Surname=" + surname + ",Patronymic="+patronymic+ " WHERE JudgeNumber=" + judgeNumber;
+            return "UPDATE kurs.judge SET JudgeNumber ='" + judgeNumber +"',CaseNumber='"+caseNumber+ "',Name ='" + name + "',Surname='" + surname + "',Patronymic='"+patronymic+ "' WHERE JudgeNumber='" + judgeNumber+"'";
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace Course
         /// </summary>
         public string Search(string judgeNumber)
         {
-            return "SELECT * FROM kurs.judge WHERE JudgeNumber = " + judgeNumber;
+            return "SELECT * FROM kurs.judge WHERE JudgeNumber = '" + judgeNumber+"'";
         }
 
         /// <summary>

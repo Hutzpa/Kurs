@@ -153,6 +153,13 @@ namespace Course
         }
 
         #region Case inquire
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            caseSearch = new CaseSearch(WhichInquiry.Zeroth);
+            caseSearch.ShowDialog();
+        }
+
         private void listOfLegalCasesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             caseSearch = new CaseSearch(WhichInquiry.First);
@@ -214,5 +221,7 @@ namespace Course
         {
             Close();
         }
+
+       
     }
 }

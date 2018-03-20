@@ -18,6 +18,7 @@ namespace Course
         {
             InitializeComponent();
             this.whichInquiry = whichInquiry;
+            Design();
         }
 
 
@@ -28,20 +29,36 @@ namespace Course
         private CaseEditing caseEditing;
         private Deleting deleting;
 
-        private void Action()
+        private void Design()
         {
             switch (whichInquiry)
             {
                 case WhichInquiry.First:
                     {
-                        if(idValidation.IsMatch(textBox1.Text))
-                        {
-                            MessageBox.Show("Incorrect id format");
-                        }
-                        else
-                        {
-                            Connection.Connector(@case.First(textBox1.Text));
-                        }
+                        label1.Hide();
+                        textBox1.Hide();
+                        button1.Hide();
+                        Connection.Connector(dataGridView1,@case.First("-1"));
+                        break;
+                    }
+                case WhichInquiry.Fourth:
+                    {
+                        label1.Hide();
+                        textBox1.Hide();
+                        button1.Hide();
+                        Connection.Connector(dataGridView1, @case.Fourth("-1"));
+                        break;
+                    }             
+            }
+        }
+
+        private void Action()
+        {
+            switch (whichInquiry)
+            {
+                case WhichInquiry.Zeroth:
+                    {
+                        Connection.Connector(dataGridView1, @case.Zero(textBox1.Text));
                         break;
                     }
                 case WhichInquiry.Second:
@@ -52,7 +69,7 @@ namespace Course
                         }
                         else
                         {
-                            Connection.Connector(@case.Second(textBox1.Text));
+                            Connection.Connector(dataGridView1,@case.Second(textBox1.Text));
                         }
                         break;
                     }
@@ -64,11 +81,11 @@ namespace Course
                         }
                         else
                         {
-                            Connection.Connector(@case.Third(textBox1.Text));
+                            Connection.Connector(dataGridView1,@case.Third(textBox1.Text));
                         }
                         break;
                     }
-                case WhichInquiry.Fourth:
+                 case WhichInquiry.Fifth:
                     {
                         if (idValidation.IsMatch(textBox1.Text))
                         {
@@ -76,19 +93,7 @@ namespace Course
                         }
                         else
                         {
-                            Connection.Connector(@case.Fourth(textBox1.Text));
-                        }
-                        break;
-                    }
-                case WhichInquiry.Fifth:
-                    {
-                        if (idValidation.IsMatch(textBox1.Text))
-                        {
-                            MessageBox.Show("Incorrect id format");
-                        }
-                        else
-                        {
-                            Connection.Connector(@case.Fifth(textBox1.Text));
+                            Connection.Connector(dataGridView1,@case.Fifth(textBox1.Text));
                         }
                         break;
                     }
@@ -100,7 +105,7 @@ namespace Course
                         }
                         else
                         {
-                            Connection.Connector(@case.Sixth(textBox1.Text));
+                            Connection.Connector(dataGridView1,@case.Sixth(textBox1.Text));
                         }
                         break;
                     }
@@ -112,7 +117,7 @@ namespace Course
                         }
                         else
                         {
-                            Connection.Connector(@case.Seventh(textBox1.Text));
+                            Connection.Connector(dataGridView1,@case.Seventh(textBox1.Text));
                         }
                         break;
                     }
@@ -143,6 +148,11 @@ namespace Course
         {
             deleting = new Deleting(WhichForm.Case,dataGridView1.CurrentRow.Cells[0].Value.ToString());
             deleting.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -46,12 +46,17 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(5, 285);
+            this.label7.Location = new System.Drawing.Point(9, 363);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 53;
@@ -60,7 +65,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(7, 265);
+            this.checkBox2.Location = new System.Drawing.Point(11, 343);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(73, 17);
             this.checkBox2.TabIndex = 52;
@@ -71,7 +76,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(8, 242);
+            this.checkBox1.Location = new System.Drawing.Point(12, 320);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(69, 17);
             this.checkBox1.TabIndex = 51;
@@ -135,9 +140,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 326);
+            this.button1.Location = new System.Drawing.Point(11, 405);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(174, 105);
+            this.button1.Size = new System.Drawing.Size(174, 59);
             this.button1.TabIndex = 44;
             this.button1.Text = "Done";
             this.button1.UseVisualStyleBackColor = true;
@@ -145,7 +150,7 @@
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(12, 300);
+            this.textBox9.Location = new System.Drawing.Point(12, 379);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(174, 20);
             this.textBox9.TabIndex = 43;
@@ -192,11 +197,58 @@
             this.textBox1.Size = new System.Drawing.Size(174, 20);
             this.textBox1.TabIndex = 37;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(11, 255);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(174, 20);
+            this.dateTimePicker1.TabIndex = 54;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(12, 239);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(105, 13);
+            this.label8.TabIndex = 55;
+            this.label8.Text = "Enter case start date";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(12, 278);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(103, 13);
+            this.label9.TabIndex = 57;
+            this.label9.Text = "Enter case end date";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(12, 294);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(174, 20);
+            this.dateTimePicker2.TabIndex = 56;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(11, 470);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(174, 59);
+            this.button2.TabIndex = 58;
+            this.button2.Text = "Close";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // CaseAddition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(198, 443);
+            this.ClientSize = new System.Drawing.Size(198, 538);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
@@ -243,5 +295,10 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Button button2;
     }
 }

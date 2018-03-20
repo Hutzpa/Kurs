@@ -34,8 +34,8 @@ namespace Course
             return caseAddition;
         }
 
-        private byte isEnd = 0;
-        private byte isLegal = 0;
+        private short isEnd = -1;
+        private short isLegal = -1;
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -46,7 +46,8 @@ namespace Course
             }
             else
             {
-            Connection.Connector(@case.Insert(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, isEnd, isLegal, textBox9.Text));
+            Connection.Connector(@case.Insert(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text,dateTimePicker1.Value,dateTimePicker2.Value, isEnd, isLegal, textBox9.Text));
+                Clean();
             }
         }
 
@@ -61,18 +62,34 @@ namespace Course
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (isEnd == 0)
-                isEnd = 1;
-            else
+            if (isEnd == -1)
                 isEnd = 0;
+            else
+                isEnd = -1;
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            if (isLegal == 0)
-                isLegal = 1;
-            else
+            if (isLegal == -1)
                 isLegal = 0;
+            else
+                isLegal = -1;
+        }
+
+        private void Clean()
+        {
+            textBox1.Text = null;
+            textBox2.Text = null;
+            textBox3.Text = null;
+            textBox4.Text = null;
+            textBox5.Text = null;
+            textBox6.Text = null;
+            textBox9.Text = null;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

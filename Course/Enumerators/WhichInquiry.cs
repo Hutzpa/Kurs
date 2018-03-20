@@ -8,7 +8,8 @@ namespace Course
 {
     public enum WhichInquiry
     {
-        First = 1,
+        Zeroth,
+        First ,
         Second,
         Third,
         Fourth,

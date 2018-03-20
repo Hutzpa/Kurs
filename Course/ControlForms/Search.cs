@@ -115,5 +115,10 @@ namespace Course
             editing = new Editing(whichForm, dataGridView1.CurrentRow.Cells[0].Value.ToString());
             editing.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

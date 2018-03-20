@@ -9,13 +9,20 @@ namespace Course
    public class Case
     {
         #region Search
+        /// <summary>
+        /// Поиск по фио
+        /// </summary>
+        public string Zero(string param)
+        {
+            return "";
+        }
 
         /// <summary>
         /// Список юридичних справ
         /// </summary>   
         public string First(string param)
         {
-            return "SELECT * FROM case WHERE case.IsUr =" + param;
+            return "SELECT * FROM kurs.case WHERE case.IsUr ='" + param+"';";
         }
 
         /// <summary>
@@ -23,7 +30,7 @@ namespace Course
         /// </summary>
         public string Second(string param)
         {
-            return "SELECT * FROM case WHERE MATCH Description AGAINST " + param;
+            return "SELECT * FROM kurs.case WHERE MATCH Description AGAINST '" + param+"';";
         }
 
         /// <summary>
@@ -31,7 +38,7 @@ namespace Course
         /// </summary>
         public string Third(string param)
         {
-            return "SELECT * FROM case WHERE case.Article =" + param;
+            return "SELECT * FROM kurs.case WHERE case.Article ='" + param + "';";
         }
 
         /// <summary>
@@ -39,7 +46,7 @@ namespace Course
         /// </summary>
         public string Fourth(string param)
         {
-            return "SELECT * FROM case WHERE case.IsEnd =" + param;
+            return "SELECT * FROM kurs.case WHERE case.IsEnd ='" + param + "';";
         }
 
         /// <summary>
@@ -47,7 +54,7 @@ namespace Course
         /// </summary>
         public string Fifth(string param)
         {
-            return "SELECT * FROM case WHERE case.JudgeNumber =" + param;
+            return "SELECT * FROM kurs.case WHERE case.JudgeNumber ='" + param + "';";
         }
 
         /// <summary>
@@ -55,7 +62,7 @@ namespace Course
         /// </summary>
         public string Sixth(string param)
         {
-            return "SELECT * FROM case WHERE case.PlaintiffNumber =" + param;
+            return "SELECT * FROM kurs.case WHERE case.PlaintiffNumber ='" + param + "';";
         }
 
         /// <summary>
@@ -63,7 +70,7 @@ namespace Course
         /// </summary>
         public string Seventh(string param)
         {
-            return "SELECT * FROM case WHERE case.NumberDefendant =" + param;
+            return "SELECT * FROM kurs.case WHERE case.NumberDefendant ='" + param + "';";
         }
 
         #endregion
@@ -71,17 +78,17 @@ namespace Course
         /// <summary>
         /// Вводит данные в таблицу "дело" 
         /// </summary>
-        public string Insert(string id, string defendantId, string plaintiffId, string judgeId, string descripton, string article, byte isEnd, byte isUr, string verdict)
+        public string Insert(string id, string defendantId, string plaintiffId, string judgeId, string descripton, string article,DateTime dateOfStart,DateTime dateOfEnd, short isEnd, short isUr, string verdict)
         {
-            return "INSERT INTO kurs.case (Id, NumberDefendant,PlaintiffNumber,JudgeNumber,Description,Article,IsEnd,IsUr,Verdict) VALUES (" + id +","+ defendantId +","+plaintiffId+","+judgeId+","+descripton +","+article+","+isEnd+","+isUr+","+verdict+")";
+            return "INSERT INTO kurs.case (Id, NumberDefendant,PlaintiffNumber,JudgeNumber,Description,Article,DateOfStart,DateOfEnd,IsEnd,IsUr,Verdict) VALUES ('" + id +"','"+ defendantId +"','"+plaintiffId+"','"+judgeId+"','"+descripton +"','"+article+"','"+dateOfStart.ToShortDateString()+"','" + dateOfEnd.ToShortDateString()+"','" + isEnd+"','"+isUr+"','"+verdict+"')";
         }
 
         /// <summary>
         /// Редактирует данные
         /// </summary>
-        public string Update(string id, string defendantId, string plaintiffId, string judgeId, string descripton, string article, byte isEnd, byte isUr, string verdict)
+        public string Update(string id, string defendantId, string plaintiffId, string judgeId, string descripton, string article, DateTime dateOfStart, DateTime dateOfEnd, short isEnd, short isUr, string verdict)
         {
-            return "UPDATE kurs.case SET Id =" + id + ",NumberDefendant=" + defendantId + ",PlaintiffNumber=" + plaintiffId + ",JudgeNumber=" + judgeId + ",Description=" + descripton + ",Article=" + article + ",IsEnd=" + isEnd + ",IsUr=" + isUr + ",Verdict=" + verdict + ";";
+            return "UPDATE kurs.case SET Id ='" + id + "',NumberDefendant='" + defendantId + "',PlaintiffNumber='" + plaintiffId + "',JudgeNumber='" + judgeId + "',Description='" + descripton + "',Article='" + article + "',DateOfStart='" + dateOfStart.ToShortDateString() + "',DateOfEnd='" + dateOfEnd.ToShortDateString() + "',IsEnd='" + isEnd + "',IsUr='" + isUr + "',Verdict='" + verdict + "';";
         }
 
         /// <summary>
@@ -89,7 +96,7 @@ namespace Course
         /// </summary>
         public string Delete(string id)
         {
-            return "DELETE  FROM kurs.case WHERE Id = " + id;
+            return "DELETE  FROM kurs.case WHERE Id = '" + id +"';";
         }
 
         /// <summary>

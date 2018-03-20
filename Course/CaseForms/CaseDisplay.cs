@@ -50,6 +50,10 @@ namespace Course
 
         private Case @case = new Case();
         private CaseDisplay caseDisplay;
+
+        private CaseEditing caseEditing;
+        private Deleting deleting;
+
         private void Off()
         {
             textBox1.Hide();
@@ -85,7 +89,7 @@ namespace Course
 
         private void button1_Click(object sender, EventArgs e)
         {
-            caseDisplay = new CaseDisplay(@case.First(0 + ""));
+            caseDisplay = new CaseDisplay(@case.First("0"));
             caseDisplay.Show();
         }
         #endregion
@@ -121,7 +125,7 @@ namespace Course
 
         private void button3_Click(object sender, EventArgs e)
         {
-            caseDisplay = new CaseDisplay(@case.Third(dataGridView1.CurrentRow.Cells[6].Value.ToString()));
+            caseDisplay = new CaseDisplay(@case.Third(dataGridView1.CurrentRow.Cells[5].Value.ToString()));
             caseDisplay.Show();
         }
         #endregion
@@ -157,7 +161,7 @@ namespace Course
 
         private void button5_Click(object sender, EventArgs e)
         {
-            caseDisplay = new CaseDisplay(@case.Fifth(dataGridView1.CurrentRow.Cells[4].Value.ToString()));
+            caseDisplay = new CaseDisplay(@case.Fifth(dataGridView1.CurrentRow.Cells[3].Value.ToString()));
             caseDisplay.Show();
         }
         #endregion
@@ -176,7 +180,7 @@ namespace Course
 
         private void button6_Click(object sender, EventArgs e)
         {
-            caseDisplay = new CaseDisplay(@case.Sixth(dataGridView1.CurrentRow.Cells[3].Value.ToString()));
+            caseDisplay = new CaseDisplay(@case.Sixth(dataGridView1.CurrentRow.Cells[2].Value.ToString()));
             caseDisplay.Show();
         }
         #endregion
@@ -194,7 +198,7 @@ namespace Course
 
         private void button7_Click(object sender, EventArgs e)
         {
-            caseDisplay = new CaseDisplay(@case.Seventh(dataGridView1.CurrentRow.Cells[2].Value.ToString()));
+            caseDisplay = new CaseDisplay(@case.Seventh(dataGridView1.CurrentRow.Cells[1].Value.ToString()));
             caseDisplay.Show();
         }
         #endregion
@@ -203,6 +207,24 @@ namespace Course
         {
             if (e.CloseReason == CloseReason.UserClosing)
                 e.Cancel = true;
+            Hide();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            caseEditing = CaseEditing.GetCaseEditing(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            caseEditing.Show();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            deleting = new Deleting(WhichForm.Case, dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            deleting.Show();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

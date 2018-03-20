@@ -109,5 +109,10 @@ namespace Course
             textBox4.Text = null;
             textBox5.Text = null;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace Course
         /// </summary>
         public string Insert(string plaintiffNumber,string caseNumber,string name, string surname, string patronymic)
         {
-            return "INSERT INTO kurs.plaintiff (PlaintiffNumber,CaseNumber,Name,Surname,Patronymic) VALUES (" + plaintiffNumber +","+caseNumber+ "," + name + "," + surname +","+patronymic+")";
+            return "INSERT INTO kurs.plaintiff (PlaintiffNumber,CaseNumber,Name,Surname,Patronymic) VALUES ('" + plaintiffNumber +"','"+caseNumber+ "','" + name + "','" + surname +"','"+patronymic+"')";
         }
 
         /// <summary>
@@ -21,7 +21,7 @@ namespace Course
         /// </summary>
         public string Update(string plaintiffNumber,string caseNumber ,string name, string surname, string patronymic)
         {
-            return "UPDATE kurs.plaintiff SET PlaintiffNumber=" + plaintiffNumber +",CaseNumber="+caseNumber+",Name=" + name + ",Surname=" + surname +",Patronymic="+patronymic+ " WHERE PlaintiffNumber=" + plaintiffNumber;
+            return "UPDATE kurs.plaintiff SET PlaintiffNumber='" + plaintiffNumber +"',CaseNumber='"+caseNumber+"',Name='" + name + "',Surname='" + surname +"',Patronymic='"+patronymic+ "' WHERE PlaintiffNumber='" + plaintiffNumber+"'";
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace Course
         /// </summary>
         public string Search(string plaintiffNumber)
         {
-            return "SELECT * FROM kurs.plaintiff WHERE PlaintiffNumber = " + plaintiffNumber;
+            return "SELECT * FROM kurs.plaintiff WHERE PlaintiffNumber = '" + plaintiffNumber+"'";
         }
 
         /// <summary>
