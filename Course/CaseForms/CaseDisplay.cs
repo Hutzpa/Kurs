@@ -89,7 +89,7 @@ namespace Course
 
         private void button1_Click(object sender, EventArgs e)
         {
-            caseDisplay = new CaseDisplay(@case.First("0"));
+            caseDisplay = new CaseDisplay(@case.First("-1"));
             caseDisplay.Show();
         }
         #endregion
@@ -225,6 +225,11 @@ namespace Course
         private void button10_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            Connection.Connector(dataGridView1, @case.Display());
         }
     }
 }

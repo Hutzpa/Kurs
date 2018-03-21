@@ -23,6 +23,8 @@ namespace Course
             this.whichForm = whichForm;
             Off();
             Design();
+            Width = 1179;
+            dataGridView1.Width = 1143;
             Connection.Connector(dataGridView1, query);
 
         }
@@ -35,6 +37,8 @@ namespace Course
             button1.Hide();
             statusStrip1.Hide();
             label2.Hide();
+            button2.Hide();
+            button3.Hide();
             dataGridView1.Location = new System.Drawing.Point(12, 25);
             Height = 220;
         }
@@ -123,6 +127,28 @@ namespace Course
         private void button2_Click(object sender, System.EventArgs e)
         {
             Close();
+        }
+
+        private void button3_Click(object sender, System.EventArgs e)
+        {
+            switch (whichForm)
+            {
+                case WhichForm.Judge:
+                    {
+                        Connection.Connector(dataGridView1, judge.Display());
+                        break;
+                    }
+                case WhichForm.Plaintiff:
+                    {
+                        Connection.Connector(dataGridView1, plaintiff.Display());
+                        break;
+                    }
+                case WhichForm.Defendant:
+                    {
+                        Connection.Connector(dataGridView1, defendant.Display());
+                        break;
+                    }
+            }
         }
     }
 }

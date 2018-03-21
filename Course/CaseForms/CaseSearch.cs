@@ -63,26 +63,12 @@ namespace Course
                     }
                 case WhichInquiry.Second:
                     {
-                        if (idValidation.IsMatch(textBox1.Text))
-                        {
-                            MessageBox.Show("Incorrect id format");
-                        }
-                        else
-                        {
-                            Connection.Connector(dataGridView1,@case.Second(textBox1.Text));
-                        }
+                        Connection.Connector(dataGridView1,@case.Second(textBox1.Text));
                         break;
                     }
                 case WhichInquiry.Third:
                     {
-                        if (idValidation.IsMatch(textBox1.Text))
-                        {
-                            MessageBox.Show("Incorrect id format");
-                        }
-                        else
-                        {
-                            Connection.Connector(dataGridView1,@case.Third(textBox1.Text));
-                        }
+                        Connection.Connector(dataGridView1,@case.Third(textBox1.Text));
                         break;
                     }
                  case WhichInquiry.Fifth:

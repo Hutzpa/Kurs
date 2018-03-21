@@ -32,8 +32,8 @@ namespace Course
         private Regex plaintiffIdValid = new Regex(@"\D");
         private Regex judgeIdValid = new Regex(@"\D");
 
-        private short isEnd = -1;
-        private short isLegal = -1;
+        private short isEnd = 0;
+        private short isLegal = 0;
 
         public static CaseEditing caseEditing;
 
@@ -76,18 +76,18 @@ namespace Course
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (isEnd == -1)
-                isEnd = 0;
-            else
+            if (isEnd == 0)
                 isEnd = -1;
+            else
+                isEnd = 0;
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            if (isLegal == -1)
-                isLegal = 0;
-            else
+            if (isLegal == 0)
                 isLegal = -1;
+            else
+                isLegal = 0;
         }
 
         private void Clean()

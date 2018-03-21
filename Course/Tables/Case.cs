@@ -30,7 +30,7 @@ namespace Course
         /// </summary>
         public string Second(string param)
         {
-            return "SELECT * FROM kurs.case WHERE MATCH Description AGAINST '" + param+"';";
+            return "SELECT * FROM kurs.case WHERE case.Description LIKE '%" + param+"%';";
         }
 
         /// <summary>
