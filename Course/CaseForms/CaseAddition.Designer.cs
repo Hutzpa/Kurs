@@ -61,6 +61,7 @@
             this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 53;
             this.label7.Text = "Verdict";
+            this.label7.Visible = false;
             // 
             // checkBox2
             // 
@@ -154,6 +155,7 @@
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(174, 20);
             this.textBox9.TabIndex = 43;
+            this.textBox9.Visible = false;
             // 
             // textBox6
             // 
@@ -221,6 +223,7 @@
             this.label9.Size = new System.Drawing.Size(103, 13);
             this.label9.TabIndex = 57;
             this.label9.Text = "Enter case end date";
+            this.label9.Visible = false;
             // 
             // dateTimePicker2
             // 
@@ -228,6 +231,7 @@
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(174, 20);
             this.dateTimePicker2.TabIndex = 56;
+            this.dateTimePicker2.Visible = false;
             // 
             // button2
             // 

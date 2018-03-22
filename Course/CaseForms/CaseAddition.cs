@@ -40,13 +40,32 @@ namespace Course
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(idValidation.IsMatch(textBox1.Text) || defendantIdValid.IsMatch(textBox2.Text) || plaintiffIdValid.IsMatch(textBox3.Text) || judgeIdValid.IsMatch(textBox4.Text))
+            if (dateTimePicker2.Visible == true)
+            {
+                if (dateTimePicker1.Value < dateTimePicker2.Value)
+                {
+                    Addition();
+                }
+                else
+                {
+                    MessageBox.Show("Дата окончания дела указана неккоректно");
+                }
+            }
+            else
+            {
+                Addition();
+            }
+        }
+
+        private void Addition()
+        {
+            if (idValidation.IsMatch(textBox1.Text) || defendantIdValid.IsMatch(textBox2.Text) || plaintiffIdValid.IsMatch(textBox3.Text) || judgeIdValid.IsMatch(textBox4.Text))
             {
                 MessageBox.Show("Id allows only numbers");
             }
             else
             {
-            Connection.Connector(@case.Insert(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text,dateTimePicker1.Value,dateTimePicker2.Value, isEnd, isLegal, textBox9.Text));
+                Connection.Connector(@case.Insert(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, dateTimePicker1.Value, dateTimePicker2.Value, isEnd, isLegal, textBox9.Text));
                 Clean();
             }
         }
@@ -56,7 +75,7 @@ namespace Course
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 e.Cancel = true;
-                this.Visible = false;
+                Visible = false;
             }
         }
 
@@ -66,6 +85,21 @@ namespace Course
                 isEnd = -1;
             else
                 isEnd = 0;
+            if (dateTimePicker2.Visible == true)
+            {
+                label9.Visible = false;
+                dateTimePicker2.Visible = false;
+                label7.Visible = false;
+                textBox9.Visible = false;
+            }
+            else
+            {
+                label9.Visible = true;
+                dateTimePicker2.Visible = true;
+                label7.Visible = true;
+                textBox9.Visible = true;
+            }
+
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)

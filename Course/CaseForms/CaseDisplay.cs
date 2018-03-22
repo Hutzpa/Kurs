@@ -22,7 +22,9 @@ namespace Course
         }
 
         private static CaseDisplay caseDisplayNopar;
-
+        /// <summary>
+        /// Синглтон
+        /// </summary>
         public static CaseDisplay GetCaseDisplay()
         {
             if (caseDisplayNopar == null)
@@ -54,6 +56,9 @@ namespace Course
         private CaseEditing caseEditing;
         private Deleting deleting;
 
+        /// <summary>
+        /// Выключение параметров формы для вывода
+        /// </summary>
         private void Off()
         {
             textBox1.Hide();
@@ -203,6 +208,11 @@ namespace Course
         }
         #endregion
 
+        /// <summary>
+        /// Предотвращение ошибки null reference
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CaseDisplay_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
@@ -210,26 +220,48 @@ namespace Course
             Hide();
         }
 
+        /// <summary>
+        /// Редактирование выбранного дела
+        /// </summary>
         private void button8_Click(object sender, EventArgs e)
         {
             caseEditing = CaseEditing.GetCaseEditing(dataGridView1.CurrentRow.Cells[0].Value.ToString());
             caseEditing.Show();
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Удаление выбраного дела
+        /// </summary>
+         private void button9_Click(object sender, EventArgs e)
         {
             deleting = new Deleting(WhichForm.Case, dataGridView1.CurrentRow.Cells[0].Value.ToString());
             deleting.Show();
         }
 
+        /// <summary>
+        /// Закрытие
+        /// </summary>
         private void button10_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Обновление
+        /// </summary>
         private void button11_Click(object sender, EventArgs e)
         {
             Connection.Connector(dataGridView1, @case.Display());
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+            richTextBox1.Text = dataGridView1[e.ColumnIndex, e.RowIndex].Value.ToString();
+            }
+            catch(Exception ex)
+            { }
         }
     }
 }

@@ -61,6 +61,7 @@
             this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 36;
             this.label7.Text = "Verdict";
+            this.label7.Visible = false;
             // 
             // checkBox2
             // 
@@ -154,6 +155,7 @@
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(174, 20);
             this.textBox9.TabIndex = 26;
+            this.textBox9.Visible = false;
             // 
             // textBox6
             // 
@@ -214,16 +216,17 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(174, 20);
             this.dateTimePicker1.TabIndex = 56;
-            this.dateTimePicker1.Value = new System.DateTime(2018, 3, 19, 12, 50, 34, 0);
+            this.dateTimePicker1.Value = new System.DateTime(2018, 3, 22, 0, 0, 0, 0);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(11, 284);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(105, 13);
+            this.label9.Size = new System.Drawing.Size(103, 13);
             this.label9.TabIndex = 59;
-            this.label9.Text = "Enter case start date";
+            this.label9.Text = "Enter case end date";
+            this.label9.Visible = false;
             // 
             // dateTimePicker2
             // 
@@ -233,7 +236,8 @@
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(174, 20);
             this.dateTimePicker2.TabIndex = 58;
-            this.dateTimePicker2.Value = new System.DateTime(2018, 3, 19, 12, 50, 34, 0);
+            this.dateTimePicker2.Value = new System.DateTime(2018, 3, 22, 0, 0, 0, 0);
+            this.dateTimePicker2.Visible = false;
             // 
             // button2
             // 

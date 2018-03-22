@@ -35,24 +35,52 @@ namespace Course
         private short isEnd = 0;
         private short isLegal = 0;
 
-        public static CaseEditing caseEditing;
+        public static CaseEditing caseEditingNoparam;
+
+        public static CaseEditing caseEditingParam;
 
         public static CaseEditing GetCaseEditing()
         {
-            if (caseEditing == null)
-                caseEditing = new CaseEditing();
-            return caseEditing;
+            if (caseEditingNoparam == null)
+                caseEditingNoparam = new CaseEditing();
+            return caseEditingNoparam;
         }
 
         public static CaseEditing GetCaseEditing(string id)
         {
-            if (caseEditing == null)
-                caseEditing = new CaseEditing(id);
-            return caseEditing;
+            if (caseEditingParam == null)
+                caseEditingParam = new CaseEditing(id);
+            return caseEditingParam;
         }
 
     
         private void button1_Click(object sender, EventArgs e)
+        {
+            if (dateTimePicker2.Visible == true)
+            {
+                if (dateTimePicker1.Value < dateTimePicker2.Value)
+                {
+                    Editing();
+                }
+                else
+                {
+                    MessageBox.Show("Дата окончания дела указана неккоректно");
+                }
+            }
+            else
+                Editing();
+        }
+
+        private void CaseEditing_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                this.Visible = false;
+            }
+        }
+
+        private void Editing()
         {
             if (idValidation.IsMatch(textBox1.Text) || defendantIdValid.IsMatch(textBox2.Text) || plaintiffIdValid.IsMatch(textBox3.Text) || judgeIdValid.IsMatch(textBox4.Text))
             {
@@ -65,21 +93,27 @@ namespace Course
             }
         }
 
-        private void CaseEditing_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (e.CloseReason == CloseReason.UserClosing)
-            {
-                e.Cancel = true;
-                this.Visible = false;
-            }
-        }
-
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (isEnd == 0)
                 isEnd = -1;
             else
                 isEnd = 0;
+
+            if (dateTimePicker2.Visible == true)
+            {
+                label9.Visible = false;
+                dateTimePicker2.Visible = false;
+                label7.Visible = false;
+                textBox9.Visible = false;
+            }
+            else
+            {
+                label9.Visible = true;
+                dateTimePicker2.Visible = true;
+                label7.Visible = true;
+                textBox9.Visible = true;
+            }
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)

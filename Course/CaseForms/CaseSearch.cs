@@ -140,5 +140,10 @@ namespace Course
         {
             Close();
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            richTextBox1.Text = dataGridView1[e.ColumnIndex, e.RowIndex].Value.ToString();
+        }
     }
 }

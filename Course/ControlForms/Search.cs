@@ -47,7 +47,7 @@ namespace Course
                 default:
                     {
                         MessageBox.Show("NO FORM SELECTED");
-                        this.Close();
+                        Close();
                         break;
                     }
             }
@@ -106,14 +106,28 @@ namespace Course
 
         private void button2_Click(object sender, EventArgs e)
         {
-            deleting = new Deleting(whichForm,dataGridView1.CurrentRow.Cells[0].Value.ToString());
-            deleting.Show();
+            if(dataGridView1.RowCount == 0)
+            {
+                MessageBox.Show("No data selected");
+            }
+            else
+            {
+                deleting = new Deleting(whichForm, dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                deleting.ShowDialog();
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            editing = new Editing(whichForm, dataGridView1.CurrentRow.Cells[0].Value.ToString());
-            editing.Show();
+            if(dataGridView1.RowCount == 0)
+            {
+                MessageBox.Show("No data selected");
+            }
+            else
+            {
+                editing = new Editing(whichForm, dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                editing.ShowDialog();
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
