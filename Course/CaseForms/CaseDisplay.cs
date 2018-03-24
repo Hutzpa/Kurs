@@ -41,7 +41,16 @@ namespace Course
 
         private void button15_Click(object sender, EventArgs e)
         {
-            Connection.Connector(dataGridView1, @case.Zero(textBox2.Text));
+            if(textBox2.Text == "")
+            {
+                MessageBox.Show("Enter fullname first");
+            }
+            else
+            {
+                Connection.Connector(dataGridView1, @case.Zero(textBox2.Text));
+                Clipboard.SetText(textBox2.Text);
+                textBox2.Text = null;
+            }
         }
 
         private void button15_MouseMove(object sender, MouseEventArgs e)
@@ -101,7 +110,16 @@ namespace Course
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Connection.Connector(dataGridView1,@case.Second(textBox1.Text));
+            if(textBox1.Text == "")
+            {
+                MessageBox.Show("Enter keyword first");
+            }
+            else
+            {
+                Connection.Connector(dataGridView1, @case.Second(textBox1.Text));
+                Clipboard.SetText(textBox1.Text);
+                textBox1.Text = null;
+            }
         }
         #endregion
 

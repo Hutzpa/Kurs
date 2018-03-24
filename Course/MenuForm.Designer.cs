@@ -30,19 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.caseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addNewCaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.findCaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listOfLegalCasesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.caseInArticleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.activeCaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.judgeCaseListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.plaintiffCaseListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.defendantCaseListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editCaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.displayCasesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteCaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.judgeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewJudgeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findJudgeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,126 +49,21 @@
             this.displayDefendantToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteDefendantToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.button2 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.caseToolStripMenuItem,
             this.judgeToolStripMenuItem,
             this.plaintiffToolStripMenuItem,
             this.defendantToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(254, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(435, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // caseToolStripMenuItem
-            // 
-            this.caseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addNewCaseToolStripMenuItem,
-            this.findCaseToolStripMenuItem,
-            this.editCaseToolStripMenuItem,
-            this.displayCasesToolStripMenuItem,
-            this.deleteCaseToolStripMenuItem});
-            this.caseToolStripMenuItem.Name = "caseToolStripMenuItem";
-            this.caseToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.caseToolStripMenuItem.Text = "Case";
-            // 
-            // addNewCaseToolStripMenuItem
-            // 
-            this.addNewCaseToolStripMenuItem.Name = "addNewCaseToolStripMenuItem";
-            this.addNewCaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addNewCaseToolStripMenuItem.Text = "Add new case";
-            this.addNewCaseToolStripMenuItem.Click += new System.EventHandler(this.addNewCaseToolStripMenuItem_Click);
-            // 
-            // findCaseToolStripMenuItem
-            // 
-            this.findCaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem3,
-            this.listOfLegalCasesToolStripMenuItem,
-            this.toolStripMenuItem2,
-            this.caseInArticleToolStripMenuItem,
-            this.activeCaseToolStripMenuItem,
-            this.judgeCaseListToolStripMenuItem,
-            this.plaintiffCaseListToolStripMenuItem,
-            this.defendantCaseListToolStripMenuItem});
-            this.findCaseToolStripMenuItem.Name = "findCaseToolStripMenuItem";
-            this.findCaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.findCaseToolStripMenuItem.Text = "Find case";
-            // 
-            // listOfLegalCasesToolStripMenuItem
-            // 
-            this.listOfLegalCasesToolStripMenuItem.Name = "listOfLegalCasesToolStripMenuItem";
-            this.listOfLegalCasesToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
-            this.listOfLegalCasesToolStripMenuItem.Text = "1.List of legal cases";
-            this.listOfLegalCasesToolStripMenuItem.Click += new System.EventHandler(this.listOfLegalCasesToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(244, 22);
-            this.toolStripMenuItem2.Text = "2.Case in content";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            // 
-            // caseInArticleToolStripMenuItem
-            // 
-            this.caseInArticleToolStripMenuItem.Name = "caseInArticleToolStripMenuItem";
-            this.caseInArticleToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
-            this.caseInArticleToolStripMenuItem.Text = "3. Case in article";
-            this.caseInArticleToolStripMenuItem.Click += new System.EventHandler(this.caseInArticleToolStripMenuItem_Click);
-            // 
-            // activeCaseToolStripMenuItem
-            // 
-            this.activeCaseToolStripMenuItem.Name = "activeCaseToolStripMenuItem";
-            this.activeCaseToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
-            this.activeCaseToolStripMenuItem.Text = "4. Active case";
-            this.activeCaseToolStripMenuItem.Click += new System.EventHandler(this.activeCaseToolStripMenuItem_Click);
-            // 
-            // judgeCaseListToolStripMenuItem
-            // 
-            this.judgeCaseListToolStripMenuItem.Name = "judgeCaseListToolStripMenuItem";
-            this.judgeCaseListToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
-            this.judgeCaseListToolStripMenuItem.Text = "5.Judge case list";
-            this.judgeCaseListToolStripMenuItem.Click += new System.EventHandler(this.judgeCaseListToolStripMenuItem_Click);
-            // 
-            // plaintiffCaseListToolStripMenuItem
-            // 
-            this.plaintiffCaseListToolStripMenuItem.Name = "plaintiffCaseListToolStripMenuItem";
-            this.plaintiffCaseListToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
-            this.plaintiffCaseListToolStripMenuItem.Text = "6.Plaintiff case list";
-            this.plaintiffCaseListToolStripMenuItem.Click += new System.EventHandler(this.plaintiffCaseListToolStripMenuItem_Click);
-            // 
-            // defendantCaseListToolStripMenuItem
-            // 
-            this.defendantCaseListToolStripMenuItem.Name = "defendantCaseListToolStripMenuItem";
-            this.defendantCaseListToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
-            this.defendantCaseListToolStripMenuItem.Text = "7.Defendant case list";
-            this.defendantCaseListToolStripMenuItem.Click += new System.EventHandler(this.defendantCaseListToolStripMenuItem_Click);
-            // 
-            // editCaseToolStripMenuItem
-            // 
-            this.editCaseToolStripMenuItem.Name = "editCaseToolStripMenuItem";
-            this.editCaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.editCaseToolStripMenuItem.Text = "Edit case";
-            this.editCaseToolStripMenuItem.Click += new System.EventHandler(this.editCaseToolStripMenuItem_Click);
-            // 
-            // displayCasesToolStripMenuItem
-            // 
-            this.displayCasesToolStripMenuItem.Name = "displayCasesToolStripMenuItem";
-            this.displayCasesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.displayCasesToolStripMenuItem.Text = "Display cases";
-            this.displayCasesToolStripMenuItem.Click += new System.EventHandler(this.displayCasesToolStripMenuItem_Click);
-            // 
-            // deleteCaseToolStripMenuItem
-            // 
-            this.deleteCaseToolStripMenuItem.Name = "deleteCaseToolStripMenuItem";
-            this.deleteCaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.deleteCaseToolStripMenuItem.Text = "Delete case";
-            this.deleteCaseToolStripMenuItem.Click += new System.EventHandler(this.deleteCaseToolStripMenuItem_Click);
             // 
             // judgeToolStripMenuItem
             // 
@@ -198,35 +80,35 @@
             // addNewJudgeToolStripMenuItem
             // 
             this.addNewJudgeToolStripMenuItem.Name = "addNewJudgeToolStripMenuItem";
-            this.addNewJudgeToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.addNewJudgeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addNewJudgeToolStripMenuItem.Text = "Add new judge";
             this.addNewJudgeToolStripMenuItem.Click += new System.EventHandler(this.addNewJudgeToolStripMenuItem_Click);
             // 
             // findJudgeToolStripMenuItem
             // 
             this.findJudgeToolStripMenuItem.Name = "findJudgeToolStripMenuItem";
-            this.findJudgeToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.findJudgeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.findJudgeToolStripMenuItem.Text = "Find judge";
             this.findJudgeToolStripMenuItem.Click += new System.EventHandler(this.findJudgeToolStripMenuItem_Click);
             // 
             // editJudgeToolStripMenuItem
             // 
             this.editJudgeToolStripMenuItem.Name = "editJudgeToolStripMenuItem";
-            this.editJudgeToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.editJudgeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editJudgeToolStripMenuItem.Text = "Edit judge";
             this.editJudgeToolStripMenuItem.Click += new System.EventHandler(this.editJudgeToolStripMenuItem_Click);
             // 
             // displayJudgesToolStripMenuItem
             // 
             this.displayJudgesToolStripMenuItem.Name = "displayJudgesToolStripMenuItem";
-            this.displayJudgesToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.displayJudgesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.displayJudgesToolStripMenuItem.Text = "Display judges";
             this.displayJudgesToolStripMenuItem.Click += new System.EventHandler(this.displayJudgesToolStripMenuItem_Click);
             // 
             // deleteJudgeToolStripMenuItem
             // 
             this.deleteJudgeToolStripMenuItem.Name = "deleteJudgeToolStripMenuItem";
-            this.deleteJudgeToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.deleteJudgeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteJudgeToolStripMenuItem.Text = "Delete judge";
             this.deleteJudgeToolStripMenuItem.Click += new System.EventHandler(this.deleteJudgeToolStripMenuItem_Click);
             // 
@@ -326,7 +208,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(53, 77);
+            this.button1.Location = new System.Drawing.Point(258, 63);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -334,18 +216,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // toolStripMenuItem3
+            // button2
             // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(244, 22);
-            this.toolStripMenuItem3.Text = "0.Search by defendant full name";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            this.button2.Location = new System.Drawing.Point(26, 91);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Case display";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(254, 138);
+            this.ClientSize = new System.Drawing.Size(435, 217);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -363,7 +249,6 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem caseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem judgeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addNewJudgeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem findJudgeToolStripMenuItem;
@@ -379,22 +264,10 @@
         private System.Windows.Forms.ToolStripMenuItem findDefendantToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editDefendantToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteDefendantToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addNewCaseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem findCaseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editCaseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteCaseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listOfLegalCasesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem caseInArticleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem activeCaseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem judgeCaseListToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem plaintiffCaseListToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem defendantCaseListToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem displayCasesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem displayJudgesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem displayPlaintiffsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem displayDefendantToolStripMenuItem;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.Button button2;
     }
 }

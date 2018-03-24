@@ -15,13 +15,15 @@ namespace Course
         public MenuForm()
         {
             InitializeComponent();
-            //Greeting();
+            Greeting();
         }
         private Addition addition;
         private Deleting deleting;
         private Editing editing;
         private Search search;
         private Displayer displayer;
+
+        private CaseDisplay caseDisplay;
 
         #region Judge
         private void addNewJudgeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -122,88 +124,7 @@ namespace Course
 
         #endregion
 
-        #region Case 
-        private CaseAddition caseAddition;
-        private CaseDisplay caseDisplay;
-        private CaseEditing caseEditing;
-        private CaseSearch caseSearch;
-
-        private void addNewCaseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            caseAddition = CaseAddition.GetCaseAddition();
-            caseAddition.ShowDialog();
-        }
-
-        private void editCaseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            caseEditing = CaseEditing.GetCaseEditing();
-            caseEditing.ShowDialog();
-        }
-
-        private void deleteCaseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            deleting = new Deleting(WhichForm.Case);
-            deleting.ShowDialog();
-        }
-
-        private void displayCasesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            caseDisplay = CaseDisplay.GetCaseDisplay();
-            caseDisplay.ShowDialog();
-        }
-
-        #region Case inquire
-
-        private void toolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-            caseSearch = new CaseSearch(WhichInquiry.Zeroth);
-            caseSearch.ShowDialog();
-        }
-
-        private void listOfLegalCasesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            caseSearch = new CaseSearch(WhichInquiry.First);
-            caseSearch.ShowDialog();
-        }
-
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            caseSearch = new CaseSearch(WhichInquiry.Second);
-            caseSearch.ShowDialog();
-        }
-
-        private void caseInArticleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            caseSearch = new CaseSearch(WhichInquiry.Third);
-            caseSearch.ShowDialog();
-        }
-
-        private void activeCaseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            caseSearch = new CaseSearch(WhichInquiry.Fourth);
-            caseSearch.ShowDialog();
-        }
-
-        private void judgeCaseListToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            caseSearch = new CaseSearch(WhichInquiry.Fifth);
-            caseSearch.ShowDialog();
-        }
-
-        private void plaintiffCaseListToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            caseSearch = new CaseSearch(WhichInquiry.Sixth);
-            caseSearch.ShowDialog();
-        }
-
-        private void defendantCaseListToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            caseSearch = new CaseSearch(WhichInquiry.Seventh);
-            caseSearch.ShowDialog();
-        }
-        #endregion
-
-        #endregion
+     
 
         private void Greeting()
         {
@@ -222,6 +143,10 @@ namespace Course
             Close();
         }
 
-       
+        private void button2_Click(object sender, EventArgs e)
+        {
+            caseDisplay = CaseDisplay.GetCaseDisplay();
+            caseDisplay.Show();
+        }
     }
 }
