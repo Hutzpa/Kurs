@@ -31,193 +31,198 @@ namespace Course
                 caseDisplayNopar = new CaseDisplay();
             return caseDisplayNopar;
         }
-        /// <summary>
-        /// Конструктор для вывода по запросу
-        /// </summary>
-        private CaseDisplay(string query)
-        {
-            InitializeComponent();
-            Off();
-            Connection.Connector(dataGridView1, query);
-        }
-
-        private static CaseDisplay caseDisplayParam;
-
-        public static CaseDisplay GetCaseDisplay(string query)
-        {
-            if (caseDisplayParam == null)
-                caseDisplayParam = new CaseDisplay(query);
-            return caseDisplayParam;
-        }
 
         private Case @case = new Case();
-        private CaseDisplay caseDisplay;
-
+        private CaseAddition caseAddition;
         private CaseEditing caseEditing;
-        private Deleting deleting;
+        private Deleting deleting = new Deleting(WhichForm.Case);
 
-        /// <summary>
-        /// Выключение параметров формы для вывода
-        /// </summary>
-        private void Off()
+        #region Zeroth inqurie
+
+        private void button15_Click(object sender, EventArgs e)
         {
-            textBox1.Hide();
-            label1.Hide();
-            label2.Hide();
-            label3.Hide();
-            label4.Hide();
-            label5.Hide();
-            label6.Hide();
-            label7.Hide();
-            button1.Hide();
-            button2.Hide();
-            button3.Hide();
-            button4.Hide();
-            button5.Hide();
-            button6.Hide();
-            button7.Hide();
-            statusStrip1.Hide();
-            dataGridView1.Location = new Point(12, 25);
-            Height = 220;
+            Connection.Connector(dataGridView1, @case.Zero(textBox2.Text));
         }
+
+        private void button15_MouseMove(object sender, MouseEventArgs e)
+        {
+            label8.Text = "Find all cases of defendant ordering by his fullname";
+            button15.Height = 55;
+            button15.Width = 155;
+        }
+
+        private void button15_MouseLeave(object sender, EventArgs e)
+        {
+            label8.Text = null;
+            button15.Height = 50;
+            button15.Width = 150;
+        }
+
+        #endregion
 
         #region First inqurie
-        private void label1_MouseMove(object sender, MouseEventArgs e)
+
+        private void button1_MouseMove(object sender, MouseEventArgs e)
         {
-            toolStripStatusLabel1.Text = "Find all legal cases";
+            label1.Text = "Find all legal cases";
+            button1.Height = 55;
+            button1.Width = 155;
         }
 
-        private void label1_MouseLeave(object sender, EventArgs e)
+        private void button1_MouseLeave(object sender, EventArgs e)
         {
-            toolStripStatusLabel1.Text = null;
+            label1.Text = null;
+            button1.Height = 50;
+            button1.Width = 150;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            caseDisplay = new CaseDisplay(@case.First("-1"));
-            caseDisplay.Show();
+            Connection.Connector(dataGridView1,@case.First("-1"));
         }
+
         #endregion
 
         #region Second inqurie
-        private void label2_MouseMove(object sender, MouseEventArgs e)
+
+        private void button2_MouseMove(object sender, MouseEventArgs e)
         {
-            toolStripStatusLabel1.Text = "Find cases which contains keyword";
+            label2.Text = "Find cases which contains keyword";
+            button2.Height = 55;
+            button2.Width = 155;
         }
 
-        private void label2_MouseLeave(object sender, EventArgs e)
+        private void button2_MouseLeave(object sender, EventArgs e)
         {
-            toolStripStatusLabel1.Text = null;
+            label2.Text = null;
+            button2.Height = 50;
+            button2.Width = 150;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            caseDisplay = new CaseDisplay(@case.Second(textBox1.Text));
-            caseDisplay.Show();
+            Connection.Connector(dataGridView1,@case.Second(textBox1.Text));
         }
         #endregion
 
         #region Third inqurie 
-        private void label3_MouseMove(object sender, MouseEventArgs e)
+
+        private void button3_MouseMove(object sender, MouseEventArgs e)
         {
-            toolStripStatusLabel1.Text = "Find all cases of this article that you select";
+            label3.Text = "Find all cases of article that you select";
+            button3.Height = 55;
+            button3.Width = 155;
         }
 
-        private void label3_MouseLeave(object sender, EventArgs e)
+        private void button3_MouseLeave(object sender, EventArgs e)
         {
-            toolStripStatusLabel1.Text = null;
+            label3.Text = null;
+            button3.Height = 50;
+            button3.Width = 150;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            caseDisplay = new CaseDisplay(@case.Third(dataGridView1.CurrentRow.Cells[5].Value.ToString()));
-            caseDisplay.Show();
+            Connection.Connector(dataGridView1,@case.Third(dataGridView1.CurrentRow.Cells[5].Value.ToString()));
         }
         #endregion
 
         #region Fourth inqurie 
-        private void label4_MouseMove(object sender, MouseEventArgs e)
+
+        private void button4_MouseMove(object sender, MouseEventArgs e)
         {
-            toolStripStatusLabel1.Text = "Find all unfinished cases";
+            label4.Text = "Find all unfinished cases";
+            button4.Height = 55;
+            button4.Width = 155;
         }
 
-        private void label4_MouseLeave(object sender, EventArgs e)
+        private void button4_MouseLeave(object sender, EventArgs e)
         {
-            toolStripStatusLabel1.Text = null;
+            label4.Text = null;
+            button4.Height = 50;
+            button4.Width = 150;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            caseDisplay = new CaseDisplay(@case.Fourth("-1"));
-            caseDisplay.Show();
+            Connection.Connector(dataGridView1,@case.Fourth("-1"));
         }
         #endregion
 
         #region Fifth inqurie
-        private void label5_MouseMove(object sender, MouseEventArgs e)
+
+        private void button5_MouseMove(object sender, MouseEventArgs e)
         {
-            toolStripStatusLabel1.Text = "Find all cases of selected judge";
+            label5.Text = "Find all cases of selected judge";
+            button5.Height = 55;
+            button5.Width = 155;
         }
 
-        private void label5_MouseLeave(object sender, EventArgs e)
+        private void button5_MouseLeave(object sender, EventArgs e)
         {
-            toolStripStatusLabel1.Text = null;
+            label5.Text = null;
+            button5.Height = 50;
+            button5.Width = 150;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            caseDisplay = new CaseDisplay(@case.Fifth(dataGridView1.CurrentRow.Cells[3].Value.ToString()));
-            caseDisplay.Show();
+            Connection.Connector(dataGridView1,@case.Fifth(dataGridView1.CurrentRow.Cells[3].Value.ToString()));
         }
         #endregion
 
         #region Sixt inqurie
 
-        private void label6_MouseMove(object sender, MouseEventArgs e)
+        private void button6_MouseMove(object sender, MouseEventArgs e)
         {
-            toolStripStatusLabel1.Text = "Find all cases of selected plaintiff";
+            label6.Text = "Find all cases of selected plaintiff";
+            button6.Height = 55;
+            button6.Width = 155;
         }
 
-        private void label6_MouseLeave(object sender, EventArgs e)
+        private void button6_MouseLeave(object sender, EventArgs e)
         {
-            toolStripStatusLabel1.Text = null;
+            label6.Text = null;
+            button6.Height = 50;
+            button6.Width = 150;
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            caseDisplay = new CaseDisplay(@case.Sixth(dataGridView1.CurrentRow.Cells[2].Value.ToString()));
-            caseDisplay.Show();
+            Connection.Connector(dataGridView1,@case.Sixth(dataGridView1.CurrentRow.Cells[2].Value.ToString()));
         }
         #endregion
 
         #region Seventh inqurie
-        private void label7_MouseMove(object sender, MouseEventArgs e)
+
+        private void button7_MouseMove(object sender, MouseEventArgs e)
         {
-            toolStripStatusLabel1.Text = "Find all cases of selected defendant";
+            label7.Text = "Find all cases of selected defendant";
+            button7.Height = 55;
+            button7.Width = 150;
         }
 
-        private void label7_MouseLeave(object sender, EventArgs e)
+        private void button7_MouseLeave(object sender, EventArgs e)
         {
-            toolStripStatusLabel1.Text = null;
+            label7.Text = null;
+            button7.Height = 50;
+            button7.Width = 150;
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            caseDisplay = new CaseDisplay(@case.Seventh(dataGridView1.CurrentRow.Cells[1].Value.ToString()));
-            caseDisplay.Show();
+            Connection.Connector(dataGridView1,@case.Seventh(dataGridView1.CurrentRow.Cells[1].Value.ToString()));
         }
         #endregion
 
+        #region Delete Edit Display
+
         /// <summary>
-        /// Предотвращение ошибки null reference
+        /// Обновление
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void CaseDisplay_FormClosing(object sender, FormClosingEventArgs e)
+        private void button11_Click(object sender, EventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
-                e.Cancel = true;
-            Hide();
+            Connection.Connector(dataGridView1, @case.Display());
         }
 
         /// <summary>
@@ -234,8 +239,132 @@ namespace Course
         /// </summary>
          private void button9_Click(object sender, EventArgs e)
         {
-            deleting = new Deleting(WhichForm.Case, dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            Connection.Connector(@case.Delete(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
+            Connection.Connector(dataGridView1,@case.Display());
+        }
+
+        private void button9_MouseMove(object sender, MouseEventArgs e)
+        {
+            button9.Height = 105;
+            button9.Width = 405;
+        }
+
+        private void button9_MouseLeave(object sender, EventArgs e)
+        {
+            button9.Height = 100;
+            button9.Width = 400;
+        }
+
+        private void button8_MouseMove(object sender, MouseEventArgs e)
+        {
+            button8.Height = 105;
+            button8.Width = 405;
+        }
+
+        private void button8_MouseLeave(object sender, EventArgs e)
+        {
+            button8.Height = 100;
+            button8.Width = 400;
+        }
+
+        private void button11_MouseMove(object sender, MouseEventArgs e)
+        {
+            button11.Height = 105;
+            button11.Width = 405;
+        }
+
+        private void button11_MouseLeave(object sender, EventArgs e)
+        {
+            button11.Height = 100;
+            button11.Width = 400;
+        }
+        #endregion
+
+        /// <summary>
+        /// Предотвращение ошибки null reference
+        /// </summary>
+        private void CaseDisplay_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+                e.Cancel = true;
+            Hide();
+        }
+
+        /// <summary>
+        /// Добавление выделенного в Rich TB
+        /// </summary>
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+            richTextBox1.Text = dataGridView1[e.ColumnIndex, e.RowIndex].Value.ToString();
+            }
+            catch(Exception ex)
+            { }
+        }
+
+        #region Form bottom
+
+        /// <summary>
+        /// Добавление
+        /// </summary>
+        private void button12_Click(object sender, EventArgs e)
+        {
+            caseAddition = CaseAddition.GetCaseAddition();
+            caseAddition.Show();
+        }
+
+        private void button12_MouseMove(object sender, MouseEventArgs e)
+        {
+            button12.Height = 115;
+            button12.Width = 305;
+        }
+
+        private void button12_MouseLeave(object sender, EventArgs e)
+        {
+            button12.Height = 110;
+            button12.Width = 300;
+        }
+
+        /// <summary>
+        /// Редактирование
+        /// </summary>
+        private void button13_Click(object sender, EventArgs e)
+        {
+            caseEditing = CaseEditing.GetCaseEditing();
+            caseEditing.Show();
+        }
+
+        private void button13_MouseMove(object sender, MouseEventArgs e)
+        {
+            button13.Height = 115;
+            button13.Width = 305;
+        }
+
+        private void button13_MouseLeave(object sender, EventArgs e)
+        {
+            button13.Height = 110;
+            button13.Width = 300;
+        }
+
+        /// <summary>
+        /// Удаление 
+        /// </summary>
+        private void button14_Click(object sender, EventArgs e)
+        {
             deleting.Show();
+        }
+
+        private void button14_MouseMove(object sender, MouseEventArgs e)
+        {
+            button14.Height = 115;
+            button14.Width = 305;
+        }
+
+        private void button14_MouseLeave(object sender, EventArgs e)
+        {
+            button14.Height = 110;
+            button14.Width = 300;
         }
 
         /// <summary>
@@ -246,22 +375,18 @@ namespace Course
             Close();
         }
 
-        /// <summary>
-        /// Обновление
-        /// </summary>
-        private void button11_Click(object sender, EventArgs e)
+        private void button10_MouseMove(object sender, MouseEventArgs e)
         {
-            Connection.Connector(dataGridView1, @case.Display());
+            button10.Height = 115;
+            button10.Width = 305;
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void button10_MouseLeave(object sender, EventArgs e)
         {
-            try
-            {
-            richTextBox1.Text = dataGridView1[e.ColumnIndex, e.RowIndex].Value.ToString();
-            }
-            catch(Exception ex)
-            { }
+            button10.Height = 110;
+            button10.Width = 300;
         }
+        #endregion
+
     }
 }
