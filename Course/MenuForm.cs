@@ -15,116 +15,11 @@ namespace Course
         public MenuForm()
         {
             InitializeComponent();
-            Greeting();
+            //Greeting();
         }
-        private Addition addition;
-        private Deleting deleting;
-        private Editing editing;
-        private Search search;
-        private Displayer displayer;
 
         private CaseDisplay caseDisplay;
-
-        #region Judge
-        private void addNewJudgeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            addition = new Addition(WhichForm.Judge);
-            addition.ShowDialog();
-        }
-
-        private void findJudgeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            search = new Search(WhichForm.Judge);
-            search.ShowDialog();
-        }
-
-        private void deleteJudgeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            deleting = new Deleting(WhichForm.Judge);
-            deleting.ShowDialog();
-        }
-
-        private void editJudgeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            editing = new Editing(WhichForm.Judge);
-            editing.ShowDialog();
-        }
-
-        private void displayJudgesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            displayer = new Displayer(WhichForm.Judge);
-            displayer.ShowDialog();
-        }
-
-        #endregion
-
-        #region Plaintiff
-        private void addNewPlaintiffToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            addition = new Addition(WhichForm.Plaintiff);
-            addition.ShowDialog();
-        }
-
-        private void findPlaintiffToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            search = new Search(WhichForm.Plaintiff);
-            search.ShowDialog();
-        }
-
-        private void editPlaintiffToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            editing = new Editing(WhichForm.Plaintiff);
-            editing.ShowDialog();
-        }
-
-        private void deletePlaintiffToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            deleting = new Deleting(WhichForm.Plaintiff);
-            deleting.ShowDialog();
-        }
-
-        private void displayPlaintiffsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            displayer = new Displayer(WhichForm.Plaintiff);
-            displayer.ShowDialog();
-        }
-
-        #endregion
-
-        #region Defendant
-        private void addNewDefendantToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            addition = new Addition(WhichForm.Defendant);
-            addition.ShowDialog();
-        }
-
-        private void findDefendantToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            search = new Search(WhichForm.Defendant);
-            search.ShowDialog();
-        }
-
-        private void editDefendantToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            editing = new Editing(WhichForm.Defendant);
-            editing.ShowDialog();
-        }
-
-        private void deleteDefendantToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            deleting = new Deleting(WhichForm.Defendant);
-            deleting.ShowDialog();
-        }
-
-        private void displayDefendantToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            displayer = new Displayer(WhichForm.Defendant);
-            displayer.ShowDialog();
-        }
-
-        #endregion
-
-     
+        private Displayer displayer;
 
         private void Greeting()
         {
@@ -147,6 +42,74 @@ namespace Course
         {
             caseDisplay = CaseDisplay.GetCaseDisplay();
             caseDisplay.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            displayer = new Displayer(WhichForm.Judge);
+            displayer.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            displayer = new Displayer(WhichForm.Plaintiff);
+            displayer.ShowDialog();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            displayer = new Displayer(WhichForm.Defendant);
+            displayer.ShowDialog();
+        }
+
+        private void button2_MouseMove(object sender, MouseEventArgs e)
+        {
+            label1.Text = "Case";
+        }
+
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
+            label1.Text = null;
+        }
+
+        private void button5_MouseMove(object sender, MouseEventArgs e)
+        {
+            label1.Text = "Defendant";
+        }
+
+        private void button5_MouseLeave(object sender, EventArgs e)
+        {
+            label1.Text = null;
+        }
+
+        private void button1_MouseMove(object sender, MouseEventArgs e)
+        {
+            label1.Text = "Close";
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            label1.Text = null;
+        }
+
+        private void button4_MouseMove(object sender, MouseEventArgs e)
+        {
+            label1.Text = "Plaintiff";
+        }
+
+        private void button4_MouseLeave(object sender, EventArgs e)
+        {
+            label1.Text = null;
+        }
+
+        private void button3_MouseMove(object sender, MouseEventArgs e)
+        {
+            label1.Text = "Judge";
+        }
+
+        private void button3_MouseLeave(object sender, EventArgs e)
+        {
+            label1.Text = null;
         }
     }
 }

@@ -82,7 +82,7 @@ namespace Course
 
         private void Editing()
         {
-            if (idValidation.IsMatch(textBox1.Text) || defendantIdValid.IsMatch(textBox2.Text) || plaintiffIdValid.IsMatch(textBox3.Text) || judgeIdValid.IsMatch(textBox4.Text))
+            if (idValidation.IsMatch(textBox1.Text) || textBox1.Text == "" || defendantIdValid.IsMatch(textBox2.Text) || textBox2.Text == "" || plaintiffIdValid.IsMatch(textBox3.Text) || textBox3.Text == "" || judgeIdValid.IsMatch(textBox4.Text) || textBox4.Text == "")
             {
                 MessageBox.Show("Id allows only numbers");
             }

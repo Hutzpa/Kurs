@@ -68,12 +68,6 @@
     <Compile Include="CaseForms\CaseEditing.Designer.cs">
       <DependentUpon>CaseEditing.cs</DependentUpon>
     </Compile>
-    <Compile Include="CaseForms\CaseSearch.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CaseForms\CaseSearch.Designer.cs">
-      <DependentUpon>CaseSearch.cs</DependentUpon>
-    </Compile>
     <Compile Include="ControlForms\Addition.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,12 +85,6 @@
     </Compile>
     <Compile Include="ControlForms\Deleting.Designer.cs">
       <DependentUpon>Deleting.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ControlForms\Search.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ControlForms\Search.Designer.cs">
-      <DependentUpon>Search.cs</DependentUpon>
     </Compile>
     <Compile Include="ControlForms\Displayer.cs">
       <SubType>Form</SubType>
@@ -128,9 +116,6 @@
     <EmbeddedResource Include="CaseForms\CaseEditing.resx">
       <DependentUpon>CaseEditing.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CaseForms\CaseSearch.resx">
-      <DependentUpon>CaseSearch.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ControlForms\Addition.resx">
       <DependentUpon>Addition.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,9 +124,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ControlForms\Editing.resx">
       <DependentUpon>Editing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ControlForms\Search.resx">
-      <DependentUpon>Search.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ControlForms\Displayer.resx">
       <DependentUpon>Displayer.cs</DependentUpon>
@@ -157,6 +139,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -171,6 +154,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="close-window.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Case.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Plaintiff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Defendant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Judge.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

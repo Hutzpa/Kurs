@@ -29,245 +29,128 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.judgeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addNewJudgeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.findJudgeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editJudgeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.displayJudgesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteJudgeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.plaintiffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addNewPlaintiffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.findPlaintiffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editPlaintiffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.displayPlaintiffsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deletePlaintiffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.defendantToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addNewDefendantToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.findDefendantToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editDefendantToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.displayDefendantToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteDefendantToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.menuStrip1.SuspendLayout();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // button5
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.judgeToolStripMenuItem,
-            this.plaintiffToolStripMenuItem,
-            this.defendantToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(435, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button5.BackgroundImage = global::Course.Properties.Resources.Defendant;
+            this.button5.Location = new System.Drawing.Point(209, 12);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(200, 200);
+            this.button5.TabIndex = 5;
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button5.MouseLeave += new System.EventHandler(this.button5_MouseLeave);
+            this.button5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button5_MouseMove);
             // 
-            // judgeToolStripMenuItem
+            // button4
             // 
-            this.judgeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addNewJudgeToolStripMenuItem,
-            this.findJudgeToolStripMenuItem,
-            this.editJudgeToolStripMenuItem,
-            this.displayJudgesToolStripMenuItem,
-            this.deleteJudgeToolStripMenuItem});
-            this.judgeToolStripMenuItem.Name = "judgeToolStripMenuItem";
-            this.judgeToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.judgeToolStripMenuItem.Text = "Judge";
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.BackgroundImage = global::Course.Properties.Resources.Plaintiff;
+            this.button4.Location = new System.Drawing.Point(3, 218);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(200, 175);
+            this.button4.TabIndex = 4;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.MouseLeave += new System.EventHandler(this.button4_MouseLeave);
+            this.button4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button4_MouseMove);
             // 
-            // addNewJudgeToolStripMenuItem
+            // button3
             // 
-            this.addNewJudgeToolStripMenuItem.Name = "addNewJudgeToolStripMenuItem";
-            this.addNewJudgeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.addNewJudgeToolStripMenuItem.Text = "Add new judge";
-            this.addNewJudgeToolStripMenuItem.Click += new System.EventHandler(this.addNewJudgeToolStripMenuItem_Click);
-            // 
-            // findJudgeToolStripMenuItem
-            // 
-            this.findJudgeToolStripMenuItem.Name = "findJudgeToolStripMenuItem";
-            this.findJudgeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.findJudgeToolStripMenuItem.Text = "Find judge";
-            this.findJudgeToolStripMenuItem.Click += new System.EventHandler(this.findJudgeToolStripMenuItem_Click);
-            // 
-            // editJudgeToolStripMenuItem
-            // 
-            this.editJudgeToolStripMenuItem.Name = "editJudgeToolStripMenuItem";
-            this.editJudgeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.editJudgeToolStripMenuItem.Text = "Edit judge";
-            this.editJudgeToolStripMenuItem.Click += new System.EventHandler(this.editJudgeToolStripMenuItem_Click);
-            // 
-            // displayJudgesToolStripMenuItem
-            // 
-            this.displayJudgesToolStripMenuItem.Name = "displayJudgesToolStripMenuItem";
-            this.displayJudgesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.displayJudgesToolStripMenuItem.Text = "Display judges";
-            this.displayJudgesToolStripMenuItem.Click += new System.EventHandler(this.displayJudgesToolStripMenuItem_Click);
-            // 
-            // deleteJudgeToolStripMenuItem
-            // 
-            this.deleteJudgeToolStripMenuItem.Name = "deleteJudgeToolStripMenuItem";
-            this.deleteJudgeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.deleteJudgeToolStripMenuItem.Text = "Delete judge";
-            this.deleteJudgeToolStripMenuItem.Click += new System.EventHandler(this.deleteJudgeToolStripMenuItem_Click);
-            // 
-            // plaintiffToolStripMenuItem
-            // 
-            this.plaintiffToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addNewPlaintiffToolStripMenuItem,
-            this.findPlaintiffToolStripMenuItem,
-            this.editPlaintiffToolStripMenuItem,
-            this.displayPlaintiffsToolStripMenuItem,
-            this.deletePlaintiffToolStripMenuItem});
-            this.plaintiffToolStripMenuItem.Name = "plaintiffToolStripMenuItem";
-            this.plaintiffToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.plaintiffToolStripMenuItem.Text = "Plaintiff";
-            // 
-            // addNewPlaintiffToolStripMenuItem
-            // 
-            this.addNewPlaintiffToolStripMenuItem.Name = "addNewPlaintiffToolStripMenuItem";
-            this.addNewPlaintiffToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.addNewPlaintiffToolStripMenuItem.Text = "Add new plaintiff";
-            this.addNewPlaintiffToolStripMenuItem.Click += new System.EventHandler(this.addNewPlaintiffToolStripMenuItem_Click);
-            // 
-            // findPlaintiffToolStripMenuItem
-            // 
-            this.findPlaintiffToolStripMenuItem.Name = "findPlaintiffToolStripMenuItem";
-            this.findPlaintiffToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.findPlaintiffToolStripMenuItem.Text = "Find plaintiff";
-            this.findPlaintiffToolStripMenuItem.Click += new System.EventHandler(this.findPlaintiffToolStripMenuItem_Click);
-            // 
-            // editPlaintiffToolStripMenuItem
-            // 
-            this.editPlaintiffToolStripMenuItem.Name = "editPlaintiffToolStripMenuItem";
-            this.editPlaintiffToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.editPlaintiffToolStripMenuItem.Text = "Edit plaintiff";
-            this.editPlaintiffToolStripMenuItem.Click += new System.EventHandler(this.editPlaintiffToolStripMenuItem_Click);
-            // 
-            // displayPlaintiffsToolStripMenuItem
-            // 
-            this.displayPlaintiffsToolStripMenuItem.Name = "displayPlaintiffsToolStripMenuItem";
-            this.displayPlaintiffsToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.displayPlaintiffsToolStripMenuItem.Text = "Display plaintiffs";
-            this.displayPlaintiffsToolStripMenuItem.Click += new System.EventHandler(this.displayPlaintiffsToolStripMenuItem_Click);
-            // 
-            // deletePlaintiffToolStripMenuItem
-            // 
-            this.deletePlaintiffToolStripMenuItem.Name = "deletePlaintiffToolStripMenuItem";
-            this.deletePlaintiffToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.deletePlaintiffToolStripMenuItem.Text = "Delete plaintiff";
-            this.deletePlaintiffToolStripMenuItem.Click += new System.EventHandler(this.deletePlaintiffToolStripMenuItem_Click);
-            // 
-            // defendantToolStripMenuItem
-            // 
-            this.defendantToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addNewDefendantToolStripMenuItem,
-            this.findDefendantToolStripMenuItem,
-            this.editDefendantToolStripMenuItem,
-            this.displayDefendantToolStripMenuItem,
-            this.deleteDefendantToolStripMenuItem});
-            this.defendantToolStripMenuItem.Name = "defendantToolStripMenuItem";
-            this.defendantToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
-            this.defendantToolStripMenuItem.Text = "Defendant";
-            // 
-            // addNewDefendantToolStripMenuItem
-            // 
-            this.addNewDefendantToolStripMenuItem.Name = "addNewDefendantToolStripMenuItem";
-            this.addNewDefendantToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.addNewDefendantToolStripMenuItem.Text = "Add new defendant";
-            this.addNewDefendantToolStripMenuItem.Click += new System.EventHandler(this.addNewDefendantToolStripMenuItem_Click);
-            // 
-            // findDefendantToolStripMenuItem
-            // 
-            this.findDefendantToolStripMenuItem.Name = "findDefendantToolStripMenuItem";
-            this.findDefendantToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.findDefendantToolStripMenuItem.Text = "Find defendant";
-            this.findDefendantToolStripMenuItem.Click += new System.EventHandler(this.findDefendantToolStripMenuItem_Click);
-            // 
-            // editDefendantToolStripMenuItem
-            // 
-            this.editDefendantToolStripMenuItem.Name = "editDefendantToolStripMenuItem";
-            this.editDefendantToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.editDefendantToolStripMenuItem.Text = "Edit defendant";
-            this.editDefendantToolStripMenuItem.Click += new System.EventHandler(this.editDefendantToolStripMenuItem_Click);
-            // 
-            // displayDefendantToolStripMenuItem
-            // 
-            this.displayDefendantToolStripMenuItem.Name = "displayDefendantToolStripMenuItem";
-            this.displayDefendantToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.displayDefendantToolStripMenuItem.Text = "Display defendant";
-            this.displayDefendantToolStripMenuItem.Click += new System.EventHandler(this.displayDefendantToolStripMenuItem_Click);
-            // 
-            // deleteDefendantToolStripMenuItem
-            // 
-            this.deleteDefendantToolStripMenuItem.Name = "deleteDefendantToolStripMenuItem";
-            this.deleteDefendantToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.deleteDefendantToolStripMenuItem.Text = "Delete defendant";
-            this.deleteDefendantToolStripMenuItem.Click += new System.EventHandler(this.deleteDefendantToolStripMenuItem_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(258, 63);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Close";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.BackgroundImage = global::Course.Properties.Resources.Judge;
+            this.button3.Location = new System.Drawing.Point(3, 399);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(200, 161);
+            this.button3.TabIndex = 3;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.MouseLeave += new System.EventHandler(this.button3_MouseLeave);
+            this.button3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button3_MouseMove);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(26, 91);
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.BackgroundImage = global::Course.Properties.Resources.Case;
+            this.button2.Location = new System.Drawing.Point(3, 12);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(200, 200);
             this.button2.TabIndex = 2;
             this.button2.Text = "Case display";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.MouseLeave += new System.EventHandler(this.button2_MouseLeave);
+            this.button2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button2_MouseMove);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackgroundImage = global::Course.Properties.Resources.close_window;
+            this.button1.Location = new System.Drawing.Point(415, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(200, 200);
+            this.button1.TabIndex = 1;
+            this.button1.Text = " ";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
+            this.button1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button1_MouseMove);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Yu Gothic UI Light", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(233, 338);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 106);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "/";
             // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 217);
+            this.ClientSize = new System.Drawing.Size(623, 565);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "MenuForm";
             this.Text = "MenuForm";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem judgeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addNewJudgeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem findJudgeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteJudgeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem plaintiffToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem defendantToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editJudgeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addNewPlaintiffToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem findPlaintiffToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editPlaintiffToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deletePlaintiffToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addNewDefendantToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem findDefendantToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editDefendantToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteDefendantToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem displayJudgesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem displayPlaintiffsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem displayDefendantToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label1;
     }
 }
