@@ -14,22 +14,41 @@ namespace Course
 {
     public partial class Deleting : Form
     {
-        public Deleting(WhichForm whichForm)
+        //public Deleting(WhichForm whichForm)
+        //{
+        //    InitializeComponent();
+        //    this.whichForm = whichForm;
+        //    Design();
+        //}
+
+        //public Deleting(WhichForm whichForm, string id)
+        //{
+        //    InitializeComponent();
+        //    this.whichForm = whichForm;
+        //    Design();
+        //    textBox1.Text = id;
+        //    textBox1.ReadOnly = true;
+        //}
+
+        public Deleting(WhichForm whichForm,CaseDisplay caseDisplayNoparam)
         {
             InitializeComponent();
             this.whichForm = whichForm;
+            this.caseDisplayNoparam = caseDisplayNoparam;
             Design();
         }
 
-        public Deleting(WhichForm whichForm, string id)
+        public Deleting(WhichForm whichForm, Displayer displayer)
         {
             InitializeComponent();
             this.whichForm = whichForm;
+            this.displayer = displayer;
             Design();
-            textBox1.Text = id;
-            textBox1.ReadOnly = true;
         }
 
+        private CaseDisplay caseDisplayNoparam;
+
+        private Displayer displayer;
         private WhichForm whichForm;
         private Defendant defendant;
         private Judge judge;
@@ -139,7 +158,30 @@ namespace Course
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Close();
+            switch (whichForm)
+            {
+                    case WhichForm.Defendant:
+                    {
+                        Connection.Connector(displayer.dataGridView1,defendant.Display());
+                        break;
+                    }
+                    case WhichForm.Judge:
+                    {
+                        Connection.Connector(displayer.dataGridView1, judge.Display());
+                        break;
+                    }
+                    case WhichForm.Plaintiff:
+                    {
+                        Connection.Connector(displayer.dataGridView1, plaintiff.Display());
+                        break;
+                    }
+                    case WhichForm.Case:
+                    {
+                        Connection.Connector(caseDisplayNoparam.dataGridView1, @case.Display());
+                        break;
+                    }
+            }
+          Close();
         }
     }
 }

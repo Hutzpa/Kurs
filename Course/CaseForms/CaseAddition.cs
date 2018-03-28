@@ -19,6 +19,12 @@ namespace Course
             InitializeComponent();
         }
 
+        private CaseAddition(CaseDisplay caseDisplay)
+        {
+            InitializeComponent();
+            this.caseDisplay = caseDisplay;
+        }
+
         private Case @case = new Case();
         private Regex idValidation = new Regex(@"\D");
         private Regex defendantIdValid = new Regex(@"\D");
@@ -34,6 +40,14 @@ namespace Course
             return caseAddition;
         }
 
+        public static CaseAddition caseAdditionParam;
+        private CaseDisplay caseDisplay;
+        public static CaseAddition GetCaseAddition(CaseDisplay caseDisplay)
+        {
+            if (caseAdditionParam == null)
+                caseAdditionParam = new CaseAddition(caseDisplay);
+            return caseAdditionParam;
+        }
         private short isEnd = 0;
         private short isLegal = 0;
 
@@ -123,6 +137,7 @@ namespace Course
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Connection.Connector(caseDisplay.dataGridView1, @case.Display());
             Close();
         }
     }

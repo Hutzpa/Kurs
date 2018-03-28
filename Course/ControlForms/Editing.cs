@@ -14,21 +14,41 @@ namespace Course
 {
     public partial class Editing : Form
     {
-        public Editing(WhichForm whichForm)
+        //public Editing(WhichForm whichForm)
+        //{
+        //    InitializeComponent();
+        //    this.whichForm = whichForm;
+        //    Design();
+        //}
+
+        //public Editing(WhichForm whichForm, string id)
+        //{
+        //    InitializeComponent();
+        //    this.whichForm = whichForm;
+        //    Design();
+        //    textBox1.Text = id;
+        //    textBox1.ReadOnly = true;
+        //}
+
+        public Editing(WhichForm whichForm,Displayer displayer)
         {
             InitializeComponent();
             this.whichForm = whichForm;
+            this.displayer = displayer;
             Design();
         }
 
-        public Editing(WhichForm whichForm, string id)
+        public Editing(WhichForm whichForm, string id,Displayer displayer)
         {
             InitializeComponent();
             this.whichForm = whichForm;
+            this.displayer = displayer;
             Design();
             textBox1.Text = id;
             textBox1.ReadOnly = true;
         }
+
+        private Displayer displayer;
 
         private WhichForm whichForm;
         private Defendant defendant;
@@ -130,6 +150,24 @@ namespace Course
 
         private void button2_Click(object sender, EventArgs e)
         {
+            switch (whichForm)
+            {
+                case WhichForm.Defendant:
+                    {
+                        Connection.Connector(displayer.dataGridView1, defendant.Display());
+                        break;
+                    }
+                case WhichForm.Judge:
+                    {
+                        Connection.Connector(displayer.dataGridView1, judge.Display());
+                        break;
+                    }
+                case WhichForm.Plaintiff:
+                    {
+                        Connection.Connector(displayer.dataGridView1, plaintiff.Display());
+                        break;
+                    }
+            }
             Close();
         }
     }

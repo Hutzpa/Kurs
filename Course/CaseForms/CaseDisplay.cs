@@ -35,7 +35,7 @@ namespace Course
         private Case @case = new Case();
         private CaseAddition caseAddition;
         private CaseEditing caseEditing;
-        private Deleting deleting = new Deleting(WhichForm.Case);
+        private Deleting deleting = new Deleting(WhichForm.Case,caseDisplayNopar);
 
         #region Zeroth inqurie
 
@@ -141,7 +141,14 @@ namespace Course
 
         private void button3_Click(object sender, EventArgs e)
         {
+            try
+            {
             Connection.Connector(dataGridView1,@case.Third(dataGridView1.CurrentRow.Cells[5].Value.ToString()));
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("NO  DATA SELECTED");
+            }
         }
         #endregion
 
@@ -185,7 +192,14 @@ namespace Course
 
         private void button5_Click(object sender, EventArgs e)
         {
+            try
+            {
             Connection.Connector(dataGridView1,@case.Fifth(dataGridView1.CurrentRow.Cells[3].Value.ToString()));
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("NO  DATA SELECTED");
+            }
         }
         #endregion
 
@@ -207,7 +221,14 @@ namespace Course
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Connection.Connector(dataGridView1,@case.Sixth(dataGridView1.CurrentRow.Cells[2].Value.ToString()));
+            try
+            {
+                Connection.Connector(dataGridView1, @case.Sixth(dataGridView1.CurrentRow.Cells[2].Value.ToString()));
+            }
+            catch(NullReferenceException ex)
+            {
+                MessageBox.Show("NO  DATA SELECTED");
+            }
         }
         #endregion
 
@@ -217,7 +238,7 @@ namespace Course
         {
             label7.Text = "Find all cases of selected defendant";
             button7.Height = 55;
-            button7.Width = 150;
+            button7.Width = 155;
         }
 
         private void button7_MouseLeave(object sender, EventArgs e)
@@ -229,7 +250,15 @@ namespace Course
 
         private void button7_Click(object sender, EventArgs e)
         {
+            try
+            {
             Connection.Connector(dataGridView1,@case.Seventh(dataGridView1.CurrentRow.Cells[1].Value.ToString()));
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("NO  DATA SELECTED");
+            }
+
         }
         #endregion
 
@@ -248,8 +277,15 @@ namespace Course
         /// </summary>
         private void button8_Click(object sender, EventArgs e)
         {
-            caseEditing = CaseEditing.GetCaseEditing(dataGridView1.CurrentRow.Cells[0].Value.ToString());
-            caseEditing.Show();
+           try
+            {
+                caseEditing = CaseEditing.GetCaseEditing(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                caseEditing.Show();
+            }
+            catch(NullReferenceException ex)
+            {
+                MessageBox.Show("NO  DATA SELECTED");
+            }
         }
 
         /// <summary>
@@ -257,8 +293,15 @@ namespace Course
         /// </summary>
          private void button9_Click(object sender, EventArgs e)
         {
+            try
+            {
             Connection.Connector(@case.Delete(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
             Connection.Connector(dataGridView1,@case.Display());
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("NO  DATA SELECTED");
+            }
         }
 
         private void button9_MouseMove(object sender, MouseEventArgs e)
@@ -328,7 +371,7 @@ namespace Course
         /// </summary>
         private void button12_Click(object sender, EventArgs e)
         {
-            caseAddition = CaseAddition.GetCaseAddition();
+            caseAddition = CaseAddition.GetCaseAddition(this);
             caseAddition.Show();
         }
 

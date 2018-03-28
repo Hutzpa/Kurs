@@ -6,12 +6,21 @@ namespace Course
 {
     public partial class Addition : Form
     {
-        public Addition(WhichForm whichForm)
+        //public Addition(WhichForm whichForm)
+        //{
+        //    InitializeComponent();
+        //    this.whichForm = whichForm;
+        //    Design();
+        //}
+
+        public Addition(WhichForm whichForm,Displayer displayer)
         {
             InitializeComponent();
             this.whichForm = whichForm;
+            this.displayer = displayer;
             Design();
         }
+        private Displayer displayer;
 
         private WhichForm whichForm;
         private Defendant defendant;
@@ -112,6 +121,30 @@ namespace Course
 
         private void button2_Click(object sender, EventArgs e)
         {
+            switch (whichForm)
+            {
+                case WhichForm.Defendant:
+                    {
+                        Connection.Connector(displayer.dataGridView1, defendant.Display());
+                        break;
+                    }
+                case WhichForm.Judge:
+                    {
+                        Connection.Connector(displayer.dataGridView1, judge.Display());
+                        break;
+                    }
+                case WhichForm.Plaintiff:
+                    {
+                        Connection.Connector(displayer.dataGridView1, plaintiff.Display());
+                        break;
+                    }
+                default:
+                    {
+                        MessageBox.Show("NO FORM SELECTED");
+                        Close();
+                        break;
+                    }
+            }
             Close();
         }
     }

@@ -214,7 +214,7 @@ namespace Course
         /// </summary>
         private void button3_Click(object sender, System.EventArgs e)
         {
-            editing = new Editing(whichForm, dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            editing = new Editing(whichForm, dataGridView1.CurrentRow.Cells[0].Value.ToString(),this);
             editing.ShowDialog();
         }
 
@@ -235,7 +235,27 @@ namespace Course
         /// </summary>
         private void button5_Click(object sender, System.EventArgs e)
         {
-            Connection.Connector(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            switch (whichForm)
+            {
+                case WhichForm.Judge:
+                    {
+                        Connection.Connector(judge.Delete(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
+                        Connection.Connector(dataGridView1, judge.Display());
+                        break;
+                    }
+                case WhichForm.Plaintiff:
+                    {
+                        Connection.Connector(plaintiff.Delete(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
+                        Connection.Connector(dataGridView1, plaintiff.Display());
+                        break;
+                    }
+                case WhichForm.Defendant:
+                    {
+                        Connection.Connector(defendant.Delete(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
+                        Connection.Connector(dataGridView1, defendant.Display());
+                        break;
+                    }
+            }
             RefreshData();
         }
 
@@ -259,7 +279,7 @@ namespace Course
         /// </summary>
         private void button6_Click(object sender, System.EventArgs e)
         {
-            addition = new Addition(whichForm);
+            addition = new Addition(whichForm,this);
             addition.ShowDialog();
         }
 
@@ -268,7 +288,7 @@ namespace Course
         /// </summary>
         private void button7_Click(object sender, System.EventArgs e)
         {
-            editing = new Editing(whichForm);
+            editing = new Editing(whichForm,this);
             editing.ShowDialog();
         }
 
@@ -277,7 +297,7 @@ namespace Course
         /// </summary>
         private void button8_Click(object sender, System.EventArgs e)
         {
-            deleting = new Deleting(whichForm);
+            deleting = new Deleting(whichForm,this);
             deleting.Show();
         }
 

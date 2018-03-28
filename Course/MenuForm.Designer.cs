@@ -42,7 +42,7 @@
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.BackgroundImage = global::Course.Properties.Resources.Defendant;
+            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
             this.button5.Location = new System.Drawing.Point(209, 12);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(200, 200);
@@ -56,7 +56,7 @@
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.BackgroundImage = global::Course.Properties.Resources.Plaintiff;
+            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
             this.button4.Location = new System.Drawing.Point(3, 218);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(200, 175);
@@ -70,7 +70,7 @@
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackgroundImage = global::Course.Properties.Resources.Judge;
+            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
             this.button3.Location = new System.Drawing.Point(3, 399);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(200, 161);
@@ -85,7 +85,7 @@
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackgroundImage = global::Course.Properties.Resources.Case;
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.Location = new System.Drawing.Point(3, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(200, 200);
@@ -101,7 +101,7 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackgroundImage = global::Course.Properties.Resources.close_window;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.Location = new System.Drawing.Point(415, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(200, 200);
@@ -139,7 +139,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MenuForm";
-            this.Text = "MenuForm";
+            this.Text = "Judgement archive";
             this.ResumeLayout(false);
             this.PerformLayout();
 
