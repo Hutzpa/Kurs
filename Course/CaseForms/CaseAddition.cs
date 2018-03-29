@@ -42,6 +42,7 @@ namespace Course
 
         public static CaseAddition caseAdditionParam;
         private CaseDisplay caseDisplay;
+
         public static CaseAddition GetCaseAddition(CaseDisplay caseDisplay)
         {
             if (caseAdditionParam == null)
@@ -86,10 +87,11 @@ namespace Course
 
         private void CaseAddition_FormClosing(object sender, FormClosingEventArgs e)
         {
+            Connection.Connector(caseDisplay.dataGridView1, @case.Display());
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 e.Cancel = true;
-                Visible = false;
+                Hide();
             }
         }
 
@@ -137,7 +139,6 @@ namespace Course
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Connection.Connector(caseDisplay.dataGridView1, @case.Display());
             Close();
         }
     }

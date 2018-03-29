@@ -19,23 +19,24 @@ namespace Course
         {
             InitializeComponent();
             Connection.Connector(dataGridView1, @case.Display());
+            deleting = new Deleting(WhichForm.Case, this);
         }
 
-        private static CaseDisplay caseDisplayNopar;
+        private static CaseDisplay caseDisplay;
         /// <summary>
         /// Синглтон
         /// </summary>
         public static CaseDisplay GetCaseDisplay()
         {
-            if (caseDisplayNopar == null)
-                caseDisplayNopar = new CaseDisplay();
-            return caseDisplayNopar;
+            if (caseDisplay == null)
+                caseDisplay = new CaseDisplay();
+            return caseDisplay;
         }
 
         private Case @case = new Case();
         private CaseAddition caseAddition;
         private CaseEditing caseEditing;
-        private Deleting deleting = new Deleting(WhichForm.Case,caseDisplayNopar);
+        private Deleting deleting;
 
         #region Zeroth inqurie
 
@@ -170,7 +171,7 @@ namespace Course
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Connection.Connector(dataGridView1,@case.Fourth("-1"));
+            Connection.Connector(dataGridView1,@case.Fourth("0"));
         }
         #endregion
 
@@ -279,8 +280,8 @@ namespace Course
         {
            try
             {
-                caseEditing = CaseEditing.GetCaseEditing(dataGridView1.CurrentRow.Cells[0].Value.ToString());
-                caseEditing.Show();
+                caseEditing = new CaseEditing(this,dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                caseEditing.ShowDialog();
             }
             catch(NullReferenceException ex)
             {
@@ -372,7 +373,7 @@ namespace Course
         private void button12_Click(object sender, EventArgs e)
         {
             caseAddition = CaseAddition.GetCaseAddition(this);
-            caseAddition.Show();
+            caseAddition.ShowDialog();
         }
 
         private void button12_MouseMove(object sender, MouseEventArgs e)
@@ -392,8 +393,8 @@ namespace Course
         /// </summary>
         private void button13_Click(object sender, EventArgs e)
         {
-            caseEditing = CaseEditing.GetCaseEditing();
-            caseEditing.Show();
+            caseEditing = CaseEditing.GetCaseEditingNoparam(this);
+            caseEditing.ShowDialog();
         }
 
         private void button13_MouseMove(object sender, MouseEventArgs e)
@@ -413,7 +414,7 @@ namespace Course
         /// </summary>
         private void button14_Click(object sender, EventArgs e)
         {
-            deleting.Show();
+            deleting.ShowDialog();
         }
 
         private void button14_MouseMove(object sender, MouseEventArgs e)

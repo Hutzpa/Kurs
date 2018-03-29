@@ -47,28 +47,28 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(12, 25);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(156, 20);
+            this.textBox1.Size = new System.Drawing.Size(160, 20);
             this.textBox1.TabIndex = 0;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(12, 101);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(156, 20);
+            this.textBox2.Size = new System.Drawing.Size(160, 20);
             this.textBox2.TabIndex = 1;
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(12, 140);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(156, 20);
+            this.textBox3.Size = new System.Drawing.Size(160, 20);
             this.textBox3.TabIndex = 2;
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(11, 205);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(157, 25);
+            this.button1.Size = new System.Drawing.Size(161, 25);
             this.button1.TabIndex = 3;
             this.button1.Text = "Done";
             this.button1.UseVisualStyleBackColor = true;
@@ -114,7 +114,7 @@
             // 
             this.textBox4.Location = new System.Drawing.Point(12, 64);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(156, 20);
+            this.textBox4.Size = new System.Drawing.Size(160, 20);
             this.textBox4.TabIndex = 13;
             // 
             // label5
@@ -130,14 +130,14 @@
             // 
             this.textBox5.Location = new System.Drawing.Point(12, 179);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(156, 20);
+            this.textBox5.Size = new System.Drawing.Size(160, 20);
             this.textBox5.TabIndex = 15;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(11, 235);
+            this.button2.Location = new System.Drawing.Point(11, 239);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(157, 25);
+            this.button2.Size = new System.Drawing.Size(161, 25);
             this.button2.TabIndex = 16;
             this.button2.Text = "Close";
             this.button2.UseVisualStyleBackColor = true;
@@ -147,7 +147,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(180, 272);
+            this.ClientSize = new System.Drawing.Size(184, 276);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label5);
@@ -162,8 +162,10 @@
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Editing";
             this.Text = "Editing";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Editing_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -37,16 +37,16 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 25);
+            this.textBox1.Location = new System.Drawing.Point(15, 25);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(159, 20);
             this.textBox1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 51);
+            this.button1.Location = new System.Drawing.Point(15, 51);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 42);
+            this.button1.Size = new System.Drawing.Size(159, 42);
             this.button1.TabIndex = 1;
             this.button1.Text = "Done";
             this.button1.UseVisualStyleBackColor = true;
@@ -63,9 +63,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 99);
+            this.button2.Location = new System.Drawing.Point(15, 99);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 42);
+            this.button2.Size = new System.Drawing.Size(159, 42);
             this.button2.TabIndex = 3;
             this.button2.Text = "Close";
             this.button2.UseVisualStyleBackColor = true;
@@ -75,15 +75,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(122, 155);
+            this.ClientSize = new System.Drawing.Size(185, 151);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Deleting";
             this.Text = "Deleting";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Deleting_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

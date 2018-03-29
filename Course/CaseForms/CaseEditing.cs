@@ -14,16 +14,18 @@ namespace Course
 {
     public partial class CaseEditing : Form
     {
-        private CaseEditing(string id)
+        public CaseEditing(CaseDisplay caseDisplay, string id)
         {
             InitializeComponent();
+            caseDisplayParam = caseDisplay;
             textBox1.Text = id;
             textBox1.ReadOnly = true;
         }
 
-        private CaseEditing()
+        private CaseEditing(CaseDisplay caseDisplay)
         {
             InitializeComponent();
+            caseDisplayNoparam = caseDisplay;
         }
 
         private  Case @case = new Case();
@@ -37,21 +39,16 @@ namespace Course
 
         public static CaseEditing caseEditingNoparam;
 
-        public static CaseEditing caseEditingParam;
+        private CaseDisplay caseDisplayParam;
+        private CaseDisplay caseDisplayNoparam;
 
-        public static CaseEditing GetCaseEditing()
+        public static CaseEditing GetCaseEditingNoparam(CaseDisplay caseDisplay)
         {
             if (caseEditingNoparam == null)
-                caseEditingNoparam = new CaseEditing();
+                caseEditingNoparam = new CaseEditing(caseDisplay);
             return caseEditingNoparam;
         }
 
-        public static CaseEditing GetCaseEditing(string id)
-        {
-            if (caseEditingParam == null)
-                caseEditingParam = new CaseEditing(id);
-            return caseEditingParam;
-        }
 
     
         private void button1_Click(object sender, EventArgs e)
@@ -73,6 +70,14 @@ namespace Course
 
         private void CaseEditing_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (caseDisplayNoparam == null)
+            {
+                Connection.Connector(caseDisplayParam.dataGridView1, @case.Display());
+            }
+            else
+            {
+                Connection.Connector(caseDisplayNoparam.dataGridView1, @case.Display());
+            }
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 e.Cancel = true;
@@ -137,6 +142,14 @@ namespace Course
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if(caseDisplayNoparam == null)
+            {
+            Connection.Connector(caseDisplayParam.dataGridView1, @case.Display());
+            }
+            else
+            {
+                Connection.Connector(caseDisplayNoparam.dataGridView1, @case.Display());
+            }
             Close();
         }
     }

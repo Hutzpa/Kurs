@@ -155,7 +155,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(150, 50);
             this.button3.TabIndex = 8;
-            this.button3.Text = "Find of article";
+            this.button3.Text = "Find by article";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             this.button3.MouseLeave += new System.EventHandler(this.button3_MouseLeave);
@@ -457,7 +457,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CaseDisplay";
-            this.Text = "CaseDisplay";
+            this.Text = "Case";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CaseDisplay_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -150,6 +150,12 @@ namespace Course
 
         private void button2_Click(object sender, EventArgs e)
         {
+           
+            Close();
+        }
+
+        private void Editing_FormClosing(object sender, FormClosingEventArgs e)
+        {
             switch (whichForm)
             {
                 case WhichForm.Defendant:
@@ -168,7 +174,6 @@ namespace Course
                         break;
                     }
             }
-            Close();
         }
     }
 }

@@ -278,8 +278,9 @@
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "CaseEditing";
-            this.Text = "CaseEditing";
+            this.Text = "Editing";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CaseEditing_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
