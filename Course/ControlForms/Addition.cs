@@ -6,12 +6,6 @@ namespace Course
 {
     public partial class Addition : Form
     {
-        //public Addition(WhichForm whichForm)
-        //{
-        //    InitializeComponent();
-        //    this.whichForm = whichForm;
-        //    Design();
-        //}
 
         public Addition(WhichForm whichForm,Displayer displayer)
         {
@@ -26,8 +20,9 @@ namespace Course
         private Defendant defendant;
         private Judge judge;
         private Plaintiff plaintiff;
-        private Regex idValidation = new Regex(@"\D");
         private Regex numberValid = new Regex(@"\D");
+        private Regex nameValid = new Regex(@"\d");
+
 
         private void Design()
         {
@@ -66,37 +61,37 @@ namespace Course
             {
                 case WhichForm.Defendant:
                     {
-                        if(idValidation.IsMatch(textBox1.Text)|| numberValid.IsMatch(textBox4.Text))
+                        if(CaseNumberTB.Text == "" || numberValid.IsMatch(CaseNumberTB.Text) || nameValid.IsMatch(NameTB.Text) || NameTB.Text == "" || nameValid.IsMatch(SurnameTB.Text) || SurnameTB.Text == "" ||  nameValid.IsMatch(PatronymicTB.Text) || PatronymicTB.Text == "")
                         {
                             MessageBox.Show("Id writed incorrect. Only numbers.");
                         }
                         else
                         {
-                            Connection.Connector(defendant.Insert(textBox1.Text, textBox4.Text, textBox2.Text, textBox3.Text, textBox5.Text));
+                            Connection.Connector(defendant.Insert(CaseNumberTB.Text, NameTB.Text, SurnameTB.Text, PatronymicTB.Text));
                         }
                         break;
                     }
                 case WhichForm.Judge:
                     {
-                        if (idValidation.IsMatch(textBox1.Text) || numberValid.IsMatch(textBox4.Text))
+                        if (CaseNumberTB.Text == "" || numberValid.IsMatch(CaseNumberTB.Text) || nameValid.IsMatch(NameTB.Text) || NameTB.Text == "" || nameValid.IsMatch(SurnameTB.Text) || SurnameTB.Text == "" || nameValid.IsMatch(PatronymicTB.Text) || PatronymicTB.Text == "")
                         {
                             MessageBox.Show("Id writed incorrect. Only numbers.");
                         }
                         else
                         {
-                            Connection.Connector(judge.Insert(textBox1.Text, textBox4.Text, textBox2.Text, textBox3.Text,textBox5.Text));
+                            Connection.Connector(judge.Insert(CaseNumberTB.Text, NameTB.Text, SurnameTB.Text,PatronymicTB.Text));
                         }
                         break;
                     }
                 case WhichForm.Plaintiff:
                     {
-                        if (idValidation.IsMatch(textBox1.Text) || numberValid.IsMatch(textBox4.Text))
+                        if (CaseNumberTB.Text == "" || numberValid.IsMatch(CaseNumberTB.Text) || nameValid.IsMatch(NameTB.Text) || NameTB.Text == "" || nameValid.IsMatch(SurnameTB.Text) || SurnameTB.Text == "" || nameValid.IsMatch(PatronymicTB.Text) || PatronymicTB.Text == "")
                         {
                             MessageBox.Show("Id writed incorrect. Only numbers.");
                         }
                         else
                         {
-                            Connection.Connector(plaintiff.Insert(textBox1.Text, textBox4.Text, textBox2.Text, textBox3.Text,textBox5.Text));
+                            Connection.Connector(plaintiff.Insert(CaseNumberTB.Text, NameTB.Text, SurnameTB.Text, PatronymicTB.Text));
                         }
                         break;
                     }
@@ -112,11 +107,10 @@ namespace Course
 
         private void Cleaning()
         {
-            textBox1.Text = null;
-            textBox2.Text = null;
-            textBox3.Text = null;
-            textBox4.Text = null;
-            textBox5.Text = null;
+            NameTB.Text = null;
+            SurnameTB.Text = null;
+            CaseNumberTB.Text = null;
+            PatronymicTB.Text = null;
         }
 
         private void button2_Click(object sender, EventArgs e)

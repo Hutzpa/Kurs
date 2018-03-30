@@ -11,9 +11,9 @@ namespace Course
         /// <summary>
         /// Добавление данных
         /// </summary>
-        public string Insert(string defendantNumber,string caseNumber,string name,string surname,string patronymic)
+        public string Insert(string caseNumber,string name,string surname,string patronymic)
         {
-            return "INSERT INTO kurs.defendant (DefendantNumber,CaseNumber,Name,Surname,Patronymic) VALUES ('" + defendantNumber +"','"+caseNumber +"','" + name + "','" + surname + "','"+patronymic+"')";
+            return "INSERT INTO kurs.defendant (CaseNumber,Name,Surname,Patronymic,Fio) VALUES ('"+caseNumber +"','" + name + "','" + surname + "','"+patronymic+"','" + name.Substring(0, 1).ToUpper() + surname.Substring(0, 1).ToUpper() + patronymic.Substring(0, 1).ToUpper()+"')";
         }
 
         /// <summary>
@@ -21,7 +21,7 @@ namespace Course
         /// </summary>
         public string Update(string defendantNumber,string caseNumber,string name,string surname,string patronymic )
         {
-            return "UPDATE kurs.defendant SET DefendantNumber='" + defendantNumber + "',CaseNumber='"+caseNumber+"',Name='" + name + "',Surname='" + surname +"',Patronymic='"+patronymic+ "' WHERE DefendantNumber='" + defendantNumber+"'";
+            return "UPDATE kurs.defendant SET DefendantNumber='" + defendantNumber + "',CaseNumber='"+caseNumber+"',Name='" + name + "',Surname='" + surname +"',Patronymic='"+patronymic+ "',Fio='" + name.Substring(0, 1).ToUpper() + surname.Substring(0, 1).ToUpper() + patronymic.Substring(0, 1).ToUpper() + "' WHERE DefendantNumber='" + defendantNumber+"'";
         }
 
         /// <summary>

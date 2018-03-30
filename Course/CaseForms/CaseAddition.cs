@@ -26,7 +26,6 @@ namespace Course
         }
 
         private Case @case = new Case();
-        private Regex idValidation = new Regex(@"\D");
         private Regex defendantIdValid = new Regex(@"\D");
         private Regex plaintiffIdValid = new Regex(@"\D");
         private Regex judgeIdValid = new Regex(@"\D");
@@ -55,9 +54,9 @@ namespace Course
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (dateTimePicker2.Visible == true)
+            if (EndDate.Visible == true)
             {
-                if (dateTimePicker1.Value < dateTimePicker2.Value)
+                if (StartDate.Value < EndDate.Value)
                 {
                     Addition();
                 }
@@ -74,19 +73,20 @@ namespace Course
 
         private void Addition()
         {
-            if (idValidation.IsMatch(textBox1.Text) || textBox1.Text == "" || defendantIdValid.IsMatch(textBox2.Text) || textBox2.Text == "" || plaintiffIdValid.IsMatch(textBox3.Text) || textBox3.Text == "" || judgeIdValid.IsMatch(textBox4.Text) || textBox4.Text == "")
+            if (defendantIdValid.IsMatch(DefendantIdTB.Text) || DefendantIdTB.Text == "" || plaintiffIdValid.IsMatch(PlaintiffIdTB.Text) || PlaintiffIdTB.Text == "" || judgeIdValid.IsMatch(JudgeIdTB.Text) || JudgeIdTB.Text == "")
             {
                 MessageBox.Show("Id allows only numbers");
             }
             else
             {
-                Connection.Connector(@case.Insert(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, dateTimePicker1.Value, dateTimePicker2.Value, isEnd, isLegal, textBox9.Text));
+                Connection.Connector(@case.Insert(DefendantIdTB.Text, PlaintiffIdTB.Text, JudgeIdTB.Text, DescriptionTB.Text, ArticleTB.Text, StartDate.Value, EndDate.Value, isEnd, isLegal, VerdictTB.Text));
                 Clean();
             }
         }
 
         private void CaseAddition_FormClosing(object sender, FormClosingEventArgs e)
         {
+            caseDisplay.dataGridView1.Columns.Clear();
             Connection.Connector(caseDisplay.dataGridView1, @case.Display());
             if (e.CloseReason == CloseReason.UserClosing)
             {
@@ -101,19 +101,19 @@ namespace Course
                 isEnd = -1;
             else
                 isEnd = 0;
-            if (dateTimePicker2.Visible == true)
+            if (EndDate.Visible == true)
             {
                 label9.Visible = false;
-                dateTimePicker2.Visible = false;
+                EndDate.Visible = false;
                 label7.Visible = false;
-                textBox9.Visible = false;
+                VerdictTB.Visible = false;
             }
             else
             {
                 label9.Visible = true;
-                dateTimePicker2.Visible = true;
+                EndDate.Visible = true;
                 label7.Visible = true;
-                textBox9.Visible = true;
+                VerdictTB.Visible = true;
             }
 
         }
@@ -128,13 +128,12 @@ namespace Course
 
         private void Clean()
         {
-            textBox1.Text = null;
-            textBox2.Text = null;
-            textBox3.Text = null;
-            textBox4.Text = null;
-            textBox5.Text = null;
-            textBox6.Text = null;
-            textBox9.Text = null;
+            DefendantIdTB.Text = null;
+            PlaintiffIdTB.Text = null;
+            JudgeIdTB.Text = null;
+            DescriptionTB.Text = null;
+            ArticleTB.Text = null;
+            VerdictTB.Text = null;
         }
 
         private void button2_Click(object sender, EventArgs e)

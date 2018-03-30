@@ -29,28 +29,28 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Deleting));
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.IdTB = new System.Windows.Forms.TextBox();
+            this.Done = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Close = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // IdTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(159, 20);
-            this.textBox1.TabIndex = 0;
+            this.IdTB.Location = new System.Drawing.Point(15, 25);
+            this.IdTB.Name = "IdTB";
+            this.IdTB.Size = new System.Drawing.Size(159, 20);
+            this.IdTB.TabIndex = 0;
             // 
-            // button1
+            // Done
             // 
-            this.button1.Location = new System.Drawing.Point(15, 51);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 42);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Done";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Done.Location = new System.Drawing.Point(15, 51);
+            this.Done.Name = "Done";
+            this.Done.Size = new System.Drawing.Size(159, 42);
+            this.Done.TabIndex = 1;
+            this.Done.Text = "Done";
+            this.Done.UseVisualStyleBackColor = true;
+            this.Done.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -61,25 +61,25 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Enter id";
             // 
-            // button2
+            // Close
             // 
-            this.button2.Location = new System.Drawing.Point(15, 99);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(159, 42);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Close";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Close.Location = new System.Drawing.Point(15, 99);
+            this.Close.Name = "Close";
+            this.Close.Size = new System.Drawing.Size(159, 42);
+            this.Close.TabIndex = 3;
+            this.Close.Text = "Close";
+            this.Close.UseVisualStyleBackColor = true;
+            this.Close.Click += new System.EventHandler(this.button2_Click);
             // 
             // Deleting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(185, 151);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.Close);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Done);
+            this.Controls.Add(this.IdTB);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -93,9 +93,9 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox IdTB;
+        private System.Windows.Forms.Button Done;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Close;
     }
 }

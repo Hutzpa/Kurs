@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Course
@@ -59,10 +60,10 @@ namespace Course
                         break;
                     }
             }
-            label1.Text = whichForm.ToString();
-            button2.Text = "Display all " + whichForm.ToString().ToLower();
-            button3.Text = "Edit selected " + whichForm.ToString().ToLower();
-            button5.Text = "Delete selected " + whichForm.ToString().ToLower();
+            HelpFac.Text = whichForm.ToString();
+            DisplayAll.Text = "Display all " + whichForm.ToString().ToLower();
+            EditSelected.Text = "Edit selected " + whichForm.ToString().ToLower();
+            DeleteSelected.Text = "Delete selected " + whichForm.ToString().ToLower();
         }
 
         private void RefreshData()
@@ -86,14 +87,16 @@ namespace Course
                     }
             }
 
-            Width = 584;
-            dataGridView1.Width = 543;
+            Width = 679;
+            dataGridView1.Width = 643;
         }
 
         #region First inqurie 
 
         private void button1_Click(object sender, System.EventArgs e)
         {
+            try
+            {
             switch(whichForm)
             {
                 case WhichForm.Judge:
@@ -118,20 +121,25 @@ namespace Course
                         break;
                     }
             }
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("NO  DATA SELECTED");
+            }
         }
 
         private void button1_MouseMove(object sender, MouseEventArgs e)
         {
-            button1.Height = 55;
-            button1.Width = 155;
-            label1.Text = "Find all " + whichForm.ToString().ToLower() + " cases of his id";
+            FindAllCases.Height = 55;
+            FindAllCases.Width = 155;
+            HelpFac.Text = "Find all " + whichForm.ToString().ToLower() + " cases of his id";
         }
 
         private void button1_MouseLeave(object sender, System.EventArgs e)
         {
-            button1.Height = 50;
-            button1.Width = 150;
-            label1.Text = null;
+            FindAllCases.Height = 50;
+            FindAllCases.Width = 150;
+            HelpFac.Text = null;
         }
 
         #endregion
@@ -145,16 +153,16 @@ namespace Course
 
         private void button2_MouseMove(object sender, MouseEventArgs e)
         {
-            button2.Height = 55;
-            button2.Width = 155;
-            label2.Text = "Display all " + whichForm.ToString().ToLower() +"s";
+            DisplayAll.Height = 55;
+            DisplayAll.Width = 155;
+            HelpDa.Text = "Display all " + whichForm.ToString().ToLower() +"s";
         }
 
         private void button2_MouseLeave(object sender, System.EventArgs e)
         {
-            button2.Height = 50;
-            button2.Width = 150;
-            label2.Text = null;
+            DisplayAll.Height = 50;
+            DisplayAll.Width = 150;
+            HelpDa.Text = null;
         }
 
         #endregion
@@ -163,10 +171,10 @@ namespace Course
 
         private void button4_Click(object sender, System.EventArgs e)
         {
-            if(idValidation.IsMatch(textBox1.Text) || textBox1.Text == "")
+            if(idValidation.IsMatch(IdTextBox.Text) || IdTextBox.Text == "")
             {
                 MessageBox.Show("Incorrect id format");
-                textBox1.Text = null;
+                IdTextBox.Text = null;
             }
             else
             {
@@ -174,17 +182,17 @@ namespace Course
                 {
                     case WhichForm.Judge:
                     {
-                        Connection.Connector(dataGridView1, judge.Search(textBox1.Text));
+                        Connection.Connector(dataGridView1, judge.Search(IdTextBox.Text));
                         break;
                     }
                     case WhichForm.Plaintiff:
                     {
-                        Connection.Connector(dataGridView1, plaintiff.Search(textBox1.Text));
+                        Connection.Connector(dataGridView1, plaintiff.Search(IdTextBox.Text));
                         break;
                     }
                     case WhichForm.Defendant:
                     {
-                        Connection.Connector(dataGridView1, defendant.Search(textBox1.Text));
+                        Connection.Connector(dataGridView1, defendant.Search(IdTextBox.Text));
                         break;
                     }
                 }
@@ -195,16 +203,16 @@ namespace Course
 
         private void button4_MouseMove(object sender, MouseEventArgs e)
         {
-            button4.Height = 55;
-            button4.Width = 155;
-            label3.Text = "Find " + whichForm.ToString().ToLower() + " by id";
+            FindById.Height = 55;
+            FindById.Width = 155;
+            HelpFbi.Text = "Find " + whichForm.ToString().ToLower() + " by id";
         }
 
         private void button4_MouseLeave(object sender, System.EventArgs e)
         {
-            button4.Height = 50;
-            button4.Width = 150;
-            label3.Text = null;
+            FindById.Height = 50;
+            FindById.Width = 150;
+            HelpFbi.Text = null;
         }
 
         #endregion
@@ -214,20 +222,27 @@ namespace Course
         /// </summary>
         private void button3_Click(object sender, System.EventArgs e)
         {
+            try
+            {
             editing = new Editing(whichForm, dataGridView1.CurrentRow.Cells[0].Value.ToString(),this);
             editing.ShowDialog();
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("NO  DATA SELECTED");
+            }
         }
 
         private void button3_MouseMove(object sender, MouseEventArgs e)
         {
-            button3.Height = 55;
-            button3.Width = 155;
+            EditSelected.Height = 55;
+            EditSelected.Width = 155;
         }
 
         private void button3_MouseLeave(object sender, System.EventArgs e)
         {
-            button3.Height = 50;
-            button3.Width = 150;
+            EditSelected.Height = 50;
+            EditSelected.Width = 150;
         }
 
         /// <summary>
@@ -235,6 +250,8 @@ namespace Course
         /// </summary>
         private void button5_Click(object sender, System.EventArgs e)
         {
+            try
+            {
             switch (whichForm)
             {
                 case WhichForm.Judge:
@@ -257,18 +274,23 @@ namespace Course
                     }
             }
             RefreshData();
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show("NO  DATA SELECTED");
+            }
         }
 
         private void button5_MouseMove(object sender, MouseEventArgs e)
         {
-            button5.Height = 55;
-            button5.Width = 155;
+            DeleteSelected.Height = 55;
+            DeleteSelected.Width = 155;
         }
 
         private void button5_MouseLeave(object sender, System.EventArgs e)
         {
-            button5.Height = 50;
-            button5.Width = 150;
+            DeleteSelected.Height = 50;
+            DeleteSelected.Width = 150;
         }
 
 

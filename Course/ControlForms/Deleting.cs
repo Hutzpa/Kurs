@@ -84,49 +84,49 @@ namespace Course
             {
                 case WhichForm.Defendant:
                     {
-                        if (idValidation.IsMatch(textBox1.Text))
+                        if (idValidation.IsMatch(IdTB.Text))
                         {
                             MessageBox.Show("Id writed incorrect. Only numbers.");
                         }
                         else
                         {
-                            Connection.Connector(defendant.Delete(textBox1.Text));
+                            Connection.Connector(defendant.Delete(IdTB.Text));
                         }
                         break;
                     }
                 case WhichForm.Judge:
                     {
-                        if (idValidation.IsMatch(textBox1.Text))
+                        if (idValidation.IsMatch(IdTB.Text))
                         {
                             MessageBox.Show("Id writed incorrect. Only numbers.");
                         }
                         else
                         {
-                            Connection.Connector(judge.Delete(textBox1.Text));
+                            Connection.Connector(judge.Delete(IdTB.Text));
                         }
                         break;
                     }
                 case WhichForm.Plaintiff:
                     {
-                        if (idValidation.IsMatch(textBox1.Text))
+                        if (idValidation.IsMatch(IdTB.Text))
                         {
                             MessageBox.Show("Id writed incorrect. Only numbers.");
                         }
                         else
                         {
-                            Connection.Connector(plaintiff.Delete(textBox1.Text));
+                            Connection.Connector(plaintiff.Delete(IdTB.Text));
                         }
                         break;
                     }
                 case WhichForm.Case:
                     {
-                        if (idValidation.IsMatch(textBox1.Text))
+                        if (idValidation.IsMatch(IdTB.Text))
                         {
                             MessageBox.Show("Id writed incorrect. Only numbers.");
                         }
                         else
                         {
-                            Connection.Connector(@case.Delete(textBox1.Text));
+                            Connection.Connector(@case.Delete(IdTB.Text));
                         }
                         break;
                     }
@@ -138,7 +138,7 @@ namespace Course
                     }
             }
 
-            textBox1.Text = null;
+            IdTB.Text = null;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -167,6 +167,7 @@ namespace Course
                     }
                 case WhichForm.Case:
                     {
+                        caseDisplay.dataGridView1.Columns.Clear();
                         Connection.Connector(caseDisplay.dataGridView1, @case.Display());
                         break;
                     }

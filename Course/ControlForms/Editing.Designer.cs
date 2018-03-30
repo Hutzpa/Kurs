@@ -29,50 +29,50 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Editing));
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.IdTB = new System.Windows.Forms.TextBox();
+            this.NameTB = new System.Windows.Forms.TextBox();
+            this.SurnameTB = new System.Windows.Forms.TextBox();
+            this.Done = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.CaseNumberTB = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.PatronymicTB = new System.Windows.Forms.TextBox();
+            this.Close = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // IdTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(160, 20);
-            this.textBox1.TabIndex = 0;
+            this.IdTB.Location = new System.Drawing.Point(12, 25);
+            this.IdTB.Name = "IdTB";
+            this.IdTB.Size = new System.Drawing.Size(160, 20);
+            this.IdTB.TabIndex = 0;
             // 
-            // textBox2
+            // NameTB
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 101);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(160, 20);
-            this.textBox2.TabIndex = 1;
+            this.NameTB.Location = new System.Drawing.Point(12, 101);
+            this.NameTB.Name = "NameTB";
+            this.NameTB.Size = new System.Drawing.Size(160, 20);
+            this.NameTB.TabIndex = 1;
             // 
-            // textBox3
+            // SurnameTB
             // 
-            this.textBox3.Location = new System.Drawing.Point(12, 140);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(160, 20);
-            this.textBox3.TabIndex = 2;
+            this.SurnameTB.Location = new System.Drawing.Point(12, 140);
+            this.SurnameTB.Name = "SurnameTB";
+            this.SurnameTB.Size = new System.Drawing.Size(160, 20);
+            this.SurnameTB.TabIndex = 2;
             // 
-            // button1
+            // Done
             // 
-            this.button1.Location = new System.Drawing.Point(11, 205);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(161, 25);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Done";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Done.Location = new System.Drawing.Point(11, 205);
+            this.Done.Name = "Done";
+            this.Done.Size = new System.Drawing.Size(161, 25);
+            this.Done.TabIndex = 3;
+            this.Done.Text = "Done";
+            this.Done.UseVisualStyleBackColor = true;
+            this.Done.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -110,12 +110,12 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Case number";
             // 
-            // textBox4
+            // CaseNumberTB
             // 
-            this.textBox4.Location = new System.Drawing.Point(12, 64);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(160, 20);
-            this.textBox4.TabIndex = 13;
+            this.CaseNumberTB.Location = new System.Drawing.Point(12, 64);
+            this.CaseNumberTB.Name = "CaseNumberTB";
+            this.CaseNumberTB.Size = new System.Drawing.Size(160, 20);
+            this.CaseNumberTB.TabIndex = 13;
             // 
             // label5
             // 
@@ -126,40 +126,40 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "Patronymic";
             // 
-            // textBox5
+            // PatronymicTB
             // 
-            this.textBox5.Location = new System.Drawing.Point(12, 179);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(160, 20);
-            this.textBox5.TabIndex = 15;
+            this.PatronymicTB.Location = new System.Drawing.Point(12, 179);
+            this.PatronymicTB.Name = "PatronymicTB";
+            this.PatronymicTB.Size = new System.Drawing.Size(160, 20);
+            this.PatronymicTB.TabIndex = 15;
             // 
-            // button2
+            // Close
             // 
-            this.button2.Location = new System.Drawing.Point(11, 239);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(161, 25);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Close";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Close.Location = new System.Drawing.Point(11, 239);
+            this.Close.Name = "Close";
+            this.Close.Size = new System.Drawing.Size(161, 25);
+            this.Close.TabIndex = 16;
+            this.Close.Text = "Close";
+            this.Close.UseVisualStyleBackColor = true;
+            this.Close.Click += new System.EventHandler(this.button2_Click);
             // 
             // Editing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(184, 276);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.Close);
+            this.Controls.Add(this.PatronymicTB);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.CaseNumberTB);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Done);
+            this.Controls.Add(this.SurnameTB);
+            this.Controls.Add(this.NameTB);
+            this.Controls.Add(this.IdTB);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -173,17 +173,17 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox IdTB;
+        private System.Windows.Forms.TextBox NameTB;
+        private System.Windows.Forms.TextBox SurnameTB;
+        private System.Windows.Forms.Button Done;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox CaseNumberTB;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox PatronymicTB;
+        private System.Windows.Forms.Button Close;
     }
 }

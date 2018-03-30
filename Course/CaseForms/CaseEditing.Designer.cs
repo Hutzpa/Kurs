@@ -38,19 +38,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Done = new System.Windows.Forms.Button();
+            this.VerdictTB = new System.Windows.Forms.TextBox();
+            this.ArticleTB = new System.Windows.Forms.TextBox();
+            this.DescriptionTB = new System.Windows.Forms.TextBox();
+            this.JudgeIdTB = new System.Windows.Forms.TextBox();
+            this.PlaintiffIdTB = new System.Windows.Forms.TextBox();
+            this.DefendantIdTB = new System.Windows.Forms.TextBox();
+            this.IdTB = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.StartDate = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.button2 = new System.Windows.Forms.Button();
+            this.EndDate = new System.Windows.Forms.DateTimePicker();
+            this.Close = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label7
@@ -139,65 +139,65 @@
             this.label1.TabIndex = 28;
             this.label1.Text = "Enter id";
             // 
-            // button1
+            // Done
             // 
-            this.button1.Location = new System.Drawing.Point(12, 413);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(174, 56);
-            this.button1.TabIndex = 27;
-            this.button1.Text = "Done";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Done.Location = new System.Drawing.Point(12, 413);
+            this.Done.Name = "Done";
+            this.Done.Size = new System.Drawing.Size(174, 56);
+            this.Done.TabIndex = 27;
+            this.Done.Text = "Done";
+            this.Done.UseVisualStyleBackColor = true;
+            this.Done.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox9
+            // VerdictTB
             // 
-            this.textBox9.Location = new System.Drawing.Point(12, 387);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(174, 20);
-            this.textBox9.TabIndex = 26;
-            this.textBox9.Visible = false;
+            this.VerdictTB.Location = new System.Drawing.Point(12, 387);
+            this.VerdictTB.Name = "VerdictTB";
+            this.VerdictTB.Size = new System.Drawing.Size(174, 20);
+            this.VerdictTB.TabIndex = 26;
+            this.VerdictTB.Visible = false;
             // 
-            // textBox6
+            // ArticleTB
             // 
-            this.textBox6.Location = new System.Drawing.Point(12, 222);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(174, 20);
-            this.textBox6.TabIndex = 25;
+            this.ArticleTB.Location = new System.Drawing.Point(12, 222);
+            this.ArticleTB.Name = "ArticleTB";
+            this.ArticleTB.Size = new System.Drawing.Size(174, 20);
+            this.ArticleTB.TabIndex = 25;
             // 
-            // textBox5
+            // DescriptionTB
             // 
-            this.textBox5.Location = new System.Drawing.Point(12, 183);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(174, 20);
-            this.textBox5.TabIndex = 24;
+            this.DescriptionTB.Location = new System.Drawing.Point(12, 183);
+            this.DescriptionTB.Name = "DescriptionTB";
+            this.DescriptionTB.Size = new System.Drawing.Size(174, 20);
+            this.DescriptionTB.TabIndex = 24;
             // 
-            // textBox4
+            // JudgeIdTB
             // 
-            this.textBox4.Location = new System.Drawing.Point(12, 144);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(174, 20);
-            this.textBox4.TabIndex = 23;
+            this.JudgeIdTB.Location = new System.Drawing.Point(12, 144);
+            this.JudgeIdTB.Name = "JudgeIdTB";
+            this.JudgeIdTB.Size = new System.Drawing.Size(174, 20);
+            this.JudgeIdTB.TabIndex = 23;
             // 
-            // textBox3
+            // PlaintiffIdTB
             // 
-            this.textBox3.Location = new System.Drawing.Point(12, 105);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(174, 20);
-            this.textBox3.TabIndex = 22;
+            this.PlaintiffIdTB.Location = new System.Drawing.Point(12, 105);
+            this.PlaintiffIdTB.Name = "PlaintiffIdTB";
+            this.PlaintiffIdTB.Size = new System.Drawing.Size(174, 20);
+            this.PlaintiffIdTB.TabIndex = 22;
             // 
-            // textBox2
+            // DefendantIdTB
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 66);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(174, 20);
-            this.textBox2.TabIndex = 21;
+            this.DefendantIdTB.Location = new System.Drawing.Point(12, 66);
+            this.DefendantIdTB.Name = "DefendantIdTB";
+            this.DefendantIdTB.Size = new System.Drawing.Size(174, 20);
+            this.DefendantIdTB.TabIndex = 21;
             // 
-            // textBox1
+            // IdTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(174, 20);
-            this.textBox1.TabIndex = 20;
+            this.IdTB.Location = new System.Drawing.Point(12, 23);
+            this.IdTB.Name = "IdTB";
+            this.IdTB.Size = new System.Drawing.Size(174, 20);
+            this.IdTB.TabIndex = 20;
             // 
             // label8
             // 
@@ -208,15 +208,15 @@
             this.label8.TabIndex = 57;
             this.label8.Text = "Enter case start date";
             // 
-            // dateTimePicker1
+            // StartDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(12, 261);
-            this.dateTimePicker1.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
-            this.dateTimePicker1.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(174, 20);
-            this.dateTimePicker1.TabIndex = 56;
-            this.dateTimePicker1.Value = new System.DateTime(2018, 3, 22, 0, 0, 0, 0);
+            this.StartDate.Location = new System.Drawing.Point(12, 261);
+            this.StartDate.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
+            this.StartDate.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
+            this.StartDate.Name = "StartDate";
+            this.StartDate.Size = new System.Drawing.Size(174, 20);
+            this.StartDate.TabIndex = 56;
+            this.StartDate.Value = new System.DateTime(2018, 3, 22, 0, 0, 0, 0);
             // 
             // label9
             // 
@@ -228,37 +228,37 @@
             this.label9.Text = "Enter case end date";
             this.label9.Visible = false;
             // 
-            // dateTimePicker2
+            // EndDate
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(12, 300);
-            this.dateTimePicker2.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
-            this.dateTimePicker2.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(174, 20);
-            this.dateTimePicker2.TabIndex = 58;
-            this.dateTimePicker2.Value = new System.DateTime(2018, 3, 22, 0, 0, 0, 0);
-            this.dateTimePicker2.Visible = false;
+            this.EndDate.Location = new System.Drawing.Point(12, 300);
+            this.EndDate.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
+            this.EndDate.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
+            this.EndDate.Name = "EndDate";
+            this.EndDate.Size = new System.Drawing.Size(174, 20);
+            this.EndDate.TabIndex = 58;
+            this.EndDate.Value = new System.DateTime(2018, 3, 22, 0, 0, 0, 0);
+            this.EndDate.Visible = false;
             // 
-            // button2
+            // Close
             // 
-            this.button2.Location = new System.Drawing.Point(12, 475);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(174, 56);
-            this.button2.TabIndex = 60;
-            this.button2.Text = "Close";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Close.Location = new System.Drawing.Point(12, 475);
+            this.Close.Name = "Close";
+            this.Close.Size = new System.Drawing.Size(174, 56);
+            this.Close.TabIndex = 60;
+            this.Close.Text = "Close";
+            this.Close.UseVisualStyleBackColor = true;
+            this.Close.Click += new System.EventHandler(this.button2_Click);
             // 
             // CaseEditing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(198, 540);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.Close);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.EndDate);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.StartDate);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
@@ -268,14 +268,14 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Done);
+            this.Controls.Add(this.VerdictTB);
+            this.Controls.Add(this.ArticleTB);
+            this.Controls.Add(this.DescriptionTB);
+            this.Controls.Add(this.JudgeIdTB);
+            this.Controls.Add(this.PlaintiffIdTB);
+            this.Controls.Add(this.DefendantIdTB);
+            this.Controls.Add(this.IdTB);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -298,18 +298,18 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button Done;
+        private System.Windows.Forms.TextBox VerdictTB;
+        private System.Windows.Forms.TextBox ArticleTB;
+        private System.Windows.Forms.TextBox DescriptionTB;
+        private System.Windows.Forms.TextBox JudgeIdTB;
+        private System.Windows.Forms.TextBox PlaintiffIdTB;
+        private System.Windows.Forms.TextBox DefendantIdTB;
+        private System.Windows.Forms.TextBox IdTB;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker StartDate;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DateTimePicker EndDate;
+        private System.Windows.Forms.Button Close;
     }
 }

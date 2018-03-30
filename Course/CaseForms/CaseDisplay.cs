@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -34,60 +35,77 @@ namespace Course
         }
 
         private Case @case = new Case();
+        private Defendant defendant = new Defendant();
         private CaseAddition caseAddition;
         private CaseEditing caseEditing;
         private Deleting deleting;
 
         #region Zeroth inqurie
-
+        private Regex fullnameValid = new Regex(@"\d");
         private void button15_Click(object sender, EventArgs e)
         {
-            if(textBox2.Text == "")
+            if(DbfTB.Text == "" || fullnameValid.IsMatch(DbfTB.Text))
             {
-                MessageBox.Show("Enter fullname first");
+                MessageBox.Show("INCORRECT DATA FORMAT");
             }
             else
             {
-                Connection.Connector(dataGridView1, @case.Zero(textBox2.Text));
-                Clipboard.SetText(textBox2.Text);
-                textBox2.Text = null;
+                CreateTable();
+                Connection.FillDgv(dataGridView1, @case.Display(), Connection.GetFio(defendant.Display(), DbfTB.Text.ToUpper()));
+                DbfTB.Text = null;
             }
         }
 
         private void button15_MouseMove(object sender, MouseEventArgs e)
         {
-            label8.Text = "Find all cases of defendant ordering by his fullname";
-            button15.Height = 55;
-            button15.Width = 155;
+            HelpDbf.Text = "Find all cases of defendant ordering by his fullname";
+            DefendantByFullname.Height = 55;
+            DefendantByFullname.Width = 155;
         }
 
         private void button15_MouseLeave(object sender, EventArgs e)
         {
-            label8.Text = null;
-            button15.Height = 50;
-            button15.Width = 150;
+            HelpDbf.Text = null;
+            DefendantByFullname.Height = 50;
+            DefendantByFullname.Width = 150;
         }
 
+        private void CreateTable()
+        {
+            dataGridView1.Columns.Clear();
+            dataGridView1.Columns.Add("0", "Id");
+            dataGridView1.Columns.Add("1", "NumberDefendant");
+            dataGridView1.Columns.Add("2", "PlaintiffNumber");
+            dataGridView1.Columns.Add("3", "JudgeNumber");
+            dataGridView1.Columns.Add("4", "Description");
+            dataGridView1.Columns.Add("5", "Article");
+            dataGridView1.Columns.Add("6", "DateOfStart");
+            dataGridView1.Columns.Add("7", "DateOfEnd");
+            dataGridView1.Columns.Add("8", "IsEnd");
+            dataGridView1.Columns.Add("9", "IsUr");
+            dataGridView1.Columns.Add("10", "Verdict");
+        }
         #endregion
 
         #region First inqurie
 
         private void button1_MouseMove(object sender, MouseEventArgs e)
         {
-            label1.Text = "Find all legal cases";
-            button1.Height = 55;
-            button1.Width = 155;
+            HelpFl.Text = "Find all legal cases";
+            FindLegal.Height = 55;
+            FindLegal.Width = 155;
         }
 
         private void button1_MouseLeave(object sender, EventArgs e)
         {
-            label1.Text = null;
-            button1.Height = 50;
-            button1.Width = 150;
+            HelpFl.Text = null;
+            FindLegal.Height = 50;
+            FindLegal.Width = 150;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            dataGridView1.Columns.Clear();
             Connection.Connector(dataGridView1,@case.First("-1"));
         }
 
@@ -97,29 +115,30 @@ namespace Course
 
         private void button2_MouseMove(object sender, MouseEventArgs e)
         {
-            label2.Text = "Find cases which contains keyword";
-            button2.Height = 55;
-            button2.Width = 155;
+            HelpFbk.Text = "Find cases which contains keyword";
+            FindByKeyword.Height = 55;
+            FindByKeyword.Width = 155;
         }
 
         private void button2_MouseLeave(object sender, EventArgs e)
         {
-            label2.Text = null;
-            button2.Height = 50;
-            button2.Width = 150;
+            HelpFbk.Text = null;
+            FindByKeyword.Height = 50;
+            FindByKeyword.Width = 150;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(textBox1.Text == "")
+            if(FindByKeywordTB.Text == "")
             {
                 MessageBox.Show("Enter keyword first");
             }
             else
             {
-                Connection.Connector(dataGridView1, @case.Second(textBox1.Text));
-                Clipboard.SetText(textBox1.Text);
-                textBox1.Text = null;
+                dataGridView1.Columns.Clear();
+                Connection.Connector(dataGridView1, @case.Second(FindByKeywordTB.Text));
+                Clipboard.SetText(FindByKeywordTB.Text);
+                FindByKeywordTB.Text = null;
             }
         }
         #endregion
@@ -128,23 +147,24 @@ namespace Course
 
         private void button3_MouseMove(object sender, MouseEventArgs e)
         {
-            label3.Text = "Find all cases of article that you select";
-            button3.Height = 55;
-            button3.Width = 155;
+            HelpFba.Text = "Find all cases of article that you select";
+            FindByArticle.Height = 55;
+            FindByArticle.Width = 155;
         }
 
         private void button3_MouseLeave(object sender, EventArgs e)
         {
-            label3.Text = null;
-            button3.Height = 50;
-            button3.Width = 150;
+            HelpFba.Text = null;
+            FindByArticle.Height = 50;
+            FindByArticle.Width = 150;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             try
             {
-            Connection.Connector(dataGridView1,@case.Third(dataGridView1.CurrentRow.Cells[5].Value.ToString()));
+                dataGridView1.Columns.Clear();
+                Connection.Connector(dataGridView1,@case.Third(dataGridView1.CurrentRow.Cells[5].Value.ToString()));
             }
             catch (NullReferenceException ex)
             {
@@ -157,20 +177,21 @@ namespace Course
 
         private void button4_MouseMove(object sender, MouseEventArgs e)
         {
-            label4.Text = "Find all unfinished cases";
-            button4.Height = 55;
-            button4.Width = 155;
+            HelpFa.Text = "Find all unfinished cases";
+            FindActive.Height = 55;
+            FindActive.Width = 155;
         }
 
         private void button4_MouseLeave(object sender, EventArgs e)
         {
-            label4.Text = null;
-            button4.Height = 50;
-            button4.Width = 150;
+            HelpFa.Text = null;
+            FindActive.Height = 50;
+            FindActive.Width = 150;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            dataGridView1.Columns.Clear();
             Connection.Connector(dataGridView1,@case.Fourth("0"));
         }
         #endregion
@@ -179,23 +200,24 @@ namespace Course
 
         private void button5_MouseMove(object sender, MouseEventArgs e)
         {
-            label5.Text = "Find all cases of selected judge";
-            button5.Height = 55;
-            button5.Width = 155;
+            HelpJcl.Text = "Find all cases of selected judge";
+            JudgeCaseList.Height = 55;
+            JudgeCaseList.Width = 155;
         }
 
         private void button5_MouseLeave(object sender, EventArgs e)
         {
-            label5.Text = null;
-            button5.Height = 50;
-            button5.Width = 150;
+            HelpJcl.Text = null;
+            JudgeCaseList.Height = 50;
+            JudgeCaseList.Width = 150;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             try
             {
-            Connection.Connector(dataGridView1,@case.Fifth(dataGridView1.CurrentRow.Cells[3].Value.ToString()));
+                dataGridView1.Columns.Clear();
+                Connection.Connector(dataGridView1,@case.Fifth(dataGridView1.CurrentRow.Cells[3].Value.ToString()));
             }
             catch (NullReferenceException ex)
             {
@@ -208,22 +230,23 @@ namespace Course
 
         private void button6_MouseMove(object sender, MouseEventArgs e)
         {
-            label6.Text = "Find all cases of selected plaintiff";
-            button6.Height = 55;
-            button6.Width = 155;
+            HelpPcl.Text = "Find all cases of selected plaintiff";
+            PlaintiffCaseList.Height = 55;
+            PlaintiffCaseList.Width = 155;
         }
 
         private void button6_MouseLeave(object sender, EventArgs e)
         {
-            label6.Text = null;
-            button6.Height = 50;
-            button6.Width = 150;
+            HelpPcl.Text = null;
+            PlaintiffCaseList.Height = 50;
+            PlaintiffCaseList.Width = 150;
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             try
             {
+                dataGridView1.Columns.Clear();
                 Connection.Connector(dataGridView1, @case.Sixth(dataGridView1.CurrentRow.Cells[2].Value.ToString()));
             }
             catch(NullReferenceException ex)
@@ -237,23 +260,24 @@ namespace Course
 
         private void button7_MouseMove(object sender, MouseEventArgs e)
         {
-            label7.Text = "Find all cases of selected defendant";
-            button7.Height = 55;
-            button7.Width = 155;
+            HelpDcl.Text = "Find all cases of selected defendant";
+            DefendantCaseList.Height = 55;
+            DefendantCaseList.Width = 155;
         }
 
         private void button7_MouseLeave(object sender, EventArgs e)
         {
-            label7.Text = null;
-            button7.Height = 50;
-            button7.Width = 150;
+            HelpDcl.Text = null;
+            DefendantCaseList.Height = 50;
+            DefendantCaseList.Width = 150;
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             try
             {
-            Connection.Connector(dataGridView1,@case.Seventh(dataGridView1.CurrentRow.Cells[1].Value.ToString()));
+                dataGridView1.Columns.Clear();
+                Connection.Connector(dataGridView1,@case.Seventh(dataGridView1.CurrentRow.Cells[1].Value.ToString()));
             }
             catch (NullReferenceException ex)
             {
@@ -270,6 +294,7 @@ namespace Course
         /// </summary>
         private void button11_Click(object sender, EventArgs e)
         {
+            dataGridView1.Columns.Clear();
             Connection.Connector(dataGridView1, @case.Display());
         }
 
@@ -296,8 +321,10 @@ namespace Course
         {
             try
             {
-            Connection.Connector(@case.Delete(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
-            Connection.Connector(dataGridView1,@case.Display());
+                dataGridView1.Columns.Clear();
+                Connection.Connector(dataGridView1, @case.Display());
+                Connection.Connector(@case.Delete(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
+                Connection.Connector(dataGridView1, @case.Display());
             }
             catch (NullReferenceException ex)
             {
@@ -307,38 +334,38 @@ namespace Course
 
         private void button9_MouseMove(object sender, MouseEventArgs e)
         {
-            button9.Height = 105;
-            button9.Width = 405;
+            DeleteSelectedCase.Height = 105;
+            DeleteSelectedCase.Width = 405;
         }
 
         private void button9_MouseLeave(object sender, EventArgs e)
         {
-            button9.Height = 100;
-            button9.Width = 400;
+            DeleteSelectedCase.Height = 100;
+            DeleteSelectedCase.Width = 400;
         }
 
         private void button8_MouseMove(object sender, MouseEventArgs e)
         {
-            button8.Height = 105;
-            button8.Width = 405;
+            EditSelected.Height = 105;
+            EditSelected.Width = 405;
         }
 
         private void button8_MouseLeave(object sender, EventArgs e)
         {
-            button8.Height = 100;
-            button8.Width = 400;
+            EditSelected.Height = 100;
+            EditSelected.Width = 400;
         }
 
         private void button11_MouseMove(object sender, MouseEventArgs e)
         {
-            button11.Height = 105;
-            button11.Width = 405;
+            DisplayAll.Height = 105;
+            DisplayAll.Width = 405;
         }
 
         private void button11_MouseLeave(object sender, EventArgs e)
         {
-            button11.Height = 100;
-            button11.Width = 400;
+            DisplayAll.Height = 100;
+            DisplayAll.Width = 400;
         }
         #endregion
 
@@ -378,14 +405,14 @@ namespace Course
 
         private void button12_MouseMove(object sender, MouseEventArgs e)
         {
-            button12.Height = 115;
-            button12.Width = 305;
+            AddCase.Height = 115;
+            AddCase.Width = 305;
         }
 
         private void button12_MouseLeave(object sender, EventArgs e)
         {
-            button12.Height = 110;
-            button12.Width = 300;
+            AddCase.Height = 110;
+            AddCase.Width = 300;
         }
 
         /// <summary>
@@ -399,14 +426,14 @@ namespace Course
 
         private void button13_MouseMove(object sender, MouseEventArgs e)
         {
-            button13.Height = 115;
-            button13.Width = 305;
+            EditCase.Height = 115;
+            EditCase.Width = 305;
         }
 
         private void button13_MouseLeave(object sender, EventArgs e)
         {
-            button13.Height = 110;
-            button13.Width = 300;
+            EditCase.Height = 110;
+            EditCase.Width = 300;
         }
 
         /// <summary>
@@ -419,14 +446,14 @@ namespace Course
 
         private void button14_MouseMove(object sender, MouseEventArgs e)
         {
-            button14.Height = 115;
-            button14.Width = 305;
+            DeleteCase.Height = 115;
+            DeleteCase.Width = 305;
         }
 
         private void button14_MouseLeave(object sender, EventArgs e)
         {
-            button14.Height = 110;
-            button14.Width = 300;
+            DeleteCase.Height = 110;
+            DeleteCase.Width = 300;
         }
 
         /// <summary>
@@ -439,14 +466,14 @@ namespace Course
 
         private void button10_MouseMove(object sender, MouseEventArgs e)
         {
-            button10.Height = 115;
-            button10.Width = 305;
+            Close.Height = 115;
+            Close.Width = 305;
         }
 
         private void button10_MouseLeave(object sender, EventArgs e)
         {
-            button10.Height = 110;
-            button10.Width = 300;
+            Close.Height = 110;
+            Close.Width = 300;
         }
         #endregion
 

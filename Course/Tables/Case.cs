@@ -9,14 +9,7 @@ namespace Course
    public class Case
     {
         #region Search
-        /// <summary>
-        /// Поиск по фио
-        /// </summary>
-        public string Zero(string param)
-        {
-            return "";
-        }
-
+       
         /// <summary>
         /// Список юридичних справ
         /// </summary>   
@@ -78,9 +71,9 @@ namespace Course
         /// <summary>
         /// Вводит данные в таблицу "дело" 
         /// </summary>
-        public string Insert(string id, string defendantId, string plaintiffId, string judgeId, string descripton, string article,DateTime dateOfStart,DateTime dateOfEnd, short isEnd, short isUr, string verdict)
+        public string Insert(string defendantId, string plaintiffId, string judgeId, string descripton, string article,DateTime dateOfStart,DateTime dateOfEnd, short isEnd, short isUr, string verdict)
         {
-            return "INSERT INTO kurs.case (Id, NumberDefendant,PlaintiffNumber,JudgeNumber,Description,Article,DateOfStart,DateOfEnd,IsEnd,IsUr,Verdict) VALUES ('" + id +"','"+ defendantId +"','"+plaintiffId+"','"+judgeId+"','"+descripton +"','"+article+"','"+dateOfStart.ToShortDateString()+"','" + dateOfEnd.ToShortDateString()+"','" + isEnd+"','"+isUr+"','"+verdict+"')";
+            return "INSERT INTO kurs.case (NumberDefendant,PlaintiffNumber,JudgeNumber,Description,Article,DateOfStart,DateOfEnd,IsEnd,IsUr,Verdict) VALUES ('"+ defendantId +"','"+plaintiffId+"','"+judgeId+"','"+descripton +"','"+article+"','"+dateOfStart.ToShortDateString()+"','" + dateOfEnd.ToShortDateString()+"','" + isEnd+"','"+isUr+"','"+verdict+"')";
         }
 
         /// <summary>
