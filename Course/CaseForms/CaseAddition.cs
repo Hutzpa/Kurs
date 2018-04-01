@@ -42,6 +42,23 @@ namespace Course
         public static CaseAddition caseAdditionParam;
         private CaseDisplay caseDisplay;
 
+        private ToolTip tipDTB = new ToolTip() { InitialDelay = 1 };
+        private ToolTip tipPTB = new ToolTip() { InitialDelay = 1 };
+        private ToolTip tipJTB = new ToolTip() { InitialDelay = 1 };
+        private ToolTip tipDescTB = new ToolTip() { InitialDelay = 1 };
+        private ToolTip tipArtTB = new ToolTip() { InitialDelay = 1 };
+        private ToolTip tipVerdTB = new ToolTip() { InitialDelay = 1 };
+
+        private void CaseAddition_Load(object sender, EventArgs e)
+        {
+            tipDTB.SetToolTip(DefendantIdTB, "Allows to enter only numbers, if defendant is not created yet, left this field empty");
+            tipPTB.SetToolTip(PlaintiffIdTB, "Allows to enter only numbers, if plaintiff is not created yet, left this field empty");
+            tipJTB.SetToolTip(JudgeIdTB, "Allows to enter only numbers, if judge is not created yet, left this field empty");
+            tipDescTB.SetToolTip(DescriptionTB, "Description of case");
+            tipArtTB.SetToolTip(ArticleTB, "Article of case");
+            tipVerdTB.SetToolTip(VerdictTB, "Verdict of case");
+        }
+
         public static CaseAddition GetCaseAddition(CaseDisplay caseDisplay)
         {
             if (caseAdditionParam == null)
@@ -73,7 +90,7 @@ namespace Course
 
         private void Addition()
         {
-            if (defendantIdValid.IsMatch(DefendantIdTB.Text) || DefendantIdTB.Text == "" || plaintiffIdValid.IsMatch(PlaintiffIdTB.Text) || PlaintiffIdTB.Text == "" || judgeIdValid.IsMatch(JudgeIdTB.Text) || JudgeIdTB.Text == "")
+            if (defendantIdValid.IsMatch(DefendantIdTB.Text) ||plaintiffIdValid.IsMatch(PlaintiffIdTB.Text) ||judgeIdValid.IsMatch(JudgeIdTB.Text))
             {
                 MessageBox.Show("Id allows only numbers");
             }
@@ -97,6 +114,7 @@ namespace Course
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+           
             if (isEnd == 0)
                 isEnd = -1;
             else
@@ -140,5 +158,7 @@ namespace Course
         {
             Close();
         }
+
+      
     }
 }

@@ -44,6 +44,7 @@
             // 
             // Done
             // 
+            this.Done.Font = new System.Drawing.Font("Yu Gothic UI Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Done.Location = new System.Drawing.Point(15, 51);
             this.Done.Name = "Done";
             this.Done.Size = new System.Drawing.Size(159, 42);
@@ -63,6 +64,7 @@
             // 
             // Close
             // 
+            this.Close.Font = new System.Drawing.Font("Yu Gothic UI Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Close.Location = new System.Drawing.Point(15, 99);
             this.Close.Name = "Close";
             this.Close.Size = new System.Drawing.Size(159, 42);
@@ -86,6 +88,7 @@
             this.Name = "Deleting";
             this.Text = "Deleting";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Deleting_FormClosing);
+            this.Load += new System.EventHandler(this.Deleting_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

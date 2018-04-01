@@ -41,6 +41,13 @@ namespace Course
         private Case @case;
         private Regex idValidation = new Regex(@"\D");
 
+        private ToolTip tipITB = new ToolTip() { InitialDelay = 1 };
+
+        private void Deleting_Load(object sender, EventArgs e)
+        {
+            tipITB.SetToolTip(IdTB, "Allows to enter only numbers, enter id of " + whichForm.ToString().ToLower() + "what are you want to delete");
+        }
+
         private void Design()
         {
             switch (whichForm)
@@ -178,5 +185,7 @@ namespace Course
                 Hide();
             }
         }
+
+        
     }
 }

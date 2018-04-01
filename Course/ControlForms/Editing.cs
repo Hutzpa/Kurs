@@ -59,6 +59,20 @@ namespace Course
         private Regex nameValid = new Regex(@"\d");
 
 
+        private ToolTip tipITB = new ToolTip() { InitialDelay = 1 };
+        private ToolTip tipCTB = new ToolTip() { InitialDelay = 1 };
+        private ToolTip tipNTB = new ToolTip() { InitialDelay = 1 };
+        private ToolTip tipSTB = new ToolTip() { InitialDelay = 1 };
+        private ToolTip tipPTB = new ToolTip() { InitialDelay = 1 };
+
+        private void Editing_Load(object sender, EventArgs e)
+        {
+            tipITB.SetToolTip(IdTB, "Allows to enter only numbers, enter id of " + whichForm.ToString().ToLower() + "what are you want to edit");
+            tipCTB.SetToolTip(CaseNumberTB, "Allows to enter only numbers, if case is not created yet, left this field empty");
+            tipNTB.SetToolTip(NameTB, "Allows to enter only letters,write name here");
+            tipSTB.SetToolTip(SurnameTB, "Allows to enter only letters, write surname here");
+            tipPTB.SetToolTip(PatronymicTB, "Allows to enter only letters, write patronymic here");
+        }
 
         private void Design()
         {
@@ -97,7 +111,7 @@ namespace Course
             {
                 case WhichForm.Defendant:
                     {
-                        if (idValidation.IsMatch(IdTB.Text) || numberValid.IsMatch(CaseNumberTB.Text) || CaseNumberTB.Text == "" || numberValid.IsMatch(CaseNumberTB.Text) || nameValid.IsMatch(NameTB.Text) || NameTB.Text == "" || nameValid.IsMatch(SurnameTB.Text) || SurnameTB.Text == "" || nameValid.IsMatch(PatronymicTB.Text) || PatronymicTB.Text == "")
+                        if (numberValid.IsMatch(CaseNumberTB.Text) || CaseNumberTB.Text == "" || numberValid.IsMatch(CaseNumberTB.Text) || nameValid.IsMatch(NameTB.Text) || NameTB.Text == "" || nameValid.IsMatch(SurnameTB.Text) || SurnameTB.Text == "" || nameValid.IsMatch(PatronymicTB.Text) || PatronymicTB.Text == "")
                         {
                             MessageBox.Show("Id writed incorrect. Only numbers.");
                         }
@@ -177,5 +191,7 @@ namespace Course
                     }
             }
         }
+
+       
     }
 }

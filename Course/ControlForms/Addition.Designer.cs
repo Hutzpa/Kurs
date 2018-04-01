@@ -43,6 +43,7 @@
             // 
             // Done
             // 
+            this.Done.Font = new System.Drawing.Font("Yu Gothic UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Done.Location = new System.Drawing.Point(9, 172);
             this.Done.Name = "Done";
             this.Done.Size = new System.Drawing.Size(163, 25);
@@ -117,6 +118,7 @@
             // 
             // Close
             // 
+            this.Close.Font = new System.Drawing.Font("Yu Gothic UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Close.Location = new System.Drawing.Point(9, 199);
             this.Close.Name = "Close";
             this.Close.Size = new System.Drawing.Size(163, 25);
@@ -146,6 +148,7 @@
             this.Name = "Addition";
             this.Text = "Addition";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Addition_FormClosing);
+            this.Load += new System.EventHandler(this.Addition_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

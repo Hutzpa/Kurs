@@ -159,7 +159,7 @@
             this.Add.Font = new System.Drawing.Font("Yu Gothic UI Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Add.Location = new System.Drawing.Point(15, 372);
             this.Add.Name = "Add";
-            this.Add.Size = new System.Drawing.Size(108, 50);
+            this.Add.Size = new System.Drawing.Size(110, 50);
             this.Add.TabIndex = 13;
             this.Add.Text = "Add";
             this.Add.UseVisualStyleBackColor = true;
@@ -168,9 +168,9 @@
             // Edit
             // 
             this.Edit.Font = new System.Drawing.Font("Yu Gothic UI Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Edit.Location = new System.Drawing.Point(205, 372);
+            this.Edit.Location = new System.Drawing.Point(192, 372);
             this.Edit.Name = "Edit";
-            this.Edit.Size = new System.Drawing.Size(103, 50);
+            this.Edit.Size = new System.Drawing.Size(110, 50);
             this.Edit.TabIndex = 14;
             this.Edit.Text = "Edit ";
             this.Edit.UseVisualStyleBackColor = true;
@@ -179,7 +179,7 @@
             // Delete
             // 
             this.Delete.Font = new System.Drawing.Font("Yu Gothic UI Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Delete.Location = new System.Drawing.Point(389, 372);
+            this.Delete.Location = new System.Drawing.Point(375, 372);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(110, 50);
             this.Delete.TabIndex = 15;
@@ -190,9 +190,9 @@
             // Close
             // 
             this.Close.Font = new System.Drawing.Font("Yu Gothic UI Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Close.Location = new System.Drawing.Point(568, 372);
+            this.Close.Location = new System.Drawing.Point(541, 372);
             this.Close.Name = "Close";
-            this.Close.Size = new System.Drawing.Size(83, 50);
+            this.Close.Size = new System.Drawing.Size(110, 50);
             this.Close.TabIndex = 16;
             this.Close.Text = "Close";
             this.Close.UseVisualStyleBackColor = true;

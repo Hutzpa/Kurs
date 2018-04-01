@@ -130,6 +130,7 @@
             // 
             // Done
             // 
+            this.Done.Font = new System.Drawing.Font("Yu Gothic UI Light", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Done.Location = new System.Drawing.Point(12, 372);
             this.Done.Name = "Done";
             this.Done.Size = new System.Drawing.Size(174, 59);
@@ -217,6 +218,7 @@
             // 
             // Close
             // 
+            this.Close.Font = new System.Drawing.Font("Yu Gothic UI Light", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Close.Location = new System.Drawing.Point(12, 437);
             this.Close.Name = "Close";
             this.Close.Size = new System.Drawing.Size(174, 59);
@@ -256,6 +258,7 @@
             this.Name = "CaseAddition";
             this.Text = "Addition";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CaseAddition_FormClosing);
+            this.Load += new System.EventHandler(this.CaseAddition_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

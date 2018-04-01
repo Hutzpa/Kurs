@@ -55,13 +55,26 @@ namespace Course
             }
         }
 
+        private ToolTip tipCTB = new ToolTip() { InitialDelay = 1 };
+        private ToolTip tipNTB = new ToolTip() { InitialDelay = 1 };
+        private ToolTip tipSTB = new ToolTip() { InitialDelay = 1 };
+        private ToolTip tipPTB = new ToolTip() { InitialDelay = 1 };
+
+        private void Addition_Load(object sender, EventArgs e)
+        {
+            tipCTB.SetToolTip(CaseNumberTB, "Allows to enter only numbers, if case is not created yet, left this field empty");
+            tipNTB.SetToolTip(NameTB, "Allows to enter only letters,write name here");
+            tipSTB.SetToolTip(SurnameTB, "Allows to enter only letters, write surname here");
+            tipPTB.SetToolTip(PatronymicTB, "Allows to enter only letters, write patronymic here");
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             switch (whichForm)
             {
                 case WhichForm.Defendant:
                     {
-                        if(CaseNumberTB.Text == "" || numberValid.IsMatch(CaseNumberTB.Text) || nameValid.IsMatch(NameTB.Text) || NameTB.Text == "" || nameValid.IsMatch(SurnameTB.Text) || SurnameTB.Text == "" ||  nameValid.IsMatch(PatronymicTB.Text) || PatronymicTB.Text == "")
+                        if( numberValid.IsMatch(CaseNumberTB.Text) || nameValid.IsMatch(NameTB.Text) || NameTB.Text == "" || nameValid.IsMatch(SurnameTB.Text) || SurnameTB.Text == "" ||  nameValid.IsMatch(PatronymicTB.Text) || PatronymicTB.Text == "")
                         {
                             MessageBox.Show("Id writed incorrect. Only numbers.");
                         }
@@ -146,5 +159,7 @@ namespace Course
                     }
             }
         }
+
+       
     }
 }

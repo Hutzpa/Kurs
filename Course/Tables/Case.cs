@@ -1,15 +1,87 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Course
 {
    public class Case
     {
         #region Search
-       
+        /// <summary>
+        /// Get all cases, which defendant fullname contain entered fullname
+        /// </summary>
+        public List<object> GetFio(string query, string fio)
+        {
+            using (var conn = new MySqlConnection(Connection.connStr))
+            {
+                List<object> list = new List<object>();
+                MySqlCommand com = new MySqlCommand(query, conn);
+                try
+                {
+                    conn.Open();
+                    MySqlDataReader reader = com.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        if (reader["Fio"].ToString() == fio)
+                        {
+                            list.Add(reader["CaseNumber"]);
+                        }
+                    }
+                    conn.Close();
+                    return list;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                    return new List<object>();
+                }
+            }
+        }
+
+        /// <summary>
+        /// DIsplay cases, that contain the  full names
+        /// </summary>
+        public void FillDgv(DataGridView dataGridView1, string query, List<object> list)
+        {
+            using (var conn = new MySqlConnection(Connection.connStr))
+            {
+                MySqlCommand com = new MySqlCommand(query, conn);
+                try
+                {
+                    conn.Open();
+                    MySqlDataReader reader = com.ExecuteReader();
+                    DataTable dataTable = new DataTable();
+                    dataGridView1.DataSource = null;
+                    while (reader.Read())
+                    {
+                        for (int i = 0; i < list.Count; i++)
+                        {
+                            if (reader["Id"].ToString() == list[i].ToString())
+                            {
+                                dataGridView1.Rows.Add(Convert.ToInt32(reader["Id"]), Convert.ToUInt32(reader["NumberDefendant"]), Convert.ToUInt32(reader["PlaintiffNumber"]), Convert.ToUInt32(reader["JudgeNumber"]), reader["Description"].ToString(), reader["Article"].ToString(), Convert.ToDateTime(reader["DateOfStart"]).ToShortDateString(), Convert.ToDateTime(reader["DateOfEnd"]).ToShortDateString(), Convert.ToBoolean(reader["IsEnd"]), Convert.ToBoolean(reader["IsUr"]), reader["Verdict"].ToString());
+
+                            }
+                        }
+                    }
+                    conn.Close();
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+
+                }
+            }
+        }
+
+
         /// <summary>
         /// Список юридичних справ
         /// </summary>   

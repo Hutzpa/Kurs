@@ -51,7 +51,7 @@ namespace Course
             else
             {
                 CreateTable();
-                Connection.FillDgv(dataGridView1, @case.Display(), Connection.GetFio(defendant.Display(), DbfTB.Text.ToUpper()));
+                @case.FillDgv(dataGridView1, @case.Display(), @case.GetFio(defendant.Display(), DbfTB.Text.ToUpper()));
                 DbfTB.Text = null;
             }
         }
