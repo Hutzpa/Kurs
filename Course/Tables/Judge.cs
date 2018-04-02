@@ -25,6 +25,14 @@ namespace Course
         }
 
         /// <summary>
+        /// Редактирование номера дела 
+        /// </summary>
+        public string UpdateCaseNmb(string judgeNumber, string caseNumber)
+        {
+            return "UPDATE kurs.judge SET CaseNumber='" + caseNumber + "' WHERE JudgeNumber='" + judgeNumber + "'";
+        }
+
+        /// <summary>
         /// Поиск ответчиков по id
         /// </summary>
         public string Search(string judgeNumber)

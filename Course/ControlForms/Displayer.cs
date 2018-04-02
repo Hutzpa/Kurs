@@ -16,6 +16,11 @@ namespace Course
             Design();
         }
 
+        private string deleteException = "CAN'T DELETE RELATED VALUES";
+        private string searchException = "WRONG VALUE";
+        private string nothingSel = "NOTHING IS SELECTED";
+        private string cantDisp = "CHECK TABLE EXISTENCE";
+
         private WhichForm whichForm;
         private Defendant defendant;
         private Plaintiff plaintiff;
@@ -38,19 +43,19 @@ namespace Course
                 case WhichForm.Defendant:
                     {
                         defendant = new Defendant();
-                        Connection.Connector(dataGridView1, defendant.Display());
+                        Connection.Connector(dataGridView1, defendant.Display(), cantDisp);
                         break;
                     }
                 case WhichForm.Judge:
                     {
                         judge = new Judge();
-                        Connection.Connector(dataGridView1, judge.Display());
+                        Connection.Connector(dataGridView1, judge.Display(), cantDisp);
                         break;
                     }
                 case WhichForm.Plaintiff:
                     {
                         plaintiff = new Plaintiff();
-                        Connection.Connector(dataGridView1, plaintiff.Display());
+                        Connection.Connector(dataGridView1, plaintiff.Display(), cantDisp);
                         break;
                     }
                 default:
@@ -72,17 +77,17 @@ namespace Course
             {
                 case WhichForm.Judge:
                     {
-                        Connection.Connector(dataGridView1, judge.Display());
+                        Connection.Connector(dataGridView1, judge.Display(), cantDisp);
                         break;
                     }
                 case WhichForm.Plaintiff:
                     {
-                        Connection.Connector(dataGridView1, plaintiff.Display());
+                        Connection.Connector(dataGridView1, plaintiff.Display(), cantDisp);
                         break;
                     }
                 case WhichForm.Defendant:
                     {
-                        Connection.Connector(dataGridView1, defendant.Display());
+                        Connection.Connector(dataGridView1, defendant.Display(), cantDisp);
                         break;
                     }
             }
@@ -103,21 +108,21 @@ namespace Course
                     {
                         Width = 1190;
                         dataGridView1.Width = 1143;
-                        Connection.Connector(dataGridView1,@case.Fifth(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
+                        Connection.Connector(dataGridView1,@case.Fifth(dataGridView1.CurrentRow.Cells[0].Value.ToString()), nothingSel);
                         break;
                     }
                 case WhichForm.Plaintiff:
                     {
                         Width = 1190;
                         dataGridView1.Width = 1143;
-                        Connection.Connector(dataGridView1, @case.Sixth(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
+                        Connection.Connector(dataGridView1, @case.Sixth(dataGridView1.CurrentRow.Cells[0].Value.ToString()), nothingSel);
                         break;
                     }
                 case WhichForm.Defendant:
                     {
                         Width = 1190;
                         dataGridView1.Width = 1143;
-                        Connection.Connector(dataGridView1, @case.Seventh(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
+                        Connection.Connector(dataGridView1, @case.Seventh(dataGridView1.CurrentRow.Cells[0].Value.ToString()), nothingSel);
                         break;
                     }
             }
@@ -182,22 +187,22 @@ namespace Course
                 {
                     case WhichForm.Judge:
                     {
-                        Connection.Connector(dataGridView1, judge.Search(IdTextBox.Text));
+                        Connection.Connector(dataGridView1, judge.Search(IdTextBox.Text), searchException);
                         break;
                     }
                     case WhichForm.Plaintiff:
                     {
-                        Connection.Connector(dataGridView1, plaintiff.Search(IdTextBox.Text));
+                        Connection.Connector(dataGridView1, plaintiff.Search(IdTextBox.Text), searchException);
                         break;
                     }
                     case WhichForm.Defendant:
                     {
-                        Connection.Connector(dataGridView1, defendant.Search(IdTextBox.Text));
+                        Connection.Connector(dataGridView1, defendant.Search(IdTextBox.Text), searchException);
                         break;
                     }
                 }
-                 Width = 584;
-                 dataGridView1.Width = 543;
+                 Width = 679;
+                 dataGridView1.Width = 643;
             }
         }
 
@@ -224,7 +229,7 @@ namespace Course
         {
             try
             {
-            editing = new Editing(whichForm, dataGridView1.CurrentRow.Cells[0].Value.ToString(),this);
+            editing = new Editing(whichForm, dataGridView1.CurrentRow.Cells[1].Value.ToString(),this);
             editing.ShowDialog();
             }
             catch (NullReferenceException ex)
@@ -256,20 +261,20 @@ namespace Course
             {
                 case WhichForm.Judge:
                     {
-                        Connection.Connector(judge.Delete(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
-                        Connection.Connector(dataGridView1, judge.Display());
+                        Connection.Connector(judge.Delete(dataGridView1.CurrentRow.Cells[0].Value.ToString()), deleteException);
+                        Connection.Connector(dataGridView1, judge.Display(), deleteException);
                         break;
                     }
                 case WhichForm.Plaintiff:
                     {
-                        Connection.Connector(plaintiff.Delete(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
-                        Connection.Connector(dataGridView1, plaintiff.Display());
+                        Connection.Connector(plaintiff.Delete(dataGridView1.CurrentRow.Cells[0].Value.ToString()), deleteException);
+                        Connection.Connector(dataGridView1, plaintiff.Display(), deleteException);
                         break;
                     }
                 case WhichForm.Defendant:
                     {
-                        Connection.Connector(defendant.Delete(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
-                        Connection.Connector(dataGridView1, defendant.Display());
+                        Connection.Connector(defendant.Delete(dataGridView1.CurrentRow.Cells[0].Value.ToString()), deleteException);
+                        Connection.Connector(dataGridView1, defendant.Display(), deleteException);
                         break;
                     }
             }

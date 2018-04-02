@@ -65,10 +65,10 @@ namespace Course
                             if (reader["Id"].ToString() == list[i].ToString())
                             {
                                 dataGridView1.Rows.Add(Convert.ToInt32(reader["Id"]), Convert.ToUInt32(reader["NumberDefendant"]), Convert.ToUInt32(reader["PlaintiffNumber"]), Convert.ToUInt32(reader["JudgeNumber"]), reader["Description"].ToString(), reader["Article"].ToString(), Convert.ToDateTime(reader["DateOfStart"]).ToShortDateString(), Convert.ToDateTime(reader["DateOfEnd"]).ToShortDateString(), Convert.ToBoolean(reader["IsEnd"]), Convert.ToBoolean(reader["IsUr"]), reader["Verdict"].ToString());
-
                             }
                         }
                     }
+
                     conn.Close();
 
 

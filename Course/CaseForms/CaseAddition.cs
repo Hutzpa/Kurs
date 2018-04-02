@@ -24,11 +24,13 @@ namespace Course
             InitializeComponent();
             this.caseDisplay = caseDisplay;
         }
+        private string cantDisp = "CHECK TABLE EXISTENCE";
+
 
         private Case @case = new Case();
-        private Regex defendantIdValid = new Regex(@"\D");
-        private Regex plaintiffIdValid = new Regex(@"\D");
-        private Regex judgeIdValid = new Regex(@"\D");
+        private Judge judge = new Judge();
+        private Defendant defendant = new Defendant();
+        private Plaintiff plaintiff = new Plaintiff();
 
         public static CaseAddition caseAddition;
 
@@ -42,21 +44,21 @@ namespace Course
         public static CaseAddition caseAdditionParam;
         private CaseDisplay caseDisplay;
 
-        private ToolTip tipDTB = new ToolTip() { InitialDelay = 1 };
-        private ToolTip tipPTB = new ToolTip() { InitialDelay = 1 };
-        private ToolTip tipJTB = new ToolTip() { InitialDelay = 1 };
-        private ToolTip tipDescTB = new ToolTip() { InitialDelay = 1 };
-        private ToolTip tipArtTB = new ToolTip() { InitialDelay = 1 };
-        private ToolTip tipVerdTB = new ToolTip() { InitialDelay = 1 };
+        private Regex idValidation = new Regex(@"\D");
+        private Regex defendantIdValid = new Regex(@"\D");
+        private Regex plaintiffIdValid = new Regex(@"\D");
+        private Regex judgeIdValid = new Regex(@"\D");
+
+        private ToolTip tip = new ToolTip() { InitialDelay = 1 };
 
         private void CaseAddition_Load(object sender, EventArgs e)
         {
-            tipDTB.SetToolTip(DefendantIdTB, "Allows to enter only numbers, if defendant is not created yet, left this field empty");
-            tipPTB.SetToolTip(PlaintiffIdTB, "Allows to enter only numbers, if plaintiff is not created yet, left this field empty");
-            tipJTB.SetToolTip(JudgeIdTB, "Allows to enter only numbers, if judge is not created yet, left this field empty");
-            tipDescTB.SetToolTip(DescriptionTB, "Description of case");
-            tipArtTB.SetToolTip(ArticleTB, "Article of case");
-            tipVerdTB.SetToolTip(VerdictTB, "Verdict of case");
+            tip.SetToolTip(DefendantCB, "If defendant is not created yet, left this field empty");
+            tip.SetToolTip(PlaintiffCB, "If plaintiff is not created yet, left this field empty");
+            tip.SetToolTip(JudgeCB, "If judge is not created yet, left this field empty");
+            tip.SetToolTip(DescriptionTB, "Description of case");
+            tip.SetToolTip(ArticleTB, "Article of case");
+            tip.SetToolTip(VerdictTB, "Verdict of case");
         }
 
         public static CaseAddition GetCaseAddition(CaseDisplay caseDisplay)
@@ -90,21 +92,14 @@ namespace Course
 
         private void Addition()
         {
-            if (defendantIdValid.IsMatch(DefendantIdTB.Text) ||plaintiffIdValid.IsMatch(PlaintiffIdTB.Text) ||judgeIdValid.IsMatch(JudgeIdTB.Text))
-            {
-                MessageBox.Show("Id allows only numbers");
-            }
-            else
-            {
-                Connection.Connector(@case.Insert(DefendantIdTB.Text, PlaintiffIdTB.Text, JudgeIdTB.Text, DescriptionTB.Text, ArticleTB.Text, StartDate.Value, EndDate.Value, isEnd, isLegal, VerdictTB.Text));
+                Connection.Connector(@case.Insert(DefendantCB.Text, PlaintiffCB.Text, JudgeCB.Text, DescriptionTB.Text, ArticleTB.Text, StartDate.Value, EndDate.Value, isEnd, isLegal, VerdictTB.Text), cantDisp);
                 Clean();
-            }
         }
 
         private void CaseAddition_FormClosing(object sender, FormClosingEventArgs e)
         {
             caseDisplay.dataGridView1.Columns.Clear();
-            Connection.Connector(caseDisplay.dataGridView1, @case.Display());
+            Connection.Connector(caseDisplay.dataGridView1, @case.Display(), cantDisp);
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 e.Cancel = true;
@@ -146,9 +141,6 @@ namespace Course
 
         private void Clean()
         {
-            DefendantIdTB.Text = null;
-            PlaintiffIdTB.Text = null;
-            JudgeIdTB.Text = null;
             DescriptionTB.Text = null;
             ArticleTB.Text = null;
             VerdictTB.Text = null;
@@ -159,6 +151,16 @@ namespace Course
             Close();
         }
 
-      
+        private void CaseAddition_Activated(object sender, EventArgs e)
+        {
+            JudgeCB.Items.Clear();
+            DefendantCB.Items.Clear();
+            PlaintiffCB.Items.Clear();
+            Connection.FillCB(judge.Display(), JudgeCB, WhichForm.Judge);
+            Connection.FillCB(defendant.Display(), DefendantCB, WhichForm.Defendant);
+            Connection.FillCB(plaintiff.Display(), PlaintiffCB, WhichForm.Plaintiff);
+        }
+
+       
     }
 }

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Editing));
-            this.IdTB = new System.Windows.Forms.TextBox();
             this.NameTB = new System.Windows.Forms.TextBox();
             this.SurnameTB = new System.Windows.Forms.TextBox();
             this.Done = new System.Windows.Forms.Button();
@@ -37,18 +36,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.CaseNumberTB = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.PatronymicTB = new System.Windows.Forms.TextBox();
             this.Close = new System.Windows.Forms.Button();
+            this.IdCB = new System.Windows.Forms.ComboBox();
+            this.CaseNumberСB = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // IdTB
-            // 
-            this.IdTB.Location = new System.Drawing.Point(12, 25);
-            this.IdTB.Name = "IdTB";
-            this.IdTB.Size = new System.Drawing.Size(160, 20);
-            this.IdTB.TabIndex = 0;
             // 
             // NameTB
             // 
@@ -111,13 +104,6 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Case number";
             // 
-            // CaseNumberTB
-            // 
-            this.CaseNumberTB.Location = new System.Drawing.Point(12, 64);
-            this.CaseNumberTB.Name = "CaseNumberTB";
-            this.CaseNumberTB.Size = new System.Drawing.Size(160, 20);
-            this.CaseNumberTB.TabIndex = 13;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -145,15 +131,34 @@
             this.Close.UseVisualStyleBackColor = true;
             this.Close.Click += new System.EventHandler(this.button2_Click);
             // 
+            // IdCB
+            // 
+            this.IdCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.IdCB.FormattingEnabled = true;
+            this.IdCB.Location = new System.Drawing.Point(12, 24);
+            this.IdCB.Name = "IdCB";
+            this.IdCB.Size = new System.Drawing.Size(160, 21);
+            this.IdCB.TabIndex = 64;
+            // 
+            // CaseNumberСB
+            // 
+            this.CaseNumberСB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CaseNumberСB.FormattingEnabled = true;
+            this.CaseNumberСB.Location = new System.Drawing.Point(11, 64);
+            this.CaseNumberСB.Name = "CaseNumberСB";
+            this.CaseNumberСB.Size = new System.Drawing.Size(160, 21);
+            this.CaseNumberСB.TabIndex = 65;
+            // 
             // Editing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(184, 276);
+            this.Controls.Add(this.CaseNumberСB);
+            this.Controls.Add(this.IdCB);
             this.Controls.Add(this.Close);
             this.Controls.Add(this.PatronymicTB);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.CaseNumberTB);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -161,12 +166,12 @@
             this.Controls.Add(this.Done);
             this.Controls.Add(this.SurnameTB);
             this.Controls.Add(this.NameTB);
-            this.Controls.Add(this.IdTB);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Editing";
             this.Text = "Editing";
+            this.Activated += new System.EventHandler(this.Editing_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Editing_FormClosing);
             this.Load += new System.EventHandler(this.Editing_Load);
             this.ResumeLayout(false);
@@ -175,8 +180,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox IdTB;
         private System.Windows.Forms.TextBox NameTB;
         private System.Windows.Forms.TextBox SurnameTB;
         private System.Windows.Forms.Button Done;
@@ -184,9 +187,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox CaseNumberTB;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox PatronymicTB;
         private System.Windows.Forms.Button Close;
+        private System.Windows.Forms.ComboBox IdCB;
+        private System.Windows.Forms.ComboBox CaseNumberСB;
     }
 }

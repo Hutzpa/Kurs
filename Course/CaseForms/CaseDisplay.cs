@@ -19,9 +19,15 @@ namespace Course
         private CaseDisplay()
         {
             InitializeComponent();
-            Connection.Connector(dataGridView1, @case.Display());
+            Connection.Connector(dataGridView1, @case.Display(),cantDisp);
             deleting = new Deleting(WhichForm.Case, this);
         }
+
+        private string deleteException = "CAN'T DELETE RELATED VALUES";
+        private string searchException = "WRONG VALUE";
+        private string nothingSel = "NOTHING IS SELECTED";
+        private string cantDisp = "CHECK TABLE EXISTENCE";
+        private string empty = "";
 
         private static CaseDisplay caseDisplay;
         /// <summary>
@@ -106,7 +112,7 @@ namespace Course
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridView1.Columns.Clear();
-            Connection.Connector(dataGridView1,@case.First("-1"));
+            Connection.Connector(dataGridView1,@case.First("-1"),cantDisp);
         }
 
         #endregion
@@ -136,7 +142,7 @@ namespace Course
             else
             {
                 dataGridView1.Columns.Clear();
-                Connection.Connector(dataGridView1, @case.Second(FindByKeywordTB.Text));
+                Connection.Connector(dataGridView1, @case.Second(FindByKeywordTB.Text),cantDisp);
                 Clipboard.SetText(FindByKeywordTB.Text);
                 FindByKeywordTB.Text = null;
             }
@@ -164,11 +170,12 @@ namespace Course
             try
             {
                 dataGridView1.Columns.Clear();
-                Connection.Connector(dataGridView1,@case.Third(dataGridView1.CurrentRow.Cells[5].Value.ToString()));
+                Connection.Connector(dataGridView1,@case.Third(dataGridView1.CurrentRow.Cells[5].Value.ToString()),cantDisp);
             }
             catch (NullReferenceException ex)
             {
                 MessageBox.Show("NO  DATA SELECTED");
+                Connection.Connector(@case.Display(), cantDisp);
             }
         }
         #endregion
@@ -192,7 +199,7 @@ namespace Course
         private void button4_Click(object sender, EventArgs e)
         {
             dataGridView1.Columns.Clear();
-            Connection.Connector(dataGridView1,@case.Fourth("0"));
+            Connection.Connector(dataGridView1,@case.Fourth("0"),cantDisp);
         }
         #endregion
 
@@ -217,11 +224,12 @@ namespace Course
             try
             {
                 dataGridView1.Columns.Clear();
-                Connection.Connector(dataGridView1,@case.Fifth(dataGridView1.CurrentRow.Cells[3].Value.ToString()));
+                Connection.Connector(dataGridView1,@case.Fifth(dataGridView1.CurrentRow.Cells[3].Value.ToString()),cantDisp);
             }
             catch (NullReferenceException ex)
             {
                 MessageBox.Show("NO  DATA SELECTED");
+                Connection.Connector(@case.Display(), cantDisp);
             }
         }
         #endregion
@@ -247,11 +255,12 @@ namespace Course
             try
             {
                 dataGridView1.Columns.Clear();
-                Connection.Connector(dataGridView1, @case.Sixth(dataGridView1.CurrentRow.Cells[2].Value.ToString()));
+                Connection.Connector(dataGridView1, @case.Sixth(dataGridView1.CurrentRow.Cells[2].Value.ToString()),cantDisp);
             }
             catch(NullReferenceException ex)
             {
                 MessageBox.Show("NO  DATA SELECTED");
+                Connection.Connector(@case.Display(), cantDisp);
             }
         }
         #endregion
@@ -277,11 +286,12 @@ namespace Course
             try
             {
                 dataGridView1.Columns.Clear();
-                Connection.Connector(dataGridView1,@case.Seventh(dataGridView1.CurrentRow.Cells[1].Value.ToString()));
+                Connection.Connector(dataGridView1,@case.Seventh(dataGridView1.CurrentRow.Cells[1].Value.ToString()),cantDisp);
             }
             catch (NullReferenceException ex)
             {
                 MessageBox.Show("NO  DATA SELECTED");
+                Connection.Connector(@case.Display(), cantDisp);
             }
 
         }
@@ -295,7 +305,7 @@ namespace Course
         private void button11_Click(object sender, EventArgs e)
         {
             dataGridView1.Columns.Clear();
-            Connection.Connector(dataGridView1, @case.Display());
+            Connection.Connector(dataGridView1, @case.Display(),cantDisp);
         }
 
         /// <summary>
@@ -322,9 +332,9 @@ namespace Course
             try
             {
                 dataGridView1.Columns.Clear();
-                Connection.Connector(dataGridView1, @case.Display());
-                Connection.Connector(@case.Delete(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
-                Connection.Connector(dataGridView1, @case.Display());
+                Connection.Connector(dataGridView1, @case.Display(),cantDisp);
+                Connection.Connector(@case.Delete(dataGridView1.CurrentRow.Cells[0].Value.ToString()),cantDisp);
+                Connection.Connector(dataGridView1, @case.Display(),cantDisp);
             }
             catch (NullReferenceException ex)
             {

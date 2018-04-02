@@ -30,9 +30,8 @@ namespace Course
             this.displayer = displayer;
             Design();
         }
-
+        private string exception = "CAN'T DELETE RELATED VALUES";
         private CaseDisplay caseDisplay;
-
         private Displayer displayer;
         private WhichForm whichForm;
         private Defendant defendant;
@@ -45,7 +44,7 @@ namespace Course
 
         private void Deleting_Load(object sender, EventArgs e)
         {
-            tipITB.SetToolTip(IdTB, "Allows to enter only numbers, enter id of " + whichForm.ToString().ToLower() + "what are you want to delete");
+            tipITB.SetToolTip(IdCB, "Allows to enter only numbers, enter id of " + whichForm.ToString().ToLower() + "what are you want to delete");
         }
 
         private void Design()
@@ -91,49 +90,49 @@ namespace Course
             {
                 case WhichForm.Defendant:
                     {
-                        if (idValidation.IsMatch(IdTB.Text))
+                        if (idValidation.IsMatch(IdCB.Text))
                         {
                             MessageBox.Show("Id writed incorrect. Only numbers.");
                         }
                         else
                         {
-                            Connection.Connector(defendant.Delete(IdTB.Text));
+                            Connection.Connector(defendant.Delete(IdCB.Text),exception);
                         }
                         break;
                     }
                 case WhichForm.Judge:
                     {
-                        if (idValidation.IsMatch(IdTB.Text))
+                        if (idValidation.IsMatch(IdCB.Text))
                         {
                             MessageBox.Show("Id writed incorrect. Only numbers.");
                         }
                         else
                         {
-                            Connection.Connector(judge.Delete(IdTB.Text));
+                            Connection.Connector(judge.Delete(IdCB.Text),exception);
                         }
                         break;
                     }
                 case WhichForm.Plaintiff:
                     {
-                        if (idValidation.IsMatch(IdTB.Text))
+                        if (idValidation.IsMatch(IdCB.Text))
                         {
                             MessageBox.Show("Id writed incorrect. Only numbers.");
                         }
                         else
                         {
-                            Connection.Connector(plaintiff.Delete(IdTB.Text));
+                            Connection.Connector(plaintiff.Delete(IdCB.Text),exception);
                         }
                         break;
                     }
                 case WhichForm.Case:
                     {
-                        if (idValidation.IsMatch(IdTB.Text))
+                        if (idValidation.IsMatch(IdCB.Text))
                         {
                             MessageBox.Show("Id writed incorrect. Only numbers.");
                         }
                         else
                         {
-                            Connection.Connector(@case.Delete(IdTB.Text));
+                            Connection.Connector(@case.Delete(IdCB.Text),exception);
                         }
                         break;
                     }
@@ -145,7 +144,7 @@ namespace Course
                     }
             }
 
-            IdTB.Text = null;
+            IdCB.Text = null;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -159,23 +158,23 @@ namespace Course
             {
                 case WhichForm.Defendant:
                     {
-                        Connection.Connector(displayer.dataGridView1, defendant.Display());
+                        Connection.Connector(displayer.dataGridView1, defendant.Display(),exception);
                         break;
                     }
                 case WhichForm.Judge:
                     {
-                        Connection.Connector(displayer.dataGridView1, judge.Display());
+                        Connection.Connector(displayer.dataGridView1, judge.Display(), exception);
                         break;
                     }
                 case WhichForm.Plaintiff:
                     {
-                        Connection.Connector(displayer.dataGridView1, plaintiff.Display());
+                        Connection.Connector(displayer.dataGridView1, plaintiff.Display(), exception);
                         break;
                     }
                 case WhichForm.Case:
                     {
                         caseDisplay.dataGridView1.Columns.Clear();
-                        Connection.Connector(caseDisplay.dataGridView1, @case.Display());
+                        Connection.Connector(caseDisplay.dataGridView1, @case.Display(), exception);
                         break;
                     }
             }
@@ -186,6 +185,35 @@ namespace Course
             }
         }
 
-        
+        private void Deleting_Activated(object sender, EventArgs e)
+        {
+            switch (whichForm)
+            {
+                case WhichForm.Defendant:
+                    {
+                        IdCB.Items.Clear();
+                        Connection.FillCB(defendant.Display(), IdCB, WhichForm.Defendant);
+                        break;
+                    }
+                case WhichForm.Judge:
+                    {
+                        IdCB.Items.Clear();
+                        Connection.FillCB(judge.Display(), IdCB, WhichForm.Judge);
+                        break;
+                    }
+                case WhichForm.Plaintiff:
+                    {
+                        IdCB.Items.Clear();
+                        Connection.FillCB(plaintiff.Display(), IdCB, WhichForm.Plaintiff);
+                        break;
+                    }
+                case WhichForm.Case:
+                    {
+                        IdCB.Items.Clear();
+                        Connection.FillCB(@case.Display(), IdCB, WhichForm.Case);
+                        break;
+                    }
+            }
+        }
     }
 }

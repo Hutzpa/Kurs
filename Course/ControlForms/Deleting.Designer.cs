@@ -29,18 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Deleting));
-            this.IdTB = new System.Windows.Forms.TextBox();
             this.Done = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.Close = new System.Windows.Forms.Button();
+            this.IdCB = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // IdTB
-            // 
-            this.IdTB.Location = new System.Drawing.Point(15, 25);
-            this.IdTB.Name = "IdTB";
-            this.IdTB.Size = new System.Drawing.Size(159, 20);
-            this.IdTB.TabIndex = 0;
             // 
             // Done
             // 
@@ -73,20 +66,30 @@
             this.Close.UseVisualStyleBackColor = true;
             this.Close.Click += new System.EventHandler(this.button2_Click);
             // 
+            // IdCB
+            // 
+            this.IdCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.IdCB.FormattingEnabled = true;
+            this.IdCB.Location = new System.Drawing.Point(15, 24);
+            this.IdCB.Name = "IdCB";
+            this.IdCB.Size = new System.Drawing.Size(158, 21);
+            this.IdCB.TabIndex = 64;
+            // 
             // Deleting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(185, 151);
+            this.Controls.Add(this.IdCB);
             this.Controls.Add(this.Close);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Done);
-            this.Controls.Add(this.IdTB);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Deleting";
             this.Text = "Deleting";
+            this.Activated += new System.EventHandler(this.Deleting_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Deleting_FormClosing);
             this.Load += new System.EventHandler(this.Deleting_Load);
             this.ResumeLayout(false);
@@ -95,10 +98,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox IdTB;
         private System.Windows.Forms.Button Done;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Close;
+        private System.Windows.Forms.ComboBox IdCB;
     }
 }

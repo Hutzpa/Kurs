@@ -34,11 +34,11 @@
             this.NameTB = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.CaseNumberTB = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.PatronymicTB = new System.Windows.Forms.TextBox();
             this.Close = new System.Windows.Forms.Button();
+            this.IdCB = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // Done
@@ -84,13 +84,6 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "Surname";
             // 
-            // CaseNumberTB
-            // 
-            this.CaseNumberTB.Location = new System.Drawing.Point(9, 25);
-            this.CaseNumberTB.Name = "CaseNumberTB";
-            this.CaseNumberTB.Size = new System.Drawing.Size(163, 20);
-            this.CaseNumberTB.TabIndex = 15;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -127,15 +120,24 @@
             this.Close.UseVisualStyleBackColor = true;
             this.Close.Click += new System.EventHandler(this.button2_Click);
             // 
+            // IdCB
+            // 
+            this.IdCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.IdCB.FormattingEnabled = true;
+            this.IdCB.Location = new System.Drawing.Point(9, 25);
+            this.IdCB.Name = "IdCB";
+            this.IdCB.Size = new System.Drawing.Size(163, 21);
+            this.IdCB.TabIndex = 63;
+            // 
             // Addition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(184, 230);
+            this.Controls.Add(this.IdCB);
             this.Controls.Add(this.Close);
             this.Controls.Add(this.PatronymicTB);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.CaseNumberTB);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -147,6 +149,7 @@
             this.MaximizeBox = false;
             this.Name = "Addition";
             this.Text = "Addition";
+            this.Activated += new System.EventHandler(this.Addition_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Addition_FormClosing);
             this.Load += new System.EventHandler(this.Addition_Load);
             this.ResumeLayout(false);
@@ -161,10 +164,10 @@
         private System.Windows.Forms.TextBox NameTB;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox CaseNumberTB;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox PatronymicTB;
         private System.Windows.Forms.Button Close;
+        private System.Windows.Forms.ComboBox IdCB;
     }
 }
