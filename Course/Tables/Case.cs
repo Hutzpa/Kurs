@@ -153,7 +153,7 @@ namespace Course
         /// </summary>
         public string Update(string id, string defendantId, string plaintiffId, string judgeId, string descripton, string article, DateTime dateOfStart, DateTime dateOfEnd, short isEnd, short isUr, string verdict)
         {
-            return "UPDATE kurs.case SET Id ='" + id + "',NumberDefendant='" + defendantId + "',PlaintiffNumber='" + plaintiffId + "',JudgeNumber='" + judgeId + "',Description='" + descripton + "',Article='" + article + "',DateOfStart='" + dateOfStart.ToShortDateString() + "',DateOfEnd='" + dateOfEnd.ToShortDateString() + "',IsEnd='" + isEnd + "',IsUr='" + isUr + "',Verdict='" + verdict + "';";
+            return "UPDATE kurs.case SET Id ='" + id + "',NumberDefendant='" + defendantId + "',PlaintiffNumber='" + plaintiffId + "',JudgeNumber='" + judgeId + "',Description='" + descripton + "',Article='" + article + "',DateOfStart='" + dateOfStart.ToShortDateString() + "',DateOfEnd='" + dateOfEnd.ToShortDateString() + "',IsEnd='" + isEnd + "',IsUr='" + isUr + "',Verdict='" + verdict + "' WHERE Id='" + id + "'";
         }
 
         /// <summary>

@@ -143,7 +143,6 @@ namespace Course
             {
                 dataGridView1.Columns.Clear();
                 Connection.Connector(dataGridView1, @case.Second(FindByKeywordTB.Text),cantDisp);
-                Clipboard.SetText(FindByKeywordTB.Text);
                 FindByKeywordTB.Text = null;
             }
         }
@@ -164,18 +163,19 @@ namespace Course
             FindByArticle.Height = 50;
             FindByArticle.Width = 150;
         }
-
+        string art;
         private void button3_Click(object sender, EventArgs e)
         {
+            art = dataGridView1.CurrentRow.Cells[5].Value.ToString();
             try
             {
                 dataGridView1.Columns.Clear();
-                Connection.Connector(dataGridView1,@case.Third(dataGridView1.CurrentRow.Cells[5].Value.ToString()),cantDisp);
+                Connection.Connector(dataGridView1, @case.Display(), cantDisp);
+                Connection.Connector(dataGridView1,@case.Third(art),cantDisp);
             }
             catch (NullReferenceException ex)
             {
                 MessageBox.Show("NO  DATA SELECTED");
-                Connection.Connector(@case.Display(), cantDisp);
             }
         }
         #endregion
@@ -198,7 +198,6 @@ namespace Course
 
         private void button4_Click(object sender, EventArgs e)
         {
-            dataGridView1.Columns.Clear();
             Connection.Connector(dataGridView1,@case.Fourth("0"),cantDisp);
         }
         #endregion
@@ -218,13 +217,15 @@ namespace Course
             JudgeCaseList.Height = 50;
             JudgeCaseList.Width = 150;
         }
-
+        string idJud;
         private void button5_Click(object sender, EventArgs e)
         {
+            idJud = dataGridView1.CurrentRow.Cells[3].Value.ToString();
             try
             {
                 dataGridView1.Columns.Clear();
-                Connection.Connector(dataGridView1,@case.Fifth(dataGridView1.CurrentRow.Cells[3].Value.ToString()),cantDisp);
+                Connection.Connector(dataGridView1, @case.Display(), cantDisp);
+                Connection.Connector(dataGridView1,@case.Fifth(idJud),cantDisp);
             }
             catch (NullReferenceException ex)
             {
@@ -249,13 +250,15 @@ namespace Course
             PlaintiffCaseList.Height = 50;
             PlaintiffCaseList.Width = 150;
         }
-
+        string idPla;
         private void button6_Click(object sender, EventArgs e)
         {
+            idPla = dataGridView1.CurrentRow.Cells[2].Value.ToString();
             try
             {
                 dataGridView1.Columns.Clear();
-                Connection.Connector(dataGridView1, @case.Sixth(dataGridView1.CurrentRow.Cells[2].Value.ToString()),cantDisp);
+                Connection.Connector(dataGridView1, @case.Display(), cantDisp);
+                Connection.Connector(dataGridView1, @case.Sixth(idPla),cantDisp);
             }
             catch(NullReferenceException ex)
             {
@@ -280,13 +283,15 @@ namespace Course
             DefendantCaseList.Height = 50;
             DefendantCaseList.Width = 150;
         }
-
+        string idDef;
         private void button7_Click(object sender, EventArgs e)
         {
+             idDef = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             try
             {
                 dataGridView1.Columns.Clear();
-                Connection.Connector(dataGridView1,@case.Seventh(dataGridView1.CurrentRow.Cells[1].Value.ToString()),cantDisp);
+                Connection.Connector(dataGridView1, @case.Display(), cantDisp);
+                Connection.Connector(dataGridView1,@case.Seventh(idDef),cantDisp);
             }
             catch (NullReferenceException ex)
             {
@@ -315,7 +320,7 @@ namespace Course
         {
            try
             {
-                caseEditing = new CaseEditing(this,dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                caseEditing = new CaseEditing(this,dataGridView1.CurrentRow.Cells[0].Value.ToString(), dataGridView1.CurrentRow.Cells[4].Value.ToString(), dataGridView1.CurrentRow.Cells[5].Value.ToString(), dataGridView1.CurrentRow.Cells[10].Value.ToString());
                 caseEditing.ShowDialog();
             }
             catch(NullReferenceException ex)
@@ -327,13 +332,15 @@ namespace Course
         /// <summary>
         /// Удаление выбраного дела
         /// </summary>
+        string del;
          private void button9_Click(object sender, EventArgs e)
-        {
+         {
+            del = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             try
             {
                 dataGridView1.Columns.Clear();
                 Connection.Connector(dataGridView1, @case.Display(),cantDisp);
-                Connection.Connector(@case.Delete(dataGridView1.CurrentRow.Cells[0].Value.ToString()),cantDisp);
+                Connection.Connector(@case.Delete(del),cantDisp);
                 Connection.Connector(dataGridView1, @case.Display(),cantDisp);
             }
             catch (NullReferenceException ex)

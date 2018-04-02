@@ -36,13 +36,13 @@
             this.HelpDa = new System.Windows.Forms.Label();
             this.FindById = new System.Windows.Forms.Button();
             this.HelpFbi = new System.Windows.Forms.Label();
-            this.IdTextBox = new System.Windows.Forms.TextBox();
             this.EditSelected = new System.Windows.Forms.Button();
             this.DeleteSelected = new System.Windows.Forms.Button();
             this.Add = new System.Windows.Forms.Button();
             this.Edit = new System.Windows.Forms.Button();
             this.Delete = new System.Windows.Forms.Button();
             this.Close = new System.Windows.Forms.Button();
+            this.IdCB = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,13 +121,6 @@
             this.HelpFbi.TabIndex = 9;
             this.HelpFbi.Text = "___";
             // 
-            // IdTextBox
-            // 
-            this.IdTextBox.Location = new System.Drawing.Point(268, 224);
-            this.IdTextBox.Name = "IdTextBox";
-            this.IdTextBox.Size = new System.Drawing.Size(100, 20);
-            this.IdTextBox.TabIndex = 10;
-            // 
             // EditSelected
             // 
             this.EditSelected.Font = new System.Drawing.Font("Yu Gothic UI Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -198,18 +191,27 @@
             this.Close.UseVisualStyleBackColor = true;
             this.Close.Click += new System.EventHandler(this.button9_Click);
             // 
+            // IdCB
+            // 
+            this.IdCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.IdCB.FormattingEnabled = true;
+            this.IdCB.Location = new System.Drawing.Point(268, 227);
+            this.IdCB.Name = "IdCB";
+            this.IdCB.Size = new System.Drawing.Size(150, 21);
+            this.IdCB.TabIndex = 64;
+            // 
             // Displayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(663, 439);
+            this.Controls.Add(this.IdCB);
             this.Controls.Add(this.Close);
             this.Controls.Add(this.Delete);
             this.Controls.Add(this.Edit);
             this.Controls.Add(this.Add);
             this.Controls.Add(this.DeleteSelected);
             this.Controls.Add(this.EditSelected);
-            this.Controls.Add(this.IdTextBox);
             this.Controls.Add(this.HelpFbi);
             this.Controls.Add(this.FindById);
             this.Controls.Add(this.HelpDa);
@@ -222,6 +224,7 @@
             this.MaximizeBox = false;
             this.Name = "Displayer";
             this.Text = "Displayer";
+            this.Activated += new System.EventHandler(this.Displayer_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -235,7 +238,6 @@
         private System.Windows.Forms.Label HelpDa;
         private System.Windows.Forms.Button FindById;
         private System.Windows.Forms.Label HelpFbi;
-        private System.Windows.Forms.TextBox IdTextBox;
         private System.Windows.Forms.Button EditSelected;
         private System.Windows.Forms.Button DeleteSelected;
         private System.Windows.Forms.Button Add;
@@ -243,5 +245,6 @@
         private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.Button Close;
         public System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox IdCB;
     }
 }

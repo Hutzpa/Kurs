@@ -14,13 +14,16 @@ namespace Course
 {
     public partial class CaseEditing : Form
     {
-        public CaseEditing(CaseDisplay caseDisplay, string id)
+        public CaseEditing(CaseDisplay caseDisplay, string id, string description, string article, string verdict)
         {
             InitializeComponent();
             caseDisplayParam = caseDisplay;
             IdCB.DropDownStyle = ComboBoxStyle.Simple;
             IdCB.Text = id;
             IdCB.Enabled = false;
+            DescriptionTB.Text = description;
+            ArticleTB.Text = article;
+            VerdictTB.Text = verdict;
         }
 
         private CaseEditing(CaseDisplay caseDisplay)

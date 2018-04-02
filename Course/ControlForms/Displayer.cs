@@ -176,10 +176,10 @@ namespace Course
 
         private void button4_Click(object sender, System.EventArgs e)
         {
-            if(idValidation.IsMatch(IdTextBox.Text) || IdTextBox.Text == "")
+            if(idValidation.IsMatch(IdCB.Text) || IdCB.Text == "")
             {
                 MessageBox.Show("Incorrect id format");
-                IdTextBox.Text = null;
+                IdCB.Text = null;
             }
             else
             {
@@ -187,17 +187,17 @@ namespace Course
                 {
                     case WhichForm.Judge:
                     {
-                        Connection.Connector(dataGridView1, judge.Search(IdTextBox.Text), searchException);
+                        Connection.Connector(dataGridView1, judge.Search(IdCB.Text), searchException);
                         break;
                     }
                     case WhichForm.Plaintiff:
                     {
-                        Connection.Connector(dataGridView1, plaintiff.Search(IdTextBox.Text), searchException);
+                        Connection.Connector(dataGridView1, plaintiff.Search(IdCB.Text), searchException);
                         break;
                     }
                     case WhichForm.Defendant:
                     {
-                        Connection.Connector(dataGridView1, defendant.Search(IdTextBox.Text), searchException);
+                        Connection.Connector(dataGridView1, defendant.Search(IdCB.Text), searchException);
                         break;
                     }
                 }
@@ -337,5 +337,27 @@ namespace Course
         }
 
         #endregion
+
+        private void Displayer_Activated(object sender, EventArgs e)
+        {
+            switch (whichForm)
+            {
+                case WhichForm.Judge:
+                    {
+                        Connection.FillCB(judge.Display(), IdCB, whichForm);
+                        break;
+                    }
+                case WhichForm.Plaintiff:
+                    {
+                        Connection.FillCB(plaintiff.Display(), IdCB, whichForm);
+                        break;
+                    }
+                case WhichForm.Defendant:
+                    {
+                        Connection.FillCB(defendant.Display(), IdCB, whichForm);
+                        break;
+                    }
+            }
+        }
     }
 }
