@@ -39,8 +39,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.PatronymicTB = new System.Windows.Forms.TextBox();
             this.Close = new System.Windows.Forms.Button();
-            this.IdCB = new System.Windows.Forms.ComboBox();
             this.CaseNumberСB = new System.Windows.Forms.ComboBox();
+            this.IdCB = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // NameTB
@@ -131,15 +131,6 @@
             this.Close.UseVisualStyleBackColor = true;
             this.Close.Click += new System.EventHandler(this.button2_Click);
             // 
-            // IdCB
-            // 
-            this.IdCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.IdCB.FormattingEnabled = true;
-            this.IdCB.Location = new System.Drawing.Point(12, 24);
-            this.IdCB.Name = "IdCB";
-            this.IdCB.Size = new System.Drawing.Size(160, 21);
-            this.IdCB.TabIndex = 64;
-            // 
             // CaseNumberСB
             // 
             this.CaseNumberСB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -149,13 +140,23 @@
             this.CaseNumberСB.Size = new System.Drawing.Size(160, 21);
             this.CaseNumberСB.TabIndex = 65;
             // 
+            // IdCB
+            // 
+            this.IdCB.Cursor = System.Windows.Forms.Cursors.Default;
+            this.IdCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.IdCB.FormattingEnabled = true;
+            this.IdCB.Location = new System.Drawing.Point(12, 25);
+            this.IdCB.Name = "IdCB";
+            this.IdCB.Size = new System.Drawing.Size(160, 21);
+            this.IdCB.TabIndex = 66;
+            // 
             // Editing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(184, 276);
-            this.Controls.Add(this.CaseNumberСB);
             this.Controls.Add(this.IdCB);
+            this.Controls.Add(this.CaseNumberСB);
             this.Controls.Add(this.Close);
             this.Controls.Add(this.PatronymicTB);
             this.Controls.Add(this.label5);
@@ -190,7 +191,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox PatronymicTB;
         private System.Windows.Forms.Button Close;
-        private System.Windows.Forms.ComboBox IdCB;
         private System.Windows.Forms.ComboBox CaseNumberСB;
+        private System.Windows.Forms.ComboBox IdCB;
     }
 }

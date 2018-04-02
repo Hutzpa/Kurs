@@ -47,10 +47,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.EndDate = new System.Windows.Forms.DateTimePicker();
             this.Close = new System.Windows.Forms.Button();
-            this.IdCB = new System.Windows.Forms.ComboBox();
             this.DefendantCB = new System.Windows.Forms.ComboBox();
             this.PlaintiffCB = new System.Windows.Forms.ComboBox();
             this.JudgeCB = new System.Windows.Forms.ComboBox();
+            this.IdCB = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label7
@@ -223,15 +223,6 @@
             this.Close.UseVisualStyleBackColor = true;
             this.Close.Click += new System.EventHandler(this.button2_Click);
             // 
-            // IdCB
-            // 
-            this.IdCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.IdCB.FormattingEnabled = true;
-            this.IdCB.Location = new System.Drawing.Point(126, 6);
-            this.IdCB.Name = "IdCB";
-            this.IdCB.Size = new System.Drawing.Size(152, 21);
-            this.IdCB.TabIndex = 62;
-            // 
             // DefendantCB
             // 
             this.DefendantCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -259,15 +250,24 @@
             this.JudgeCB.Size = new System.Drawing.Size(152, 21);
             this.JudgeCB.TabIndex = 65;
             // 
+            // IdCB
+            // 
+            this.IdCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.IdCB.FormattingEnabled = true;
+            this.IdCB.Location = new System.Drawing.Point(126, 6);
+            this.IdCB.Name = "IdCB";
+            this.IdCB.Size = new System.Drawing.Size(152, 21);
+            this.IdCB.TabIndex = 66;
+            // 
             // CaseEditing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(288, 458);
+            this.Controls.Add(this.IdCB);
             this.Controls.Add(this.JudgeCB);
             this.Controls.Add(this.PlaintiffCB);
             this.Controls.Add(this.DefendantCB);
-            this.Controls.Add(this.IdCB);
             this.Controls.Add(this.Close);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.EndDate);
@@ -319,9 +319,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker EndDate;
         private System.Windows.Forms.Button Close;
-        private System.Windows.Forms.ComboBox IdCB;
         private System.Windows.Forms.ComboBox DefendantCB;
         private System.Windows.Forms.ComboBox PlaintiffCB;
         private System.Windows.Forms.ComboBox JudgeCB;
+        private System.Windows.Forms.ComboBox IdCB;
     }
 }

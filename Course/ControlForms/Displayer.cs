@@ -229,7 +229,7 @@ namespace Course
         {
             try
             {
-            editing = new Editing(whichForm, dataGridView1.CurrentRow.Cells[1].Value.ToString(),this);
+            editing = new Editing(whichForm, dataGridView1.CurrentRow.Cells[0].Value.ToString(),this);
             editing.ShowDialog();
             }
             catch (NullReferenceException ex)

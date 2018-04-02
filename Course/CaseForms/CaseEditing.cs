@@ -18,8 +18,9 @@ namespace Course
         {
             InitializeComponent();
             caseDisplayParam = caseDisplay;
+            IdCB.DropDownStyle = ComboBoxStyle.Simple;
             IdCB.Text = id;
-            IdCB.DropDownStyle = ComboBoxStyle.DropDownList;
+            IdCB.Enabled = false;
         }
 
         private CaseEditing(CaseDisplay caseDisplay)
@@ -148,7 +149,7 @@ namespace Course
 
         private void Clean()
         {
-            IdCB.SelectedItem = null;
+            //IdTB.SelectedItem = null;
             DescriptionTB.Text = null;
             ArticleTB.Text = null;
             VerdictTB.Text = null;

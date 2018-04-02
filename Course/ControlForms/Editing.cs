@@ -29,8 +29,9 @@ namespace Course
             this.whichForm = whichForm;
             this.displayer = displayer;
             Design();
+            IdCB.DropDownStyle = ComboBoxStyle.Simple;
             IdCB.Text = id;
-            IdCB.DropDownStyle = ComboBoxStyle.DropDownList;
+            IdCB.Enabled = false;
         }
         private string exception = "";
 
