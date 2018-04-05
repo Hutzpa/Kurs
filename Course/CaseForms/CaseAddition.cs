@@ -24,7 +24,7 @@ namespace Course
             InitializeComponent();
             this.caseDisplay = caseDisplay;
         }
-        private string cantDisp = "CHECK TABLE EXISTENCE";
+        private string cantDisp = "UNKNOWN ID";
 
 
         private Case @case = new Case();
@@ -45,14 +45,12 @@ namespace Course
         private CaseDisplay caseDisplay;
 
         private Regex idValidation = new Regex(@"\D");
-        private Regex defendantIdValid = new Regex(@"\D");
-        private Regex plaintiffIdValid = new Regex(@"\D");
-        private Regex judgeIdValid = new Regex(@"\D");
 
         private ToolTip tip = new ToolTip() { InitialDelay = 1 };
 
         private void CaseAddition_Load(object sender, EventArgs e)
         {
+            tip.SetToolTip(IdTB, "Allows to enter only numbers, enter case id");
             tip.SetToolTip(DefendantCB, "If defendant is not created yet, left this field empty");
             tip.SetToolTip(PlaintiffCB, "If plaintiff is not created yet, left this field empty");
             tip.SetToolTip(JudgeCB, "If judge is not created yet, left this field empty");
@@ -92,8 +90,16 @@ namespace Course
 
         private void Addition()
         {
-                Connection.Connector(@case.Insert(DefendantCB.Text, PlaintiffCB.Text, JudgeCB.Text, DescriptionTB.Text, ArticleTB.Text, StartDate.Value, EndDate.Value, isEnd, isLegal, VerdictTB.Text), cantDisp);
-                Clean();
+            if(idValidation.IsMatch(IdTB.Text) || IdTB.Text == "")
+            {
+                MessageBox.Show("Id allow only numbers");
+            }
+            else
+            {
+            Connection.Connector(@case.Insert(int.Parse(IdTB.Text), DefendantCB.Text, PlaintiffCB.Text, JudgeCB.Text, DescriptionTB.Text, ArticleTB.Text, StartDate.Value, EndDate.Value, isEnd, isLegal, VerdictTB.Text), cantDisp);
+            UpdateCaseNumber();
+            Clean();
+            }
         }
 
         private void CaseAddition_FormClosing(object sender, FormClosingEventArgs e)
@@ -141,6 +147,10 @@ namespace Course
 
         private void Clean()
         {
+            IdTB.Text = null;
+            DefendantCB.SelectedItem = null;
+            PlaintiffCB.SelectedItem = null;
+            JudgeCB.SelectedItem = null;
             DescriptionTB.Text = null;
             ArticleTB.Text = null;
             VerdictTB.Text = null;
@@ -161,6 +171,12 @@ namespace Course
             Connection.FillCB(plaintiff.Display(), PlaintiffCB, WhichForm.Plaintiff);
         }
 
-       
+        private void UpdateCaseNumber()
+        {
+            Connection.Connector(judge.UpdateCaseNmb(JudgeCB.Text, IdTB.Text), cantDisp);
+            Connection.Connector(defendant.UpdateCaseNmb(DefendantCB.Text, IdTB.Text), cantDisp);
+            Connection.Connector(plaintiff.UpdateCaseNmb(PlaintiffCB.Text, IdTB.Text), cantDisp);
+        }
+
     }
 }

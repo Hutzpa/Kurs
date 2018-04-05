@@ -32,7 +32,7 @@ namespace Course
             caseDisplayNoparam = caseDisplay;
         }
 
-        private string cantDisp = "CHECK ID EXISTENCE";
+        private string cantDisp = "UNKNOWN ID";
 
         private  Case @case = new Case();
         private Judge judge = new Judge();
@@ -78,6 +78,7 @@ namespace Course
                 if (StartDate.Value < EndDate.Value)
                 {
                     Editing();
+                    Clean();
                 }
                 else
                 {
@@ -85,7 +86,11 @@ namespace Course
                 }
             }
             else
+            {
                 Editing();
+                Connection.Connector(@case.ClearVerdict(IdCB.Text), cantDisp);
+                Clean();
+            }
         }
 
         private void CaseEditing_FormClosing(object sender, FormClosingEventArgs e)
@@ -115,7 +120,6 @@ namespace Course
             {
                 Connection.Connector(@case.Update(IdCB.Text, DefendantCB.Text, PlaintiffCB.Text, JudgeCB.Text, DescriptionTB.Text, ArticleTB.Text, StartDate.Value, EndDate.Value, isEnd, isLegal, VerdictTB.Text), cantDisp);
                 UpdateCaseNumber();
-                Clean();
             }
         }
 
@@ -152,7 +156,10 @@ namespace Course
 
         private void Clean()
         {
-            //IdTB.SelectedItem = null;
+            IdCB.SelectedItem = null;
+            DefendantCB.SelectedItem = null;
+            PlaintiffCB.SelectedItem = null;
+            JudgeCB.SelectedItem = null;
             DescriptionTB.Text = null;
             ArticleTB.Text = null;
             VerdictTB.Text = null;

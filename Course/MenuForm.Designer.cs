@@ -120,9 +120,8 @@
             this.label1.Font = new System.Drawing.Font("Yu Gothic UI Light", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.Location = new System.Drawing.Point(233, 338);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 106);
+            this.label1.Size = new System.Drawing.Size(0, 106);
             this.label1.TabIndex = 6;
-            this.label1.Text = "/";
             // 
             // MenuForm
             // 

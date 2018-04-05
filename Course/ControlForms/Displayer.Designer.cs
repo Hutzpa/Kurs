@@ -60,9 +60,8 @@
             this.HelpFac.AutoSize = true;
             this.HelpFac.Location = new System.Drawing.Point(12, 251);
             this.HelpFac.Name = "HelpFac";
-            this.HelpFac.Size = new System.Drawing.Size(25, 13);
+            this.HelpFac.Size = new System.Drawing.Size(0, 13);
             this.HelpFac.TabIndex = 1;
-            this.HelpFac.Text = "___";
             // 
             // FindAllCases
             // 
@@ -95,9 +94,8 @@
             this.HelpDa.AutoSize = true;
             this.HelpDa.Location = new System.Drawing.Point(498, 251);
             this.HelpDa.Name = "HelpDa";
-            this.HelpDa.Size = new System.Drawing.Size(25, 13);
+            this.HelpDa.Size = new System.Drawing.Size(0, 13);
             this.HelpDa.TabIndex = 6;
-            this.HelpDa.Text = "___";
             // 
             // FindById
             // 
@@ -117,9 +115,8 @@
             this.HelpFbi.AutoSize = true;
             this.HelpFbi.Location = new System.Drawing.Point(265, 251);
             this.HelpFbi.Name = "HelpFbi";
-            this.HelpFbi.Size = new System.Drawing.Size(25, 13);
+            this.HelpFbi.Size = new System.Drawing.Size(0, 13);
             this.HelpFbi.TabIndex = 9;
-            this.HelpFbi.Text = "___";
             // 
             // EditSelected
             // 

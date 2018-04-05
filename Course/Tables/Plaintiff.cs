@@ -11,17 +11,17 @@ namespace Course
         /// <summary>
         /// Добавление данных
         /// </summary>
-        public string Insert(string caseNumber,string name, string surname, string patronymic)
+        public string Insert(string name, string surname, string patronymic)
         {
-            return "INSERT INTO kurs.plaintiff (CaseNumber,Name,Surname,Patronymic,Fio) VALUES ('"+caseNumber+ "','" + name + "','" + surname +"','"+patronymic+"','"+ name.Substring(0,1).ToUpper()+surname.Substring(0,1).ToUpper()+patronymic.Substring(0,1).ToUpper()+"')";
+            return "INSERT INTO kurs.plaintiff (Name,Surname,Patronymic,Fio) VALUES ('" + name + "','" + surname +"','"+patronymic+"','"+ name.Substring(0,1).ToUpper()+surname.Substring(0,1).ToUpper()+patronymic.Substring(0,1).ToUpper()+"')";
         }
 
         /// <summary>
         /// Редактирование данных
         /// </summary>
-        public string Update(string plaintiffNumber,string caseNumber ,string name, string surname, string patronymic)
+        public string Update(string plaintiffNumber,string name, string surname, string patronymic)
         {
-            return "UPDATE kurs.plaintiff SET PlaintiffNumber='" + plaintiffNumber +"',CaseNumber='"+caseNumber+"',Name='" + name + "',Surname='" + surname +"',Patronymic='"+patronymic+ "',Fio='" + name.Substring(0, 1).ToUpper() + surname.Substring(0, 1).ToUpper() + patronymic.Substring(0, 1).ToUpper() +"' WHERE PlaintiffNumber='" + plaintiffNumber+"'";
+            return "UPDATE kurs.plaintiff SET PlaintiffNumber='" + plaintiffNumber +"',Name='" + name + "',Surname='" + surname +"',Patronymic='"+patronymic+ "',Fio='" + name.Substring(0, 1).ToUpper() + surname.Substring(0, 1).ToUpper() + patronymic.Substring(0, 1).ToUpper() +"' WHERE PlaintiffNumber='" + plaintiffNumber+"'";
         }
 
         /// <summary>

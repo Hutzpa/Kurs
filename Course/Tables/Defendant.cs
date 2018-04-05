@@ -11,17 +11,17 @@ namespace Course
         /// <summary>
         /// Добавление данных
         /// </summary>
-        public string Insert(string caseNumber,string name,string surname,string patronymic)
+        public string Insert(string name,string surname,string patronymic)
         {
-            return "INSERT INTO kurs.defendant (CaseNumber,Name,Surname,Patronymic,Fio) VALUES ('"+caseNumber +"','" + name + "','" + surname + "','"+patronymic+"','" + name.Substring(0, 1).ToUpper() + surname.Substring(0, 1).ToUpper() + patronymic.Substring(0, 1).ToUpper()+"')";
+            return "INSERT INTO kurs.defendant (Name,Surname,Patronymic,Fio) VALUES ('" + name + "','" + surname + "','"+patronymic+"','" + name.Substring(0, 1).ToUpper() + surname.Substring(0, 1).ToUpper() + patronymic.Substring(0, 1).ToUpper()+"')";
         }
 
         /// <summary>
         /// Редактирование данных
         /// </summary>
-        public string Update(string defendantNumber,string caseNumber,string name,string surname,string patronymic )
+        public string Update(string defendantNumber,string name,string surname,string patronymic )
         {
-            return "UPDATE kurs.defendant SET DefendantNumber='" + defendantNumber + "',CaseNumber='"+caseNumber+"',Name='" + name + "',Surname='" + surname +"',Patronymic='"+patronymic+ "',Fio='" + name.Substring(0, 1).ToUpper() + surname.Substring(0, 1).ToUpper() + patronymic.Substring(0, 1).ToUpper() + "' WHERE DefendantNumber='" + defendantNumber+"'";
+            return "UPDATE kurs.defendant SET DefendantNumber='" + defendantNumber + "',Name='" + name + "',Surname='" + surname +"',Patronymic='"+patronymic+ "',Fio='" + name.Substring(0, 1).ToUpper() + surname.Substring(0, 1).ToUpper() + patronymic.Substring(0, 1).ToUpper() + "' WHERE DefendantNumber='" + defendantNumber+"'";
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace Course
         /// </summary>
         public string UpdateCaseNmb(string defendantNumber, string caseNumber)
         {
-            return "UPDATE kurs.defendant SET CaseNumber='" + caseNumber +"' WHERE DefendantNumber='" + defendantNumber + "'";
+            return "UPDATE kurs.defendant SET CaseNumber='" + caseNumber + "' WHERE DefendantNumber='" + defendantNumber + "'";
         }
 
         /// <summary>

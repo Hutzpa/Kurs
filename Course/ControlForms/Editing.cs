@@ -33,7 +33,7 @@ namespace Course
             IdCB.Text = id;
             IdCB.Enabled = false;
         }
-        private string exception = "";
+        private string exception = "Unknown id";
 
         private Displayer displayer;
         private Case @case = new Case();
@@ -51,7 +51,6 @@ namespace Course
         private void Editing_Load(object sender, EventArgs e)
         {
             tip.SetToolTip(IdCB, "Allows to enter only numbers, enter id of " + whichForm.ToString().ToLower() + "what are you want to edit");
-            tip.SetToolTip(CaseNumberСB, "Allows to enter only numbers, if case is not created yet, left this field empty");
             tip.SetToolTip(NameTB, "Allows to enter only letters,write name here");
             tip.SetToolTip(SurnameTB, "Allows to enter only letters, write surname here");
             tip.SetToolTip(PatronymicTB, "Allows to enter only letters, write patronymic here");
@@ -94,37 +93,37 @@ namespace Course
             {
                 case WhichForm.Defendant:
                     {
-                        if (numberValid.IsMatch(CaseNumberСB.Text) ||  numberValid.IsMatch(CaseNumberСB.Text) || nameValid.IsMatch(NameTB.Text) || NameTB.Text == "" || nameValid.IsMatch(SurnameTB.Text) || SurnameTB.Text == "" || nameValid.IsMatch(PatronymicTB.Text) || PatronymicTB.Text == "")
+                        if (nameValid.IsMatch(NameTB.Text) || NameTB.Text == "" || nameValid.IsMatch(SurnameTB.Text) || SurnameTB.Text == "" || nameValid.IsMatch(PatronymicTB.Text) || PatronymicTB.Text == "")
                         {
                             MessageBox.Show("Id writed incorrect. Only numbers.");
                         }
                         else
                         {
-                            Connection.Connector(defendant.Update(IdCB.Text,CaseNumberСB.Text, NameTB.Text, SurnameTB.Text, PatronymicTB.Text), exception);
+                            Connection.Connector(defendant.Update(IdCB.Text,NameTB.Text, SurnameTB.Text, PatronymicTB.Text), exception);
                         }
                         break;
                     }
                 case WhichForm.Judge:
                     {
-                        if (idValidation.IsMatch(IdCB.Text) || numberValid.IsMatch(CaseNumberСB.Text) ||  numberValid.IsMatch(CaseNumberСB.Text) || nameValid.IsMatch(NameTB.Text) || NameTB.Text == "" || nameValid.IsMatch(SurnameTB.Text) || SurnameTB.Text == "" || nameValid.IsMatch(PatronymicTB.Text) || PatronymicTB.Text == "")
+                        if (idValidation.IsMatch(IdCB.Text) ||nameValid.IsMatch(NameTB.Text) || NameTB.Text == "" || nameValid.IsMatch(SurnameTB.Text) || SurnameTB.Text == "" || nameValid.IsMatch(PatronymicTB.Text) || PatronymicTB.Text == "")
                         {
                             MessageBox.Show("Id writed incorrect. Only numbers.");
                         }
                         else
                         {
-                            Connection.Connector(judge.Update(IdCB.Text, CaseNumberСB.Text, NameTB.Text, SurnameTB.Text,PatronymicTB.Text), exception);
+                            Connection.Connector(judge.Update(IdCB.Text,  NameTB.Text, SurnameTB.Text,PatronymicTB.Text), exception);
                         }
                         break;
                     }
                 case WhichForm.Plaintiff:
                     {
-                        if (idValidation.IsMatch(IdCB.Text) || numberValid.IsMatch(CaseNumberСB.Text) || numberValid.IsMatch(CaseNumberСB.Text) || nameValid.IsMatch(NameTB.Text) || NameTB.Text == "" || nameValid.IsMatch(SurnameTB.Text) || SurnameTB.Text == "" || nameValid.IsMatch(PatronymicTB.Text) || PatronymicTB.Text == "")
+                        if (idValidation.IsMatch(IdCB.Text) ||nameValid.IsMatch(NameTB.Text) || NameTB.Text == "" || nameValid.IsMatch(SurnameTB.Text) || SurnameTB.Text == "" || nameValid.IsMatch(PatronymicTB.Text) || PatronymicTB.Text == "")
                         {
                             MessageBox.Show("Id writed incorrect. Only numbers.");
                         }
                         else
                         {
-                            Connection.Connector(plaintiff.Update(IdCB.Text, CaseNumberСB.Text, NameTB.Text, SurnameTB.Text,PatronymicTB.Text), exception);
+                            Connection.Connector(plaintiff.Update(IdCB.Text,NameTB.Text, SurnameTB.Text,PatronymicTB.Text), exception);
                         }
                         break;
                     }
@@ -142,7 +141,6 @@ namespace Course
         {
             NameTB.Text = null;
             SurnameTB.Text = null;
-            CaseNumberСB.Text = null;
             PatronymicTB.Text = null;
         }
 
@@ -180,27 +178,17 @@ namespace Course
             {
                 case WhichForm.Defendant:
                     {
-                      //  IdCB.Items.Clear();
-                        CaseNumberСB.Items.Clear();
                         Connection.FillCB(defendant.Display(), IdCB, WhichForm.Defendant);
-                        Connection.FillCB(@case.Display(), CaseNumberСB, WhichForm.Case);
-
                         break;
                     }
                 case WhichForm.Judge:
                     {
-                     //   IdCB.Items.Clear();
-                        CaseNumberСB.Items.Clear();
                         Connection.FillCB(judge.Display(), IdCB, WhichForm.Judge);
-                        Connection.FillCB(@case.Display(), CaseNumberСB, WhichForm.Case);
                         break;
                     }
                 case WhichForm.Plaintiff:
                     {
-                      //  IdCB.Items.Clear();
-                        CaseNumberСB.Items.Clear();
                         Connection.FillCB(plaintiff.Display(), IdCB, WhichForm.Plaintiff);
-                        Connection.FillCB(@case.Display(), CaseNumberСB, WhichForm.Case);
                         break;
                     }
             }

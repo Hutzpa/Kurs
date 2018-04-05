@@ -23,11 +23,8 @@ namespace Course
             deleting = new Deleting(WhichForm.Case, this);
         }
 
-        private string deleteException = "CAN'T DELETE RELATED VALUES";
-        private string searchException = "WRONG VALUE";
-        private string nothingSel = "NOTHING IS SELECTED";
+
         private string cantDisp = "CHECK TABLE EXISTENCE";
-        private string empty = "";
 
         private static CaseDisplay caseDisplay;
         /// <summary>
@@ -64,7 +61,7 @@ namespace Course
 
         private void button15_MouseMove(object sender, MouseEventArgs e)
         {
-            HelpDbf.Text = "Find all cases of defendant ordering by his fullname";
+            HelpDbf.Text = "Find all cases of defendant, ordering by his full name";
             DefendantByFullname.Height = 55;
             DefendantByFullname.Width = 155;
         }

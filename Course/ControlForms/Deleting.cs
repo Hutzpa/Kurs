@@ -30,7 +30,7 @@ namespace Course
             this.displayer = displayer;
             Design();
         }
-        private string exception = "CAN'T DELETE RELATED VALUES";
+        private string exception = "CAN'T DELETE RELATED VALUES OR NO DATA SELECTED";
         private CaseDisplay caseDisplay;
         private Displayer displayer;
         private WhichForm whichForm;

@@ -49,12 +49,14 @@
             this.JudgeCB = new System.Windows.Forms.ComboBox();
             this.PlaintiffCB = new System.Windows.Forms.ComboBox();
             this.DefendantCB = new System.Windows.Forms.ComboBox();
+            this.IdAdvice = new System.Windows.Forms.Label();
+            this.IdTB = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 313);
+            this.label7.Location = new System.Drawing.Point(8, 342);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 53;
@@ -64,7 +66,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(87, 277);
+            this.checkBox2.Location = new System.Drawing.Point(85, 306);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(73, 17);
             this.checkBox2.TabIndex = 52;
@@ -75,7 +77,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(12, 277);
+            this.checkBox1.Location = new System.Drawing.Point(10, 306);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(69, 17);
             this.checkBox1.TabIndex = 51;
@@ -86,7 +88,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 159);
+            this.label6.Location = new System.Drawing.Point(4, 188);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 13);
             this.label6.TabIndex = 50;
@@ -95,7 +97,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 120);
+            this.label5.Location = new System.Drawing.Point(4, 149);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(86, 13);
             this.label5.TabIndex = 49;
@@ -104,7 +106,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 89);
+            this.label4.Location = new System.Drawing.Point(4, 118);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 13);
             this.label4.TabIndex = 48;
@@ -113,7 +115,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 50);
+            this.label3.Location = new System.Drawing.Point(4, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 13);
             this.label3.TabIndex = 47;
@@ -122,7 +124,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 11);
+            this.label2.Location = new System.Drawing.Point(4, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 13);
             this.label2.TabIndex = 46;
@@ -131,7 +133,7 @@
             // Done
             // 
             this.Done.Font = new System.Drawing.Font("Yu Gothic UI Light", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Done.Location = new System.Drawing.Point(9, 339);
+            this.Done.Location = new System.Drawing.Point(7, 368);
             this.Done.Name = "Done";
             this.Done.Size = new System.Drawing.Size(115, 59);
             this.Done.TabIndex = 44;
@@ -141,7 +143,7 @@
             // 
             // VerdictTB
             // 
-            this.VerdictTB.Location = new System.Drawing.Point(111, 313);
+            this.VerdictTB.Location = new System.Drawing.Point(109, 342);
             this.VerdictTB.Name = "VerdictTB";
             this.VerdictTB.Size = new System.Drawing.Size(152, 20);
             this.VerdictTB.TabIndex = 43;
@@ -149,21 +151,21 @@
             // 
             // ArticleTB
             // 
-            this.ArticleTB.Location = new System.Drawing.Point(111, 152);
+            this.ArticleTB.Location = new System.Drawing.Point(109, 181);
             this.ArticleTB.Name = "ArticleTB";
             this.ArticleTB.Size = new System.Drawing.Size(152, 20);
             this.ArticleTB.TabIndex = 42;
             // 
             // DescriptionTB
             // 
-            this.DescriptionTB.Location = new System.Drawing.Point(111, 117);
+            this.DescriptionTB.Location = new System.Drawing.Point(109, 146);
             this.DescriptionTB.Name = "DescriptionTB";
             this.DescriptionTB.Size = new System.Drawing.Size(152, 20);
             this.DescriptionTB.TabIndex = 41;
             // 
             // StartDate
             // 
-            this.StartDate.Location = new System.Drawing.Point(120, 192);
+            this.StartDate.Location = new System.Drawing.Point(118, 221);
             this.StartDate.Name = "StartDate";
             this.StartDate.Size = new System.Drawing.Size(143, 20);
             this.StartDate.TabIndex = 54;
@@ -171,7 +173,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 199);
+            this.label8.Location = new System.Drawing.Point(4, 228);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(105, 13);
             this.label8.TabIndex = 55;
@@ -180,7 +182,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 244);
+            this.label9.Location = new System.Drawing.Point(4, 273);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(103, 13);
             this.label9.TabIndex = 57;
@@ -189,7 +191,7 @@
             // 
             // EndDate
             // 
-            this.EndDate.Location = new System.Drawing.Point(120, 238);
+            this.EndDate.Location = new System.Drawing.Point(118, 267);
             this.EndDate.Name = "EndDate";
             this.EndDate.Size = new System.Drawing.Size(143, 20);
             this.EndDate.TabIndex = 56;
@@ -198,7 +200,7 @@
             // Close
             // 
             this.Close.Font = new System.Drawing.Font("Yu Gothic UI Light", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Close.Location = new System.Drawing.Point(148, 339);
+            this.Close.Location = new System.Drawing.Point(146, 368);
             this.Close.Name = "Close";
             this.Close.Size = new System.Drawing.Size(115, 59);
             this.Close.TabIndex = 58;
@@ -210,7 +212,7 @@
             // 
             this.JudgeCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.JudgeCB.FormattingEnabled = true;
-            this.JudgeCB.Location = new System.Drawing.Point(111, 86);
+            this.JudgeCB.Location = new System.Drawing.Point(109, 115);
             this.JudgeCB.Name = "JudgeCB";
             this.JudgeCB.Size = new System.Drawing.Size(152, 21);
             this.JudgeCB.TabIndex = 59;
@@ -219,7 +221,7 @@
             // 
             this.PlaintiffCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PlaintiffCB.FormattingEnabled = true;
-            this.PlaintiffCB.Location = new System.Drawing.Point(111, 47);
+            this.PlaintiffCB.Location = new System.Drawing.Point(109, 76);
             this.PlaintiffCB.Name = "PlaintiffCB";
             this.PlaintiffCB.Size = new System.Drawing.Size(152, 21);
             this.PlaintiffCB.TabIndex = 60;
@@ -228,16 +230,34 @@
             // 
             this.DefendantCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DefendantCB.FormattingEnabled = true;
-            this.DefendantCB.Location = new System.Drawing.Point(111, 8);
+            this.DefendantCB.Location = new System.Drawing.Point(109, 37);
             this.DefendantCB.Name = "DefendantCB";
             this.DefendantCB.Size = new System.Drawing.Size(152, 21);
             this.DefendantCB.TabIndex = 61;
+            // 
+            // IdAdvice
+            // 
+            this.IdAdvice.AutoSize = true;
+            this.IdAdvice.Location = new System.Drawing.Point(12, 9);
+            this.IdAdvice.Name = "IdAdvice";
+            this.IdAdvice.Size = new System.Drawing.Size(81, 13);
+            this.IdAdvice.TabIndex = 62;
+            this.IdAdvice.Text = "Enter id of case";
+            // 
+            // IdTB
+            // 
+            this.IdTB.Location = new System.Drawing.Point(109, 6);
+            this.IdTB.Name = "IdTB";
+            this.IdTB.Size = new System.Drawing.Size(152, 20);
+            this.IdTB.TabIndex = 63;
             // 
             // CaseAddition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(273, 407);
+            this.ClientSize = new System.Drawing.Size(273, 446);
+            this.Controls.Add(this.IdTB);
+            this.Controls.Add(this.IdAdvice);
             this.Controls.Add(this.DefendantCB);
             this.Controls.Add(this.PlaintiffCB);
             this.Controls.Add(this.JudgeCB);
@@ -293,5 +313,7 @@
         private System.Windows.Forms.ComboBox JudgeCB;
         private System.Windows.Forms.ComboBox PlaintiffCB;
         private System.Windows.Forms.ComboBox DefendantCB;
+        private System.Windows.Forms.Label IdAdvice;
+        private System.Windows.Forms.TextBox IdTB;
     }
 }

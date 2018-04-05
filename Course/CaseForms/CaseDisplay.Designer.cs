@@ -80,9 +80,8 @@
             this.HelpFl.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.HelpFl.Location = new System.Drawing.Point(9, 307);
             this.HelpFl.Name = "HelpFl";
-            this.HelpFl.Size = new System.Drawing.Size(37, 13);
+            this.HelpFl.Size = new System.Drawing.Size(0, 13);
             this.HelpFl.TabIndex = 1;
-            this.HelpFl.Text = "______";
             // 
             // FindLegal
             // 
@@ -107,9 +106,8 @@
             this.HelpFbk.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.HelpFbk.Location = new System.Drawing.Point(172, 303);
             this.HelpFbk.Name = "HelpFbk";
-            this.HelpFbk.Size = new System.Drawing.Size(27, 13);
+            this.HelpFbk.Size = new System.Drawing.Size(0, 13);
             this.HelpFbk.TabIndex = 4;
-            this.HelpFbk.Text = "____";
             // 
             // FindByKeywordTB
             // 
@@ -143,9 +141,8 @@
             this.HelpFba.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.HelpFba.Location = new System.Drawing.Point(342, 303);
             this.HelpFba.Name = "HelpFba";
-            this.HelpFba.Size = new System.Drawing.Size(22, 13);
+            this.HelpFba.Size = new System.Drawing.Size(0, 13);
             this.HelpFba.TabIndex = 7;
-            this.HelpFba.Text = "___";
             // 
             // FindByArticle
             // 
@@ -170,9 +167,8 @@
             this.HelpFa.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.HelpFa.Location = new System.Drawing.Point(512, 303);
             this.HelpFa.Name = "HelpFa";
-            this.HelpFa.Size = new System.Drawing.Size(32, 13);
+            this.HelpFa.Size = new System.Drawing.Size(0, 13);
             this.HelpFa.TabIndex = 9;
-            this.HelpFa.Text = "_____";
             // 
             // FindActive
             // 
@@ -197,9 +193,8 @@
             this.HelpJcl.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.HelpJcl.Location = new System.Drawing.Point(682, 307);
             this.HelpJcl.Name = "HelpJcl";
-            this.HelpJcl.Size = new System.Drawing.Size(27, 13);
+            this.HelpJcl.Size = new System.Drawing.Size(0, 13);
             this.HelpJcl.TabIndex = 11;
-            this.HelpJcl.Text = "____";
             // 
             // JudgeCaseList
             // 
@@ -223,9 +218,8 @@
             this.HelpPcl.AutoSize = true;
             this.HelpPcl.Location = new System.Drawing.Point(852, 307);
             this.HelpPcl.Name = "HelpPcl";
-            this.HelpPcl.Size = new System.Drawing.Size(31, 13);
+            this.HelpPcl.Size = new System.Drawing.Size(0, 13);
             this.HelpPcl.TabIndex = 13;
-            this.HelpPcl.Text = "____";
             // 
             // PlaintiffCaseList
             // 
@@ -250,9 +244,8 @@
             this.HelpDcl.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.HelpDcl.Location = new System.Drawing.Point(1022, 307);
             this.HelpDcl.Name = "HelpDcl";
-            this.HelpDcl.Size = new System.Drawing.Size(32, 13);
+            this.HelpDcl.Size = new System.Drawing.Size(0, 13);
             this.HelpDcl.TabIndex = 15;
-            this.HelpDcl.Text = "_____";
             // 
             // DefendantCaseList
             // 
@@ -419,9 +412,8 @@
             this.HelpDbf.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.HelpDbf.Location = new System.Drawing.Point(1192, 307);
             this.HelpDbf.Name = "HelpDbf";
-            this.HelpDbf.Size = new System.Drawing.Size(32, 13);
+            this.HelpDbf.Size = new System.Drawing.Size(0, 13);
             this.HelpDbf.TabIndex = 27;
-            this.HelpDbf.Text = "_____";
             // 
             // CaseDisplay
             // 
