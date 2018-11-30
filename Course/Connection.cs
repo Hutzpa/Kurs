@@ -16,7 +16,7 @@ namespace Course
         /// <summary>
         /// Метод подключения с выводом в DGV
         /// </summary>
-        public static void Connector(DataGridView dataGridView1, string query, string exceptionText)
+        public static void Connector(DataGridView dataGridView1, string query)
         {
             using (var conn = new MySqlConnection(connStr))
             {
@@ -32,7 +32,6 @@ namespace Course
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(exceptionText);
                     MessageBox.Show(ex.Message);
                 }
                 conn.Close();
@@ -42,7 +41,7 @@ namespace Course
         /// <summary>
         /// Метод для изменения данных в таблицах без вывода
         /// </summary>
-        public static void Connector(string query, string exceptionText)
+        public static void Connector(string query)
         {
             using (var conn = new MySqlConnection(Connection.connStr))
             {
@@ -57,7 +56,6 @@ namespace Course
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(exceptionText);
                     MessageBox.Show(ex.Message);
                 }
                 conn.Close();
@@ -65,7 +63,7 @@ namespace Course
         }
         
         /// <summary>
-        /// Метод заполнения кейсбоксов 
+        /// Метод заполнения комбобоксов 
         /// </summary>
         public static void FillCB(string query, ComboBox comboBox,WhichForm whichForm)
         {
@@ -119,6 +117,40 @@ namespace Course
                 }
                 conn.Close();
             }
+        }
+
+
+        /// <summary>
+        /// Метод вывода статистики
+        /// </summary>
+        public static int PrintStat(string query)
+        {
+            using (var conn = new MySqlConnection(connStr))
+            {
+                int res = 0;
+                MySqlCommand com = new MySqlCommand(query, conn);
+                try
+                {
+                    conn.Open();
+                    MySqlDataReader reader = com.ExecuteReader();
+                    //reader["DefendantNumber"];
+                    //MessageBox.Show(reader.GetName(0).ToString());
+                    while (reader.Read())
+                    {
+                      res = Convert.ToInt32(reader[0]);
+                    }
+                    
+                    
+                    conn.Close();
+                    return res;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                conn.Close();
+            }
+            return 0;
         }
 
     }

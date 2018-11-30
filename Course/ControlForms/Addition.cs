@@ -20,10 +20,8 @@ namespace Course
         private Defendant defendant;
         private Judge judge;
         private Plaintiff plaintiff;
-        private Regex numberValid = new Regex(@"\D");
         private Regex nameValid = new Regex(@"\d");
 
-        private string cantDisp = "CHECK TABLE EXISTENCE";
 
 
         private void Design()
@@ -74,11 +72,12 @@ namespace Course
                     {
                         if( nameValid.IsMatch(NameTB.Text) || NameTB.Text == "" || nameValid.IsMatch(SurnameTB.Text) || SurnameTB.Text == "" ||  nameValid.IsMatch(PatronymicTB.Text) || PatronymicTB.Text == "")
                         {
-                            MessageBox.Show("Id writed incorrect. Only numbers.");
+                            MessageBox.Show("Input fields contains only letters");
                         }
                         else
                         {
-                            Connection.Connector(defendant.Insert(NameTB.Text, SurnameTB.Text, PatronymicTB.Text), cantDisp);
+                            Connection.Connector(defendant.Insert(NameTB.Text, SurnameTB.Text, PatronymicTB.Text));
+                            Cleaning();
                         }
                         break;
                     }
@@ -86,11 +85,12 @@ namespace Course
                     {
                         if (nameValid.IsMatch(NameTB.Text) || NameTB.Text == "" || nameValid.IsMatch(SurnameTB.Text) || SurnameTB.Text == "" || nameValid.IsMatch(PatronymicTB.Text) || PatronymicTB.Text == "")
                         {
-                            MessageBox.Show("Id writed incorrect. Only numbers.");
+                            MessageBox.Show("Input fields contains only letters");
                         }
                         else
                         {
-                            Connection.Connector(judge.Insert(NameTB.Text, SurnameTB.Text,PatronymicTB.Text), cantDisp);
+                            Connection.Connector(judge.Insert(NameTB.Text, SurnameTB.Text,PatronymicTB.Text));
+                            Cleaning();
                         }
                         break;
                     }
@@ -98,11 +98,12 @@ namespace Course
                     {
                         if (nameValid.IsMatch(NameTB.Text) || NameTB.Text == "" || nameValid.IsMatch(SurnameTB.Text) || SurnameTB.Text == "" || nameValid.IsMatch(PatronymicTB.Text) || PatronymicTB.Text == "")
                         {
-                            MessageBox.Show("Id writed incorrect. Only numbers.");
+                            MessageBox.Show("Input fields contains only letters");
                         }
                         else
                         {
-                            Connection.Connector(plaintiff.Insert(NameTB.Text, SurnameTB.Text, PatronymicTB.Text), cantDisp);
+                            Connection.Connector(plaintiff.Insert(NameTB.Text, SurnameTB.Text, PatronymicTB.Text));
+                            Cleaning();
                         }
                         break;
                     }
@@ -113,7 +114,6 @@ namespace Course
                         break;
                     }
             }
-            Cleaning();
         }
 
         private void Cleaning()
@@ -125,7 +125,6 @@ namespace Course
 
         private void button2_Click(object sender, EventArgs e)
         {
-          
             Close();
         }
 
@@ -135,17 +134,17 @@ namespace Course
             {
                 case WhichForm.Defendant:
                     {
-                        Connection.Connector(displayer.dataGridView1, defendant.Display(), cantDisp);
+                        Connection.Connector(displayer.dataGridView1, defendant.Display());
                         break;
                     }
                 case WhichForm.Judge:
                     {
-                        Connection.Connector(displayer.dataGridView1, judge.Display(), cantDisp);
+                        Connection.Connector(displayer.dataGridView1, judge.Display());
                         break;
                     }
                 case WhichForm.Plaintiff:
                     {
-                        Connection.Connector(displayer.dataGridView1, plaintiff.Display(), cantDisp);
+                        Connection.Connector(displayer.dataGridView1, plaintiff.Display());
                         break;
                     }
                 default:

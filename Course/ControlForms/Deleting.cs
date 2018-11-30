@@ -30,7 +30,6 @@ namespace Course
             this.displayer = displayer;
             Design();
         }
-        private string exception = "CAN'T DELETE RELATED VALUES OR NO DATA SELECTED";
         private CaseDisplay caseDisplay;
         private Displayer displayer;
         private WhichForm whichForm;
@@ -96,7 +95,7 @@ namespace Course
                         }
                         else
                         {
-                            Connection.Connector(defendant.Delete(IdCB.Text),exception);
+                            Connection.Connector(defendant.Delete(IdCB.Text));
                         }
                         break;
                     }
@@ -108,7 +107,7 @@ namespace Course
                         }
                         else
                         {
-                            Connection.Connector(judge.Delete(IdCB.Text),exception);
+                            Connection.Connector(judge.Delete(IdCB.Text));
                         }
                         break;
                     }
@@ -120,7 +119,7 @@ namespace Course
                         }
                         else
                         {
-                            Connection.Connector(plaintiff.Delete(IdCB.Text),exception);
+                            Connection.Connector(plaintiff.Delete(IdCB.Text));
                         }
                         break;
                     }
@@ -132,7 +131,7 @@ namespace Course
                         }
                         else
                         {
-                            Connection.Connector(@case.Delete(IdCB.Text),exception);
+                            Connection.Connector(@case.Delete(IdCB.Text));
                         }
                         break;
                     }
@@ -158,23 +157,23 @@ namespace Course
             {
                 case WhichForm.Defendant:
                     {
-                        Connection.Connector(displayer.dataGridView1, defendant.Display(),exception);
+                        Connection.Connector(displayer.dataGridView1, defendant.Display());
                         break;
                     }
                 case WhichForm.Judge:
                     {
-                        Connection.Connector(displayer.dataGridView1, judge.Display(), exception);
+                        Connection.Connector(displayer.dataGridView1, judge.Display());
                         break;
                     }
                 case WhichForm.Plaintiff:
                     {
-                        Connection.Connector(displayer.dataGridView1, plaintiff.Display(), exception);
+                        Connection.Connector(displayer.dataGridView1, plaintiff.Display());
                         break;
                     }
                 case WhichForm.Case:
                     {
                         caseDisplay.dataGridView1.Columns.Clear();
-                        Connection.Connector(caseDisplay.dataGridView1, @case.Display(), exception);
+                        Connection.Connector(caseDisplay.dataGridView1, @case.Display());
                         break;
                     }
             }

@@ -13,7 +13,7 @@ namespace Course
         /// </summary>
         public string Insert( string name, string surname, string patronymic)
         {
-            return "INSERT INTO kurs.judge (Name,Surname,Patronymic,Fio) VALUES ('" + name + "','" + surname +"','"+ patronymic+ "','" + name.Substring(0, 1).ToUpper() + surname.Substring(0, 1).ToUpper() + patronymic.Substring(0, 1).ToUpper() +"')";
+            return "INSERT INTO kurs.judge (Name,Surname,Patronymic) VALUES ('" + name + "','" + surname +"','"+ patronymic+ "')";
         }
 
         /// <summary>
@@ -21,16 +21,9 @@ namespace Course
         /// </summary>
         public string Update(string judgeNumber, string name, string surname, string patronymic)
         {
-            return "UPDATE kurs.judge SET JudgeNumber ='" + judgeNumber +"',Name ='" + name + "',Surname='" + surname + "',Patronymic='"+patronymic+ "',Fio='" + name.Substring(0, 1).ToUpper() + surname.Substring(0, 1).ToUpper() + patronymic.Substring(0, 1).ToUpper() + "' WHERE JudgeNumber='" + judgeNumber+"'";
+            return "UPDATE kurs.judge SET Name ='" + name + "',Surname='" + surname + "',Patronymic='"+patronymic+ "'  WHERE JudgeNumber='" + judgeNumber+"'";
         }
 
-        /// <summary>
-        /// Редактирование номера дела 
-        /// </summary>
-        public string UpdateCaseNmb(string judgeNumber, string caseNumber)
-        {
-            return "UPDATE kurs.judge SET CaseNumber='" + caseNumber + "' WHERE JudgeNumber='" + judgeNumber + "'";
-        }
 
         /// <summary>
         /// Поиск ответчиков по id

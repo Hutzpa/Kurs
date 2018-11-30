@@ -43,6 +43,7 @@
             this.Delete = new System.Windows.Forms.Button();
             this.Close = new System.Windows.Forms.Button();
             this.IdCB = new System.Windows.Forms.ComboBox();
+            this.Repopts = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,7 +122,7 @@
             // EditSelected
             // 
             this.EditSelected.Font = new System.Drawing.Font("Yu Gothic UI Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.EditSelected.Location = new System.Drawing.Point(104, 278);
+            this.EditSelected.Location = new System.Drawing.Point(15, 277);
             this.EditSelected.Name = "EditSelected";
             this.EditSelected.Size = new System.Drawing.Size(150, 50);
             this.EditSelected.TabIndex = 11;
@@ -134,7 +135,7 @@
             // DeleteSelected
             // 
             this.DeleteSelected.Font = new System.Drawing.Font("Yu Gothic UI Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DeleteSelected.Location = new System.Drawing.Point(389, 278);
+            this.DeleteSelected.Location = new System.Drawing.Point(268, 277);
             this.DeleteSelected.Name = "DeleteSelected";
             this.DeleteSelected.Size = new System.Drawing.Size(150, 50);
             this.DeleteSelected.TabIndex = 12;
@@ -197,11 +198,23 @@
             this.IdCB.Size = new System.Drawing.Size(150, 21);
             this.IdCB.TabIndex = 64;
             // 
+            // Repopts
+            // 
+            this.Repopts.Font = new System.Drawing.Font("Yu Gothic UI Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Repopts.Location = new System.Drawing.Point(500, 277);
+            this.Repopts.Name = "Repopts";
+            this.Repopts.Size = new System.Drawing.Size(150, 50);
+            this.Repopts.TabIndex = 65;
+            this.Repopts.Text = "Reports";
+            this.Repopts.UseVisualStyleBackColor = true;
+            this.Repopts.Click += new System.EventHandler(this.Repopts_Click);
+            // 
             // Displayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(663, 439);
+            this.ClientSize = new System.Drawing.Size(662, 439);
+            this.Controls.Add(this.Repopts);
             this.Controls.Add(this.IdCB);
             this.Controls.Add(this.Close);
             this.Controls.Add(this.Delete);
@@ -243,5 +256,6 @@
         private System.Windows.Forms.Button Close;
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox IdCB;
+        private System.Windows.Forms.Button Repopts;
     }
 }

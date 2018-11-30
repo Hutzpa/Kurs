@@ -19,12 +19,11 @@ namespace Course
         private CaseDisplay()
         {
             InitializeComponent();
-            Connection.Connector(dataGridView1, @case.Display(),cantDisp);
+            Connection.Connector(dataGridView1, @case.Display());
             deleting = new Deleting(WhichForm.Case, this);
         }
 
 
-        private string cantDisp = "CHECK TABLE EXISTENCE";
 
         private static CaseDisplay caseDisplay;
         /// <summary>
@@ -45,33 +44,6 @@ namespace Course
 
         #region Zeroth inqurie
         private Regex fullnameValid = new Regex(@"\d");
-        private void button15_Click(object sender, EventArgs e)
-        {
-            if(DbfTB.Text == "" || fullnameValid.IsMatch(DbfTB.Text))
-            {
-                MessageBox.Show("INCORRECT DATA FORMAT");
-            }
-            else
-            {
-                CreateTable();
-                @case.FillDgv(dataGridView1, @case.Display(), @case.GetFio(defendant.Display(), DbfTB.Text.ToUpper()));
-                DbfTB.Text = null;
-            }
-        }
-
-        private void button15_MouseMove(object sender, MouseEventArgs e)
-        {
-            HelpDbf.Text = "Find all cases of defendant, ordering by his full name";
-            DefendantByFullname.Height = 55;
-            DefendantByFullname.Width = 155;
-        }
-
-        private void button15_MouseLeave(object sender, EventArgs e)
-        {
-            HelpDbf.Text = null;
-            DefendantByFullname.Height = 50;
-            DefendantByFullname.Width = 150;
-        }
 
         private void CreateTable()
         {
@@ -109,7 +81,7 @@ namespace Course
         private void button1_Click(object sender, EventArgs e)
         {
             dataGridView1.Columns.Clear();
-            Connection.Connector(dataGridView1,@case.First("-1"),cantDisp);
+            Connection.Connector(dataGridView1,@case.First("-1"));
         }
 
         #endregion
@@ -139,7 +111,7 @@ namespace Course
             else
             {
                 dataGridView1.Columns.Clear();
-                Connection.Connector(dataGridView1, @case.Second(FindByKeywordTB.Text),cantDisp);
+                Connection.Connector(dataGridView1, @case.Second(FindByKeywordTB.Text));
                 FindByKeywordTB.Text = null;
             }
         }
@@ -167,8 +139,8 @@ namespace Course
             try
             {
                 dataGridView1.Columns.Clear();
-                Connection.Connector(dataGridView1, @case.Display(), cantDisp);
-                Connection.Connector(dataGridView1,@case.Third(art),cantDisp);
+                Connection.Connector(dataGridView1, @case.Display());
+                Connection.Connector(dataGridView1,@case.Third(art));
             }
             catch (NullReferenceException ex)
             {
@@ -195,7 +167,7 @@ namespace Course
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Connection.Connector(dataGridView1,@case.Fourth("0"),cantDisp);
+            Connection.Connector(dataGridView1,@case.Fourth("0"));
         }
         #endregion
 
@@ -221,13 +193,13 @@ namespace Course
             try
             {
                 dataGridView1.Columns.Clear();
-                Connection.Connector(dataGridView1, @case.Display(), cantDisp);
-                Connection.Connector(dataGridView1,@case.Fifth(idJud),cantDisp);
+                Connection.Connector(dataGridView1, @case.Display());
+                Connection.Connector(dataGridView1,@case.Fifth(idJud));
             }
             catch (NullReferenceException ex)
             {
                 MessageBox.Show("NO  DATA SELECTED");
-                Connection.Connector(@case.Display(), cantDisp);
+                Connection.Connector(@case.Display());
             }
         }
         #endregion
@@ -254,13 +226,13 @@ namespace Course
             try
             {
                 dataGridView1.Columns.Clear();
-                Connection.Connector(dataGridView1, @case.Display(), cantDisp);
-                Connection.Connector(dataGridView1, @case.Sixth(idPla),cantDisp);
+                Connection.Connector(dataGridView1, @case.Display());
+                Connection.Connector(dataGridView1, @case.Sixth(idPla));
             }
             catch(NullReferenceException ex)
             {
                 MessageBox.Show("NO  DATA SELECTED");
-                Connection.Connector(@case.Display(), cantDisp);
+                Connection.Connector(@case.Display());
             }
         }
         #endregion
@@ -287,13 +259,13 @@ namespace Course
             try
             {
                 dataGridView1.Columns.Clear();
-                Connection.Connector(dataGridView1, @case.Display(), cantDisp);
-                Connection.Connector(dataGridView1,@case.Seventh(idDef),cantDisp);
+                Connection.Connector(dataGridView1, @case.Display());
+                Connection.Connector(dataGridView1,@case.Seventh(idDef));
             }
             catch (NullReferenceException ex)
             {
                 MessageBox.Show("NO  DATA SELECTED");
-                Connection.Connector(@case.Display(), cantDisp);
+                Connection.Connector(@case.Display());
             }
 
         }
@@ -307,7 +279,7 @@ namespace Course
         private void button11_Click(object sender, EventArgs e)
         {
             dataGridView1.Columns.Clear();
-            Connection.Connector(dataGridView1, @case.Display(),cantDisp);
+            Connection.Connector(dataGridView1, @case.Display());
         }
 
         /// <summary>
@@ -336,9 +308,9 @@ namespace Course
             try
             {
                 dataGridView1.Columns.Clear();
-                Connection.Connector(dataGridView1, @case.Display(),cantDisp);
-                Connection.Connector(@case.Delete(del),cantDisp);
-                Connection.Connector(dataGridView1, @case.Display(),cantDisp);
+                Connection.Connector(dataGridView1, @case.Display());
+                Connection.Connector(@case.Delete(del));
+                Connection.Connector(dataGridView1, @case.Display());
             }
             catch (NullReferenceException ex)
             {
@@ -491,5 +463,9 @@ namespace Course
         }
         #endregion
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show("Coming soon");
+        }
     }
 }
