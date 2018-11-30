@@ -95,12 +95,11 @@ namespace Course
                     {
                         if (nameValid.IsMatch(NameTB.Text) || NameTB.Text == "" || nameValid.IsMatch(SurnameTB.Text) || SurnameTB.Text == "" || nameValid.IsMatch(PatronymicTB.Text) || PatronymicTB.Text == "")
                         {
-                            MessageBox.Show("Input fields contains only letters");
+                            MessageBox.Show("Id writed incorrect. Only numbers.");
                         }
                         else
                         {
-                            Connection.Connector(defendant.Update(IdCB.Text,NameTB.Text, SurnameTB.Text, PatronymicTB.Text));
-                            Cleaning();
+                            Connection.Connector(defendant.Update(IdCB.Text,NameTB.Text, SurnameTB.Text, PatronymicTB.Text), exception);
                         }
                         break;
                     }
@@ -108,12 +107,11 @@ namespace Course
                     {
                         if (idValidation.IsMatch(IdCB.Text) ||nameValid.IsMatch(NameTB.Text) || NameTB.Text == "" || nameValid.IsMatch(SurnameTB.Text) || SurnameTB.Text == "" || nameValid.IsMatch(PatronymicTB.Text) || PatronymicTB.Text == "")
                         {
-                            MessageBox.Show("Input fields contains only letters");
+                            MessageBox.Show("Id writed incorrect. Only numbers.");
                         }
                         else
                         {
-                            Connection.Connector(judge.Update(IdCB.Text,  NameTB.Text, SurnameTB.Text,PatronymicTB.Text));
-                            Cleaning();
+                            Connection.Connector(judge.Update(IdCB.Text,  NameTB.Text, SurnameTB.Text,PatronymicTB.Text), exception);
                         }
                         break;
                     }
@@ -121,12 +119,11 @@ namespace Course
                     {
                         if (idValidation.IsMatch(IdCB.Text) ||nameValid.IsMatch(NameTB.Text) || NameTB.Text == "" || nameValid.IsMatch(SurnameTB.Text) || SurnameTB.Text == "" || nameValid.IsMatch(PatronymicTB.Text) || PatronymicTB.Text == "")
                         {
-                            MessageBox.Show("Input fields contains only letters");
+                            MessageBox.Show("Id writed incorrect. Only numbers.");
                         }
                         else
                         {
-                            Connection.Connector(plaintiff.Update(IdCB.Text,NameTB.Text, SurnameTB.Text,PatronymicTB.Text));
-                            Cleaning();
+                            Connection.Connector(plaintiff.Update(IdCB.Text,NameTB.Text, SurnameTB.Text,PatronymicTB.Text), exception);
                         }
                         break;
                     }
@@ -137,7 +134,7 @@ namespace Course
                         break;
                     }
             }
-          
+          Cleaning();
         }
 
         private void Cleaning()
@@ -159,17 +156,17 @@ namespace Course
             {
                 case WhichForm.Defendant:
                     {
-                        Connection.Connector(displayer.dataGridView1, defendant.Display());
+                        Connection.Connector(displayer.dataGridView1, defendant.Display(), exception);
                         break;
                     }
                 case WhichForm.Judge:
                     {
-                        Connection.Connector(displayer.dataGridView1, judge.Display());
+                        Connection.Connector(displayer.dataGridView1, judge.Display(), exception);
                         break;
                     }
                 case WhichForm.Plaintiff:
                     {
-                        Connection.Connector(displayer.dataGridView1, plaintiff.Display());
+                        Connection.Connector(displayer.dataGridView1, plaintiff.Display(), exception);
                         break;
                     }
             }

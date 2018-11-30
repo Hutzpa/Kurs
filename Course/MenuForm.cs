@@ -15,11 +15,23 @@ namespace Course
         public MenuForm()
         {
             InitializeComponent();
-
+            //Greeting();
         }
 
         private CaseDisplay caseDisplay;
         private Displayer displayer;
+
+        private void Greeting()
+        {
+            MessageBox.Show(@"............/´¯/)...............(\¯`\
+.........../...//....БАЗА...\\...\
+........../...//....ДАННЫХ...\\...\
+...../´¯/..../´¯\.СУДА..../¯` \....\¯`\
+.././.../..../..../.| _......._ |.\....\....\...\.\
+(.(....(....(..../..)..)…...(..(.\....)....)....).)
+.\................\/.../......\...\/................/
+..\.................. /.........\................../ ");
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -96,23 +108,6 @@ namespace Course
         }
 
         private void button3_MouseLeave(object sender, EventArgs e)
-        {
-            label1.Text = null;
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            Stats stats = new Stats();
-            stats.Show();
-            
-        }
-
-        private void button6_MouseMove(object sender, MouseEventArgs e)
-        {
-            label1.Text = "Statistics";
-        }
-
-        private void button6_MouseLeave(object sender, EventArgs e)
         {
             label1.Text = null;
         }

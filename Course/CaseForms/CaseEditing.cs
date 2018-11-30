@@ -31,7 +31,9 @@ namespace Course
             InitializeComponent();
             caseDisplayNoparam = caseDisplay;
         }
-        
+
+        private string cantDisp = "UNKNOWN ID";
+
         private  Case @case = new Case();
         private Judge judge = new Judge();
         private Defendant defendant = new Defendant();
@@ -86,7 +88,7 @@ namespace Course
             else
             {
                 Editing();
-                Connection.Connector(@case.ClearVerdict(IdCB.Text));
+                Connection.Connector(@case.ClearVerdict(IdCB.Text), cantDisp);
                 Clean();
             }
         }
@@ -95,11 +97,11 @@ namespace Course
         {
             if (caseDisplayNoparam == null)
             {
-                Connection.Connector(caseDisplayParam.dataGridView1, @case.Display());
+                Connection.Connector(caseDisplayParam.dataGridView1, @case.Display(), cantDisp);
             }
             else
             {
-                Connection.Connector(caseDisplayNoparam.dataGridView1, @case.Display());
+                Connection.Connector(caseDisplayNoparam.dataGridView1, @case.Display(), cantDisp);
             }
             if (e.CloseReason == CloseReason.UserClosing)
             {
@@ -112,12 +114,12 @@ namespace Course
         {
             if (idValidation.IsMatch(IdCB.Text) ||defendantIdValid.IsMatch(DefendantCB.Text) || plaintiffIdValid.IsMatch(PlaintiffCB.Text) || judgeIdValid.IsMatch(JudgeCB.Text))
             {
-                MessageBox.Show("Input fields contains only letters");
-
+                MessageBox.Show("Id allows only numbers");
             }
             else
             {
-                Connection.Connector(@case.Update(IdCB.Text, DefendantCB.Text, PlaintiffCB.Text, JudgeCB.Text, DescriptionTB.Text, ArticleTB.Text, StartDate.Value, EndDate.Value, isEnd, isLegal, VerdictTB.Text));
+                Connection.Connector(@case.Update(IdCB.Text, DefendantCB.Text, PlaintiffCB.Text, JudgeCB.Text, DescriptionTB.Text, ArticleTB.Text, StartDate.Value, EndDate.Value, isEnd, isLegal, VerdictTB.Text), cantDisp);
+                UpdateCaseNumber();
             }
         }
 
@@ -168,12 +170,12 @@ namespace Course
             if(caseDisplayNoparam == null)
             {
                 caseDisplayParam.dataGridView1.Columns.Clear();
-                Connection.Connector(caseDisplayParam.dataGridView1, @case.Display());
+                Connection.Connector(caseDisplayParam.dataGridView1, @case.Display(), cantDisp);
             }
             else
             {
                 caseDisplayNoparam.dataGridView1.Columns.Clear();
-                Connection.Connector(caseDisplayNoparam.dataGridView1, @case.Display());
+                Connection.Connector(caseDisplayNoparam.dataGridView1, @case.Display(), cantDisp);
             }
             Close();
         }
@@ -188,6 +190,13 @@ namespace Course
             Connection.FillCB(judge.Display(), JudgeCB, WhichForm.Judge);
             Connection.FillCB(defendant.Display(), DefendantCB, WhichForm.Defendant);
             Connection.FillCB(plaintiff.Display(), PlaintiffCB, WhichForm.Plaintiff);
+        }
+
+        private void UpdateCaseNumber()
+        {
+            Connection.Connector(judge.UpdateCaseNmb(JudgeCB.Text, IdCB.Text), cantDisp);
+            Connection.Connector(defendant.UpdateCaseNmb(DefendantCB.Text, IdCB.Text), cantDisp);
+            Connection.Connector(plaintiff.UpdateCaseNmb(PlaintiffCB.Text, IdCB.Text), cantDisp);
         }
     }
 }

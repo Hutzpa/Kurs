@@ -24,6 +24,7 @@ namespace Course
             InitializeComponent();
             this.caseDisplay = caseDisplay;
         }
+        private string cantDisp = "UNKNOWN ID";
 
 
         private Case @case = new Case();
@@ -49,6 +50,7 @@ namespace Course
 
         private void CaseAddition_Load(object sender, EventArgs e)
         {
+            tip.SetToolTip(IdTB, "Allows to enter only numbers, enter case id");
             tip.SetToolTip(DefendantCB, "If defendant is not created yet, left this field empty");
             tip.SetToolTip(PlaintiffCB, "If plaintiff is not created yet, left this field empty");
             tip.SetToolTip(JudgeCB, "If judge is not created yet, left this field empty");
@@ -88,21 +90,22 @@ namespace Course
 
         private void Addition()
         {
-            if(DescriptionTB.Text == "" || ArticleTB.Text == "" || DefendantCB.Text == "" || PlaintiffCB.Text == "" || JudgeCB.Text == "")
+            if(idValidation.IsMatch(IdTB.Text) || IdTB.Text == "")
             {
-                MessageBox.Show("Fill all fields please");
+                MessageBox.Show("Id allow only numbers");
             }
             else
             {
-                Connection.Connector(@case.Insert(DefendantCB.Text, PlaintiffCB.Text, JudgeCB.Text, DescriptionTB.Text, ArticleTB.Text, StartDate.Value, EndDate.Value, isEnd, isLegal, VerdictTB.Text));
-                Clean();
+            Connection.Connector(@case.Insert(int.Parse(IdTB.Text), DefendantCB.Text, PlaintiffCB.Text, JudgeCB.Text, DescriptionTB.Text, ArticleTB.Text, StartDate.Value, EndDate.Value, isEnd, isLegal, VerdictTB.Text), cantDisp);
+            UpdateCaseNumber();
+            Clean();
             }
         }
 
         private void CaseAddition_FormClosing(object sender, FormClosingEventArgs e)
         {
             caseDisplay.dataGridView1.Columns.Clear();
-            Connection.Connector(caseDisplay.dataGridView1, @case.Display());
+            Connection.Connector(caseDisplay.dataGridView1, @case.Display(), cantDisp);
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 e.Cancel = true;
@@ -144,6 +147,7 @@ namespace Course
 
         private void Clean()
         {
+            IdTB.Text = null;
             DefendantCB.SelectedItem = null;
             PlaintiffCB.SelectedItem = null;
             JudgeCB.SelectedItem = null;
@@ -167,6 +171,12 @@ namespace Course
             Connection.FillCB(plaintiff.Display(), PlaintiffCB, WhichForm.Plaintiff);
         }
 
+        private void UpdateCaseNumber()
+        {
+            Connection.Connector(judge.UpdateCaseNmb(JudgeCB.Text, IdTB.Text), cantDisp);
+            Connection.Connector(defendant.UpdateCaseNmb(DefendantCB.Text, IdTB.Text), cantDisp);
+            Connection.Connector(plaintiff.UpdateCaseNmb(PlaintiffCB.Text, IdTB.Text), cantDisp);
+        }
 
     }
 }

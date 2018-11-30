@@ -12,7 +12,75 @@ namespace Course
    public class Case
     {
         #region Search
-       
+        /// <summary>
+        /// Get all cases, which defendant fullname contain entered fullname
+        /// </summary>
+        public List<object> GetFio(string query, string fio)
+        {
+            using (var conn = new MySqlConnection(Connection.connStr))
+            {
+                List<object> list = new List<object>();
+                MySqlCommand com = new MySqlCommand(query, conn);
+                try
+                {
+                    conn.Open();
+                    MySqlDataReader reader = com.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        if (reader["Fio"].ToString() == fio)
+                        {
+                            list.Add(reader["CaseNumber"]);
+                        }
+                    }
+                    conn.Close();
+                    return list;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                    return new List<object>();
+                }
+            }
+        }
+
+        /// <summary>
+        /// DIsplay cases, that contain the  full names
+        /// </summary>
+        public void FillDgv(DataGridView dataGridView1, string query, List<object> list)
+        {
+            using (var conn = new MySqlConnection(Connection.connStr))
+            {
+                MySqlCommand com = new MySqlCommand(query, conn);
+                try
+                {
+                    conn.Open();
+                    MySqlDataReader reader = com.ExecuteReader();
+                    DataTable dataTable = new DataTable();
+                    dataGridView1.DataSource = null;
+                    while (reader.Read())
+                    {
+                        for (int i = 0; i < list.Count; i++)
+                        {
+                            if (reader["Id"].ToString() == list[i].ToString())
+                            {
+                                dataGridView1.Rows.Add(Convert.ToInt32(reader["Id"]), Convert.ToUInt32(reader["NumberDefendant"]), Convert.ToUInt32(reader["PlaintiffNumber"]), Convert.ToUInt32(reader["JudgeNumber"]), reader["Description"].ToString(), reader["Article"].ToString(), Convert.ToDateTime(reader["DateOfStart"]).ToShortDateString(), Convert.ToDateTime(reader["DateOfEnd"]).ToShortDateString(), Convert.ToBoolean(reader["IsEnd"]), Convert.ToBoolean(reader["IsUr"]), reader["Verdict"].ToString());
+                            }
+                        }
+                    }
+
+                    conn.Close();
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+
+                }
+            }
+        }
+
 
         /// <summary>
         /// Список юридичних справ
@@ -67,7 +135,7 @@ namespace Course
         /// </summary>
         public string Seventh(string param)
         {
-            return "SELECT * FROM kurs.case WHERE case.DefendantNumber ='" + param + "';";
+            return "SELECT * FROM kurs.case WHERE case.NumberDefendant ='" + param + "';";
         }
 
         #endregion
@@ -75,9 +143,9 @@ namespace Course
         /// <summary>
         /// Вводит данные в таблицу "дело" 
         /// </summary>
-        public string Insert(string defendantId, string plaintiffId, string judgeId, string descripton, string article,DateTime dateOfStart,DateTime dateOfEnd, short isEnd, short isUr, string verdict)
+        public string Insert(int id,string defendantId, string plaintiffId, string judgeId, string descripton, string article,DateTime dateOfStart,DateTime dateOfEnd, short isEnd, short isUr, string verdict)
         {
-            return "INSERT INTO kurs.case (DefendantNumber,PlaintiffNumber,JudgeNumber,Description,Article,StartDate,EndDate,IsEnd,IsUr,Verdict) VALUES ('" + defendantId +"','"+plaintiffId+"','"+judgeId+"','"+descripton +"','"+article+"','"+dateOfStart.ToShortDateString()+"','" + dateOfEnd.ToShortDateString()+"','" + isEnd+"','"+isUr+"','"+verdict+"')";
+            return "INSERT INTO kurs.case (Id,NumberDefendant,PlaintiffNumber,JudgeNumber,Description,Article,DateOfStart,DateOfEnd,IsEnd,IsUr,Verdict) VALUES ('"+ id+"','"+ defendantId +"','"+plaintiffId+"','"+judgeId+"','"+descripton +"','"+article+"','"+dateOfStart.ToShortDateString()+"','" + dateOfEnd.ToShortDateString()+"','" + isEnd+"','"+isUr+"','"+verdict+"')";
         }
 
         /// <summary>
@@ -85,7 +153,7 @@ namespace Course
         /// </summary>
         public string Update(string id, string defendantId, string plaintiffId, string judgeId, string descripton, string article, DateTime dateOfStart, DateTime dateOfEnd, short isEnd, short isUr, string verdict)
         {
-            return "UPDATE kurs.case SET DefendantNumber='" + defendantId + "',PlaintiffNumber='" + plaintiffId + "',JudgeNumber='" + judgeId + "',Description='" + descripton + "',Article='" + article + "',StartDate='" + dateOfStart.ToShortDateString() + "',EndDate='" + dateOfEnd.ToShortDateString() + "',IsEnd='" + isEnd + "',IsUr='" + isUr + "',Verdict='" + verdict + "' WHERE Id='" + id + "'";
+            return "UPDATE kurs.case SET Id ='" + id + "',NumberDefendant='" + defendantId + "',PlaintiffNumber='" + plaintiffId + "',JudgeNumber='" + judgeId + "',Description='" + descripton + "',Article='" + article + "',DateOfStart='" + dateOfStart.ToShortDateString() + "',DateOfEnd='" + dateOfEnd.ToShortDateString() + "',IsEnd='" + isEnd + "',IsUr='" + isUr + "',Verdict='" + verdict + "' WHERE Id='" + id + "'";
         }
 
         public string ClearVerdict(string id)
@@ -108,67 +176,5 @@ namespace Course
         {
             return "SELECT * FROM kurs.case";
         }
-
-        #region Stats
-
-        /// <summary>
-        /// Количество дел истца
-        /// </summary>
-        public string AmountOfPlaintiffCases(int id)
-        {
-            return "SELECT COUNT(*) FROM kurs.case WHERE case.PlaintiffNumber = '" + id+"'";
-        }
-
-        /// <summary>
-        /// Количество дел ответчика
-        /// </summary>
-        public string AmountOfDefendantCases(int id)
-        {
-            return "SELECT COUNT(*) FROM kurs.case WHERE case.DefendantNumber = '" + id + "'";
-        }
-
-        /// <summary>
-        /// Количество дел судьи
-        /// </summary>
-        public string AmountOfJudgeCases(int id)
-        {
-            return "SELECT COUNT(*) FROM kurs.case WHERE case.JudgeNumber = '" + id + "'";
-        }
-
-
-        /// <summary>
-        /// Количество открытых дел
-        /// </summary>
-        public string AmountOfOpenCases()
-        {
-            return "SELECT COUNT(*) FROM kurs.case WHERE case.IsEnd = 0";
-        }
-
-
-        /// <summary>
-        /// Количество закрытых дел
-        /// </summary>
-        public string AmountOfClosedCases()
-        {
-            return "SELECT COUNT(*) FROM kurs.case WHERE case.IsEnd = 1";
-        }
-
-        /// <summary>
-        /// Количество закрытых в определённую дату дел
-        /// </summary>
-        public string AmountOfClosedInSpecDateCases(DateTime date)
-        {
-            return "SELECT COUNT(*) FROM kurs.case WHERE EndDate = '"+date.ToShortDateString() +"'";
-        }
-
-        /// <summary>
-        /// Количество открытых в определённую дату дел
-        /// </summary>
-        public string AmountOfOpenedInSpecDateCases(DateTime date)
-        {
-            return "SELECT COUNT(*) FROM kurs.case WHERE StartDate = '" + date.ToShortDateString() + "'";
-        }
-
-        #endregion
     }
 }

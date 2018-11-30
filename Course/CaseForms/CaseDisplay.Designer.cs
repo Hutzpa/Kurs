@@ -53,8 +53,9 @@
             this.AddCase = new System.Windows.Forms.Button();
             this.EditCase = new System.Windows.Forms.Button();
             this.DeleteCase = new System.Windows.Forms.Button();
+            this.DefendantByFullname = new System.Windows.Forms.Button();
+            this.DbfTB = new System.Windows.Forms.TextBox();
             this.HelpDbf = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -299,7 +300,7 @@
             this.DisplayAll.Font = new System.Drawing.Font("Yu Gothic UI Light", 40F);
             this.DisplayAll.Location = new System.Drawing.Point(958, 335);
             this.DisplayAll.Name = "DisplayAll";
-            this.DisplayAll.Size = new System.Drawing.Size(346, 100);
+            this.DisplayAll.Size = new System.Drawing.Size(400, 100);
             this.DisplayAll.TabIndex = 20;
             this.DisplayAll.Text = "Display all";
             this.DisplayAll.UseVisualStyleBackColor = true;
@@ -315,7 +316,7 @@
             this.richTextBox1.Location = new System.Drawing.Point(1161, 12);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(161, 191);
+            this.richTextBox1.Size = new System.Drawing.Size(197, 191);
             this.richTextBox1.TabIndex = 21;
             this.richTextBox1.Text = "";
             // 
@@ -326,7 +327,7 @@
             this.Close.Font = new System.Drawing.Font("Yu Gothic UI Light", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Close.Location = new System.Drawing.Point(1058, 482);
             this.Close.Name = "Close";
-            this.Close.Size = new System.Drawing.Size(264, 110);
+            this.Close.Size = new System.Drawing.Size(300, 110);
             this.Close.TabIndex = 19;
             this.Close.Text = "Close";
             this.Close.UseVisualStyleBackColor = true;
@@ -379,6 +380,30 @@
             this.DeleteCase.MouseLeave += new System.EventHandler(this.button14_MouseLeave);
             this.DeleteCase.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button14_MouseMove);
             // 
+            // DefendantByFullname
+            // 
+            this.DefendantByFullname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DefendantByFullname.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DefendantByFullname.Location = new System.Drawing.Point(1195, 216);
+            this.DefendantByFullname.Name = "DefendantByFullname";
+            this.DefendantByFullname.Size = new System.Drawing.Size(150, 50);
+            this.DefendantByFullname.TabIndex = 25;
+            this.DefendantByFullname.Text = "Defendant by fullname";
+            this.DefendantByFullname.UseVisualStyleBackColor = true;
+            this.DefendantByFullname.Click += new System.EventHandler(this.button15_Click);
+            this.DefendantByFullname.MouseLeave += new System.EventHandler(this.button15_MouseLeave);
+            this.DefendantByFullname.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button15_MouseMove);
+            // 
+            // DbfTB
+            // 
+            this.DbfTB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DbfTB.Location = new System.Drawing.Point(1195, 273);
+            this.DbfTB.Name = "DbfTB";
+            this.DbfTB.Size = new System.Drawing.Size(124, 20);
+            this.DbfTB.TabIndex = 26;
+            // 
             // HelpDbf
             // 
             this.HelpDbf.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -390,26 +415,14 @@
             this.HelpDbf.Size = new System.Drawing.Size(0, 13);
             this.HelpDbf.TabIndex = 27;
             // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(1208, 216);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 50);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "Reports";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // CaseDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 606);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.HelpDbf);
+            this.Controls.Add(this.DbfTB);
+            this.Controls.Add(this.DefendantByFullname);
             this.Controls.Add(this.DeleteCase);
             this.Controls.Add(this.EditCase);
             this.Controls.Add(this.AddCase);
@@ -470,8 +483,9 @@
         private System.Windows.Forms.Button AddCase;
         private System.Windows.Forms.Button EditCase;
         private System.Windows.Forms.Button DeleteCase;
+        private System.Windows.Forms.Button DefendantByFullname;
+        private System.Windows.Forms.TextBox DbfTB;
         private System.Windows.Forms.Label HelpDbf;
         public System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
     }
 }
